@@ -449,8 +449,15 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Day-02:-Date-:-31-Jul-2022">
 <h1>Day 02: Date : 31 Jul 2022<a class="headerlink" href="#Day-02:-Date-:-31-Jul-2022" title="Permalink to this heading">#</a></h1>
+<p><strong>So, what is serialization?</strong></p>
+<blockquote>
+<div><p>Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. - <a class="reference external" href="https://bit.ly/ms-defn-serialization">https://bit.ly/ms-defn-serialization</a></p>
+</div></blockquote>
+<p>There are multiple ways to achieve this. 2 of the most common ways are to either convert it to a pickle file or a json file. The lesser known ways are to use something called an in-built module called <code class="docutils literal notranslate"><span class="pre">marshal</span></code> or to install a library called <code class="docutils literal notranslate"><span class="pre">msgpack</span></code>. The reason most people don’t use marshal or are never marketed it is because by design, it’s not meant for general Python objects. From the official Python documentation - “The marshal module exists mainly to support reading and writing the
+“pseudo-compiled” code for Python modules of .pyc files.“. But for the purposes of this experiment, we will look at how it compares to pickling. For the most part, the timings are comparable and again to quote from the documentation in favor of <code class="docutils literal notranslate"><span class="pre">pickle</span></code> over <code class="docutils literal notranslate"><span class="pre">marshal</span></code>,”the performance is comparable, version independence is guaranteed, and pickle supports a substantially wider range of objects than marshal.”.</p>
+<p>Spoiler alert : JSON is the slowest of the lot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -460,13 +467,7 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">marshal</span>
 <span class="kn">import</span> <span class="nn">msgpack</span>
 
-<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">timing</span>
-
-<span class="k">def</span> <span class="nf">get_file_size</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">file_size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="n">file_size</span> <span class="o">=</span> <span class="n">file_size</span><span class="o">/</span><span class="p">(</span><span class="mf">1024.0</span><span class="o">*</span><span class="mf">1024.0</span><span class="p">)</span>
-    <span class="n">file_size</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">file_size</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">file_size</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">timing</span><span class="p">,</span> <span class="n">get_file_size</span>
 
 
 <span class="nd">@timing</span>
@@ -498,9 +499,9 @@ div.rendered_html tbody tr:hover {
 <span class="n">end_limit</span> <span class="o">=</span> <span class="mi">1000000</span>
 <span class="n">full_string</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span><span class="o">*</span><span class="n">end_limit</span>
 <span class="n">full_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">end_limit</span><span class="p">))</span>
-<span class="n">test_msgpack_timing</span><span class="p">(</span><span class="s2">&quot;filename.msgpack&quot;</span><span class="p">,</span> <span class="n">full_string</span><span class="p">)</span>
 <span class="n">test_marshal_timing</span><span class="p">(</span><span class="s1">&#39;datafile.dat&#39;</span><span class="p">,</span> <span class="n">full_string</span><span class="p">)</span>
 <span class="n">test_pickle_timing</span><span class="p">(</span><span class="s1">&#39;filename.pickle&#39;</span><span class="p">,</span> <span class="n">full_string</span><span class="p">)</span>
+<span class="n">test_msgpack_timing</span><span class="p">(</span><span class="s2">&quot;filename.msgpack&quot;</span><span class="p">,</span> <span class="n">full_string</span><span class="p">)</span>
 <span class="n">test_json_timing</span><span class="p">(</span><span class="s2">&quot;filename.json&quot;</span><span class="p">,</span> <span class="n">full_string</span><span class="p">)</span>
 <br/></pre></div>
 </div>
@@ -510,20 +511,21 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Filename : filename.msgpack. Filesize: 0.95 MB
-func:test_msgpack_timing took: 0.0040 sec
-
 Filename : datafile.dat. Filesize: 0.95 MB
-func:test_marshal_timing took: 0.0022 sec
+func:test_marshal_timing took: 0.0030 sec
 
 Filename : filename.pickle. Filesize: 0.95 MB
 func:test_pickle_timing took: 0.0020 sec
 
+Filename : filename.msgpack. Filesize: 0.95 MB
+func:test_msgpack_timing took: 0.0020 sec
+
 Filename : filename.json. Filesize: 0.95 MB
-func:test_json_timing took: 0.0037 sec
+func:test_json_timing took: 0.0200 sec
 
 </pre></div></div>
 </div>
+<p>Github link : <a class="reference external" href="https://github.com/everythingpython/ndaysofpython/blob/main/Day02.ipynb">https://github.com/everythingpython/ndaysofpython/blob/main/Day02.ipynb</a></p>
 </div>
 
         </article>

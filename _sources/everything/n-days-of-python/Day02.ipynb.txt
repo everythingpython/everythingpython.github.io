@@ -9,8 +9,23 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "id": "b81f1fcc",
+   "metadata": {},
+   "source": [
+    "**So, what is serialization?**\n",
+    "\n",
+    "> Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. - https://bit.ly/ms-defn-serialization\n",
+    "\n",
+    "There are multiple ways to achieve this. 2 of the most common ways are to either convert it to a pickle file or a json file. The lesser known ways are to use something called an in-built module  called `marshal` or to install a library called `msgpack`. The reason most people don't use marshal or are never marketed it is because by design, it's not meant for general Python objects. From the official Python documentation - \"The marshal module exists mainly to support reading and writing the “pseudo-compiled” code for Python modules of .pyc files.\".\n",
+    "But for the purposes of this experiment, we will look at how it compares to pickling. For the most part, the timings are comparable and again to quote from the documentation in favor of `pickle` over `marshal`, \"the performance is comparable, version independence is guaranteed, and pickle supports a substantially wider range of objects than marshal.\".\n",
+    "\n",
+    "Spoiler alert : JSON is the slowest of the lot."
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 5,
    "id": "92ded8b7-cc1f-4eeb-90c7-0c9d35e125ec",
    "metadata": {
     "execution": {
@@ -22,7 +37,26 @@
     },
     "tags": []
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Filename : datafile.dat. Filesize: 0.95 MB\n",
+      "func:test_marshal_timing took: 0.0030 sec\n",
+      "\n",
+      "Filename : filename.pickle. Filesize: 0.95 MB\n",
+      "func:test_pickle_timing took: 0.0020 sec\n",
+      "\n",
+      "Filename : filename.msgpack. Filesize: 0.95 MB\n",
+      "func:test_msgpack_timing took: 0.0020 sec\n",
+      "\n",
+      "Filename : filename.json. Filesize: 0.95 MB\n",
+      "func:test_json_timing took: 0.0200 sec\n",
+      "\n"
+     ]
+    }
+   ],
    "source": [
     "import os\n",
     "\n",
@@ -31,13 +65,7 @@
     "import marshal\n",
     "import msgpack\n",
     "\n",
-    "from utils import timing\n",
-    "\n",
-    "def get_file_size(filename):\n",
-    "    file_size = os.path.getsize(filename)\n",
-    "    file_size = file_size/(1024.0*1024.0)\n",
-    "    file_size = round(file_size,2)\n",
-    "    return file_size\n",
+    "from utils import timing, get_file_size\n",
     "\n",
     "\n",
     "@timing\n",
@@ -69,10 +97,18 @@
     "end_limit = 1000000\n",
     "full_string = \"a\"*end_limit\n",
     "full_list = list(range(end_limit))\n",
-    "test_msgpack_timing(\"filename.msgpack\", full_string)\n",
     "test_marshal_timing('datafile.dat', full_string)        \n",
     "test_pickle_timing('filename.pickle', full_string)\n",
+    "test_msgpack_timing(\"filename.msgpack\", full_string)\n",
     "test_json_timing(\"filename.json\", full_string)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "684ceb58",
+   "metadata": {},
+   "source": [
+    "Github link : https://github.com/everythingpython/ndaysofpython/blob/main/Day02.ipynb"
    ]
   }
  ],
