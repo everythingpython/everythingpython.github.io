@@ -1,0 +1,8 @@
+N Days of Python
+---------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Day01.ipynb
+   Day02.ipynb

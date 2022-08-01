@@ -1,0 +1,315 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Number 2 "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "[https://leetcode.com/problems/add-two-numbers/](https://leetcode.com/problems/add-two-numbers/) \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from typing import Optional\n",
+    "\n",
+    "class ListNode:\n",
+    "    def __init__(self, val=0, next=None):\n",
+    "        self.val = val\n",
+    "        self.next = next\n",
+    "\n",
+    "class Solution:\n",
+    "    def addTwoNumbers(self, l1: [ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:\n",
+    "        num1 = 0\n",
+    "        num2 = 0\n",
+    "        nl1 = []\n",
+    "        nl2 = []\n",
+    "        while l1!=None:\n",
+    "            nl1.append(l1.val)\n",
+    "            l1 = l1.next\n",
+    "        while l2!=None:\n",
+    "            nl2.append(l2.val)\n",
+    "            l2 = l2.next\n",
+    "\n",
+    "\n",
+    "        len1 = len(nl1)\n",
+    "        len2 = len(nl2)\n",
+    "\n",
+    "        max_len = max(len1, len2)\n",
+    "        diff = abs(len2 - len1)\n",
+    "        pending = [0]*diff\n",
+    "        if len1 < len2:\n",
+    "            nl1 = nl1 + pending\n",
+    "        else:\n",
+    "            nl2 = nl2 + pending\n",
+    "\n",
+    "\n",
+    "        for i in range(max_len-1,-1,-1):\n",
+    "            num1 = num1+nl1[i]*(10**(i))\n",
+    "            num2 = num2+nl2[i]*(10**(i))\n",
+    "\n",
+    "        sum_ = num1+num2\n",
+    "\n",
+    "        nl3 = [int(i) for i in list(str(sum_))[::-1]]\n",
+    "\n",
+    "        l3 = ListNode()\n",
+    "        dummy = ListNode()\n",
+    "        dummy.val = nl3[0]\n",
+    "\n",
+    "        if len(nl3) == 1:\n",
+    "            dummy.next = None\n",
+    "        else:\n",
+    "            dummy.next = l3\n",
+    "\n",
+    "        for i in range(1, len(nl3)):\n",
+    "            l3.val = nl3[i]\n",
+    "            if i == len(nl3)-1:\n",
+    "                l3.next = None\n",
+    "            else:\n",
+    "                l3.next = ListNode()\n",
+    "                l3 = l3.next\n",
+    "\n",
+    "\n",
+    "        return dummy\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Testcases for Solution1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "7\n",
+      "0\n",
+      "8\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = Solution()\n",
+    "\n",
+    "n1 = ListNode(2, ListNode(4, ListNode(3, None)))\n",
+    "n2 = ListNode(5, ListNode(6, ListNode(4, None)))\n",
+    "print(a.addTwoNumbers(n1,n2).val)\n",
+    "\n",
+    "n1 = ListNode(0, None)\n",
+    "n2 = ListNode(0, None)\n",
+    "\n",
+    "print(a.addTwoNumbers(n1,n2).val)\n",
+    "\n",
+    "n1 = ListNode(9, ListNode(9,ListNode(9,ListNode(9,ListNode(9,ListNode(9,ListNode(9,None)))))))\n",
+    "n2 = ListNode(9,ListNode(9,ListNode(9,ListNode(9,None))))\n",
+    "print(a.addTwoNumbers(n1,n2).val)\n",
+    "\n",
+    "\n",
+    "n1 = ListNode(2, ListNode(4,ListNode(9,None)))\n",
+    "n2 = ListNode(5,ListNode(6,ListNode(4,ListNode(9,None))))\n",
+    "print(a.addTwoNumbers(n1,n2).val)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Tried a slightly more optimal approach. But Leetcode seemed  to think this takes more time even if it takes lesser memory**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Definition for singly-linked list.\n",
+    "class ListNode:\n",
+    "    def __init__(self, val=0, next=None):\n",
+    "        self.val = val\n",
+    "        self.next = next\n",
+    "\n",
+    "        \n",
+    "class Solution2:\n",
+    "    def addTwoNumbers_modified(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:\n",
+    "        num1 = 0\n",
+    "        num2 = 0\n",
+    "        nl1 = []\n",
+    "        nl2 = []\n",
+    "        while l1!=None:\n",
+    "            nl1.append(l1.val)\n",
+    "            l1 = l1.next\n",
+    "        while l2!=None:\n",
+    "            nl2.append(l2.val)\n",
+    "            l2 = l2.next\n",
+    "\n",
+    "\n",
+    "        len1 = len(nl1)\n",
+    "        len2 = len(nl2)\n",
+    "\n",
+    "        max_len = max(len1, len2)\n",
+    "        diff = abs(len2 - len1)\n",
+    "        pending = [0]*diff\n",
+    "        if len1 < len2:\n",
+    "            nl1 = nl1 + pending\n",
+    "        else:\n",
+    "            nl2 = nl2 + pending\n",
+    "\n",
+    "\n",
+    "        for i in range(max_len-1,-1,-1):\n",
+    "            num1 = num1+nl1[i]*(10**(i))\n",
+    "            num2 = num2+nl2[i]*(10**(i))\n",
+    "\n",
+    "        sum_ = num1+num2\n",
+    "        sum_ = list(str(sum_))\n",
+    "\n",
+    "\n",
+    "        l3 = ListNode()\n",
+    "        dummy = ListNode()\n",
+    "        dummy.val = int(sum_[-1])\n",
+    "\n",
+    "        if len(sum_) == 1:\n",
+    "            dummy.next = None\n",
+    "        else:\n",
+    "            dummy.next = l3\n",
+    "\n",
+    "        for i in range(len(sum_)-2,-1,-1 ):\n",
+    "            l3.val = int(sum_[i])\n",
+    "            if i == 0:\n",
+    "                l3.next = None\n",
+    "            else:\n",
+    "                l3.next = ListNode()\n",
+    "                l3 = l3.next\n",
+    "\n",
+    "\n",
+    "        return dummy\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Test cases for Solution2**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "7\n",
+      "8\n"
+     ]
+    }
+   ],
+   "source": [
+    "ab = Solution2()\n",
+    "\n",
+    "n1 = ListNode(2, ListNode(4,ListNode(9,None)))\n",
+    "n2 = ListNode(5,ListNode(6,ListNode(4,ListNode(9,None))))\n",
+    "print(ab.addTwoNumbers_modified(n1,n2).val)\n",
+    "\n",
+    "n1 = ListNode(2, ListNode(4, ListNode(3, None)))\n",
+    "n2 = ListNode(5, ListNode(6, ListNode(4, None)))\n",
+    "print(ab.addTwoNumbers_modified(n1,n2).next.next.val)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**One of the earliest tries. Blooper max**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Solution:\n",
+    "    def addTwoNumbers_mistake(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:\n",
+    "        num1 = 0\n",
+    "        num2 = 0\n",
+    "        nl1 = []\n",
+    "        nl2 = []\n",
+    "        while l1!=None:\n",
+    "            nl1.append(l1.val)\n",
+    "            l1 = l1.next\n",
+    "        while l2!=None:\n",
+    "            nl2.append(l2.val)\n",
+    "            l2 = l2.next\n",
+    "\n",
+    "        len_ = len(nl1)\n",
+    "        for i in range(len_-1,-1,-1):\n",
+    "            num1 = num1+nl1[i]*(10**(len_-i-1))\n",
+    "            num2 = num2+nl2[i]*(10**(len_-i-1))\n",
+    "        sum_ = num1+num2\n",
+    "\n",
+    "        nl3 = [int(i) for i in list(str(sum_))[::-1]]\n",
+    "\n",
+    "        l3 = ListNode()\n",
+    "\n",
+    "        for i in range(len(nl3)):\n",
+    "            l3.val = nl3[i]\n",
+    "            if i == len(nl3)-1:\n",
+    "                l3.next = None\n",
+    "            else:\n",
+    "                l3.next = ListNode()\n",
+    "                l3 = l3.next\n",
+    "\n",
+    "\n",
+    "        return l3"
+   ]
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "033d5ea8e9748582193a6d8f975af35153e280c1f566336ac6ff582d76ae2a04"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.6.8 64-bit",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

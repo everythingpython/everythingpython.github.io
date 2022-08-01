@@ -1,0 +1,16 @@
+Day 3 (SQL) 🤨
+===============
+
+.. toctree::
+   :maxdepth: 1
+
+   175.md
+   176.md
+
+
+===========
+
+Today I tried out a few SQL problems. There's a lot I've either forgotten in / learnt selectively in SQL, I found out today. 
+So there were some learnings. 
+
+

@@ -1,0 +1,18 @@
+# Number 175
+
+[https://leetcode.com/problems/combine-two-tables/](https://leetcode.com/problems/combine-two-tables/)
+
+```{admonition} Problem Statement
+
+Write an SQL query to report the first name, last name, city, and state of each person in the Person table. If the address of a personId is not present in the Address table, report null instead.
+
+Return the result table in any order.
+```
+
+This is a simple LEFT JOIN implementation. 
+The goal is to get every Person's first and last name but there is a chance that their address might not be present in the Address table. 
+As such, there's a chance some entries for the state and city columns might be NULL. 
+
+The resultant query - 
+
+`SELECT firstName,lastName,city, state from person LEFT JOIN address ON person.personId = address.personId;`

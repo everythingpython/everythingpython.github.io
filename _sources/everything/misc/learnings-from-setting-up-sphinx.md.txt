@@ -1,0 +1,46 @@
+## Learnings from Setting up Sphinx   [<span style="color:green">Jan 21, 2022</span>]
+
+
+
+### (properly for the first time)
+
+This file is to chronicle stuff I learnt from setting up this website and might forget in setting it up again
+
+- I set this up on the 20th and 21st of Jan 2022. (10 PM - 4 AM)
+
+- It all started here - [http://echorand.me/site/notes/articles/sphinx/static_html.html](http://echorand.me/site/notes/articles/sphinx/static_html.html)
+- Then I learnt how to embed notebooks using NBSphinx [https://stackoverflow.com/questions/38526888/embed-ipython-notebook-in-sphinx-document](https://stackoverflow.com/questions/38526888/embed-ipython-notebook-in-sphinx-document).
+- More about nbsphinx -[https://nbsphinx.readthedocs.io/en/0.2.8/usage.html](https://nbsphinx.readthedocs.io/en/0.2.8/usage.html)
+
+- Then I learnt how to add Markdown support using [https://www.sphinx-doc.org/en/master/usage/markdown.html](https://nbsphinx.readthedocs.io/en/0.2.8/usage.html)
+
+- I struggled a lot to understand how to use "toc". Finally figured it out. Made structures for myself.
+    - I dunno enough yet though. Maybe this will help - [https://stackoverflow.com/questions/33486420/adding-files-in-subfolders-to-sphinx-documentation-sphinxcontrib-matlabdomain#51296983](https://stackoverflow.com/questions/33486420/adding-files-in-subfolders-to-sphinx-documentation-sphinxcontrib-matlabdomain#51296983)
+
+- Sometimes documents don't get displayed in the toctree. Check your indentation. [https://stackoverflow.com/questions/62822605/sphinx-modules-rst-warning-document-isnt-included-in-any-toctree](https://stackoverflow.com/questions/62822605/sphinx-modules-rst-warning-document-isnt-included-in-any-toctree)
+
+
+- Understood the configuration - https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+- Found a bunch of themes and tried them out before zeroing in on Furo. - [https://sphinx-themes.org/sample-sites/furo/](https://sphinx-themes.org/sample-sites/furo/)
+
+```{caution}
+- Always add these extensions `extensions = ['nbsphinx','myst_parser','IPython.sphinxext.ipython_console_highlighting']`
+- Always exclude these patterns `exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','**.ipynb_checkpoints']`
+```
+
+```{attention}
+- Always add a `.nojekyll` file to the production folder (build) - [https://www.docslikecode.com/articles/github-pages-python-sphinx/](https://sphinx-themes.org/sample-sites/furo/)
+- Set `html_title = ""` if you don't want the "documentation" string to pop up. - [https://pradyunsg.me/furo/customisation/sidebar-title/](https://sphinx-themes.org/sample-sites/furo/)
+- Some random warnings : [https://github.com/spatialaudio/nbsphinx/issues/24](https://github.com/spatialaudio/nbsphinx/issues/24)
+- Some errors : [https://stackoverflow.com/questions/63840334/fix-some-very-minor-issues-and-rebuild-sphinx-but-got-the-error-wrong-color-for](https://stackoverflow.com/questions/63840334/fix-some-very-minor-issues-and-rebuild-sphinx-but-got-the-error-wrong-color-for)
+```
+
+- Solved a few Leetcode problems just to have something to write on this site initially. Solved 4 to be precise. Good stuff. 
+
+- Moved around files from [https://abhiramr.com](https://abhiramr.com) and an older version of this site.
+
+
+### Misc
+
+- Leetcode is being tracked using [https://seanprashad.com/leetcode-patterns/](https://seanprashad.com/leetcode-patterns/) . Took some inspiration from Vinay's website - [https://stonecharioteer.com/](https://stonecharioteer.com/) .

@@ -1,0 +1,13 @@
+Day 4 (Python) 😀
+==================
+
+.. toctree::
+   :maxdepth: 1
+
+   520.ipynb
+
+==========
+
+Back to solving some easy Python problems today.
+
+

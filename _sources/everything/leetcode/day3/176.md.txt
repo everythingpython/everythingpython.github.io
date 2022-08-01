@@ -1,0 +1,65 @@
+# Number 176
+
+[https://leetcode.com/problems/second-highest-salary/](https://leetcode.com/problems/second-highest-salary/)
+
+```{admonition} Problem Statement
+
+Write an SQL query to report the second highest salary from the Employee table. If there is no second highest salary, the query should report null.
+```
+
+My implementation for this was very sad. 
+
+I wrote - 
+
+```
+SELECT salary 
+FROM (SELECT * FROM Employee ORDER BY salary DESC LIMIT 2) A 
+ORDER BY salary ASC LIMIT 1;
+```
+
+This is a classic example of incomplete implementation. This will work fine if there are cases where there is a "second highest salary."
+But it falls flat when there's no Second salary and NULL is to be returned. 
+
+One of the correct implementations, it turned out, was to use the `dense_rank` function, like so - 
+
+```
+SELECT max(salary) AS SecondHighestSalary
+FROM (SELECT salary, 
+DENSE_RANK() OVER(ORDER BY salary DESC) AS rnk
+FROM Employee) AS sub  
+WHERE rnk=2;
+```
+
+Now this is a query with a lot of parts. Let's break it down. 
+
+The best way to break a SQL query down is to from the innermost functions, outwards.
+
+The first thing that's happening here is - 
+
+```
+SELECT salary, 
+DENSE_RANK() OVER(ORDER BY salary DESC) AS rnk
+FROM Employee;
+```
+
+Let's call this `TableA`.
+
+What this does is return two columns - the salary and its rank in the table as ordered by Salary in a Descending order. 
+
+![sal1](./img/salary_inner_1.png)
+
+The next step is to get the entry from this table where the rank is 2 - 
+
+```
+SELECT max(salary) AS SecondHighestSalary
+FROM TableA AS sub  
+WHERE rnk=2;
+```
+
+![sal2](./img/salary_inner_2.png)
+
+But why the `max` function?
+
+Even removing it will have returned the exact same value as without - but only in the case where there are no **competing** rows for rank=2.
+In case there are two salaries that are equal, and both have rank=2, then we can get just one of them using the Aggregate function `max`.
+

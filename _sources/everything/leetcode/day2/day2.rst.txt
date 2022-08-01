@@ -1,0 +1,7 @@
+Day 2 (Python) 🤨
+==================
+.. toctree::
+   :maxdepth: 1
+
+   2.ipynb
+   3.ipynb

@@ -1,0 +1,35 @@
+# Setting up and using an Ubuntu VM in 2022   [<span style="color:green">Mar 6, 2022</span>]
+
+I don't remember how I succeeded with these in the past , but for the last 2 years, I've majorly failed at using an Ubuntu ISO on Windows by way of virtual machines. I keep retrying with Oracle's VirtualBox because that's the last memory I have of having succeeded at using an older Ubuntu version's ISO. 
+
+Today, I decided to look up alternatives to it because: 
+- I really want to use Ubuntu Desktop
+- I don't want to dual boot
+- I don't want to fail with Virtual Box anymore. 
+
+I found that if you're using a Windows machine with an Enterprise or a Professional flavor, you can just enable Hyper-V manager that Windows provides out of the box and create a Virtual Machine using it. 
+
+Just a couple of steps to set up - 
+
+- Opened up Powershell as administrator and used this command: 
+`Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All`
+
+It did have my restart my system and that took an awful lot of time because I'd had a lot of open applications from 14 days of not restarting it. 
+
+- I'd already downloaded an Ubuntu 20.04 ISO so I decided to use that. But Hyper-V gives you an option of being able to choose from a couple of Linux Distros and 1 Windows 11 Dev version, so that's available if you need to download it. I didn't.
+
+- The one thing I tripped on was the generation of VM to ....generate. I chose V2 with UEFI because I thought the latest was better. But my ISO didn't support it. So I was supposed to choose V1. 
+(I don't know what kind of ISO supports V2. Something to look up.)
+
+![ffmpeg](./img/gen1Gen2.png)
+
+- Once that was done, I loaded up the Ubuntu 20.04 ISO and it was smooth sailing from there to install Ubuntu within the Virtual drive. 
+
+![ffmpeg](./img/finalubu.png)
+
+
+
+
+## Links:
+
+ [https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)
