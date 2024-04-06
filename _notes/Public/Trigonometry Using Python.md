@@ -1,5 +1,5 @@
 ---
-title:
+title: Trigonometry Using Python
 feed: show
 date: 07-04-2024
 ---
