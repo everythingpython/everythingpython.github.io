@@ -1,5 +1,5 @@
 ---
-title : #1 - About 3.10
+title : About 3.10
 feed: show
 date : 23-09-2021
 ---
