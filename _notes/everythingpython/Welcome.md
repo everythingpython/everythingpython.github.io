@@ -7,15 +7,16 @@ permalink: /credits
 format: list
 
 ---
-# Let's learn more about Python!
+# Topics I intend to write about that I'm learning more about:
 
-I just want to talk about all things Python language related -
 - Nuances of the language itself
 - Its internals
 - Applications using Python
 - Data Science
 - ML Engineering
 - Machine Learning
+- Databases
+- Web Development
 using Python. 
 
 And this is the home for all of that.
