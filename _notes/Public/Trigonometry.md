@@ -1,7 +1,7 @@
 ---
 title: 
 feed: show
-date: 07-04-2024
+date: 04-07-2024
 ---
 
 I'm a big believer in melding programming with mathematics. It's a great way to learn both. Ed-tech aside, I think maths can be a lot of fun when you're able to see the results of your work in real-time.
