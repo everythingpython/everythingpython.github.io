@@ -1,10 +1,10 @@
 ---
 
-title: Test
+title: Welcome!
 feed: show
 date: 06-04-2024
 permalink: /credits
 format: list
 
 ---
-# Hello! This is a test page
+# Let's learn more about Python!
