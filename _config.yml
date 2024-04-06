@@ -27,10 +27,10 @@ baseurl: ""
 
 # Website Header, Description, Footer year and text. 
 # If you are deleting this, make sure you remove it from HTML files too 
-heading: Jekyll Garden # Change this 
+heading: EverythingPython # Change this 
 content: Obsidian ready Jekyll Theme
 copyright:  
-  year: © 2022
+  year: © 2024
   msg: Contents under CC-BY-NC 
 
 # Set title and content for private & broken link tooltop
