@@ -1,8 +1,9 @@
 ---
-title: Trigonometry functions demonstrated using Python
+title: Trigonometry using Python
 feed: show
 date: 07-04-2024
 ---
+
 I'm a big believer in melding programming with mathematics. It's a great way to learn both. Ed-tech aside, I think maths can be a lot of fun when you're able to see the results of your work in real-time.
 
 If you're reading this, I don't think an introduction to the trigonometric functions is necessary. But if you're looking for a refresher, here's a quick one:
