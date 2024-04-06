@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_notes/Public/Dataclasses in Python.md",
+                "file": "_notes/Public/Trigonometry.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/Public/Dataclasses in Python.md",
+                "file": "_notes/Public/Trigonometry.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_notes/Public/Dataclasses in Python.md",
+                "file": "_notes/Public/Trigonometry.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_notes/Public/Dataclasses in Python.md"
+                "file": "_notes/Public/Trigonometry.md"
               }
             }
           }
@@ -148,17 +148,17 @@
   },
   "active": "95843000e0bf3356",
   "lastOpenFiles": [
-    "_notes/Public/Trigonometry Using Python.md",
+    "_notes/Public/Using Decorators.md",
     "_notes/Public/Trigonometry.md",
+    "_notes/Public/About 3.10.md",
     "_notes/Public/Dataclasses in Python.md",
+    "_notes/Public/Trigonometry Using Python.md",
     "_notes/Public/Trigonometry/Trigonometry Using Python.md",
     "assets/img/article-trig/trig.gif",
     "assets/img/article-trig",
     "assets/img/New folder",
     "_notes/Public/Trigonometry/dashboard.ipynb",
     "_notes/Public/Trigonometry",
-    "_notes/Public/About 3.10.md",
-    "_notes/Public/Using Decorators.md",
     "_notes/Public/Design Patterns/Design Patterns in Python - 1.md",
     "_posts/2020-03-01-features.md",
     "_notes/Public/Design Patterns",

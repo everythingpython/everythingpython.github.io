@@ -1,5 +1,5 @@
 ---
-title: Trigonometry
+title: 
 feed: show
 date: 07-04-2024
 ---
