@@ -7,7 +7,7 @@ permalink: /credits
 format: list
 
 ---
-# Topics I intend to write about that I'm learning more about:
+Topics I intend to write about that I'm learning more about:
 
 - Nuances of the language itself
 - Its internals
