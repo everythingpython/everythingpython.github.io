@@ -136,6 +136,3 @@ if __name__ == '__main__':
     app.run_server(debug=True)
 ```
 
-Here's the result - 
-
-![Alt Text](/assets/img/article-trig/trig.gif)
