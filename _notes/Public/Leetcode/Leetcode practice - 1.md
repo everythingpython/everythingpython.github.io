@@ -61,7 +61,7 @@ class Solution:
 
 And boom!
 
-![Alt Text](lc21_1.png)
+![Alt Text](/assets/img/lc/lc21/lc21_1.png)
 
 ---
 By minorly changing the above code to not create lists out of ListNodes initially, a speedup of 2 seconds can be achieved - 
@@ -103,4 +103,4 @@ class Solution:
         
         return head
 ```
-![[lc21_2.png]]
+![[/assets/img/lc/lc21/lc21_2.png]]
