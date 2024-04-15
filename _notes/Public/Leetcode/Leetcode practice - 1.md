@@ -103,4 +103,4 @@ class Solution:
         
         return head
 ```
-![[/assets/img/lc/lc21/lc21_2.png]]
+![Alt Text](/assets/img/lc/lc21/lc21_2.png)
