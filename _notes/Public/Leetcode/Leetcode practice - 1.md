@@ -57,4 +57,6 @@ class Solution:
         
         return head
 ```
-```
+
+And boom!
+![[Pasted image 20240415181750.png]]
