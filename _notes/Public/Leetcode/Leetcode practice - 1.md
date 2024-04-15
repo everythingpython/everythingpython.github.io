@@ -3,7 +3,8 @@ title: LC Num 21
 date: 15-04-2024
 feed: show
 ---
-  
+## 2024-04-15
+
 [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 
 First I didn't understand the problem I think. In the sense that I accepted the inputs as two lists and returned a list - Python list. 
@@ -59,4 +60,5 @@ class Solution:
 ```
 
 And boom!
-![[Pasted image 20240415181750.png]]
+
+![Alt Text](/assets/img/Pastedimage20240415181750.png)
