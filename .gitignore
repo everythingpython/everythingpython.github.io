@@ -5,3 +5,5 @@ pages/tags.md
 _notes/.obsidian
 _notes/Public/.obsidian
 .obsidian/workspace.json
+**pycache**
+**.venv**
