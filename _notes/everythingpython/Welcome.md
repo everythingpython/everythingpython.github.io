@@ -1,11 +1,9 @@
 ---
-
 title: Welcome!
 feed: show
-date: 06-04-2024
+date: 01-01-2021
 permalink: /credits
 format: list
-
 ---
 Topics I intend to write about that I'm learning more about:
 
