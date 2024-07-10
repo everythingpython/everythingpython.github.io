@@ -126,4 +126,6 @@ Downloaded 5 books in 6.70 seconds
 
 So it's understood that in this case, where a network call was involved, the concurrent processing was much faster than the sequential processing. This is because the network call is the bottleneck here and the CPU is mostly idle while waiting for the network call to return. Also it's important to note that the network calls were disjoint and hence could be parallelized.
 
-The same logic can be applied to I/O bound tasks as well.
+The same reasoning and method can be applied to I/O bound tasks as well.
+
+If you want to try this out, you can find the code and the data [here](https://github.com/everythingpython/posts/tree/main/2024_07_10_concurrency)
