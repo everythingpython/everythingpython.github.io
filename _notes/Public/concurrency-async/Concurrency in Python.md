@@ -73,7 +73,13 @@ print(f"Downloaded {num_books} books in {time_taken:.2f} seconds")
 
 This did the job but it took quite some time - 
 ```bash
-Downloaded 5 books in 29.13 seconds
+Processing The Talented Mr Ripley
+Processing Ripley's game
+Processing Invisible Women
+Processing Beyond Interpretation
+Processing Men without women
+
+Downloaded 5 books in 28.96 seconds
 ```
 
 Now let's try the same program using `futures`
@@ -109,5 +115,15 @@ print(f"Downloaded {num_books} books in {time_taken:.2f} seconds")
 
 And unsurprisingly - 
 ```bash
-Downloaded 5 books in 7.19 seconds
+Processing Beyond Interpretation
+Processing Invisible Women
+Processing Men without women
+Processing Ripley's game
+Processing The Talented Mr Ripley
+
+Downloaded 5 books in 6.70 seconds
 ```
+
+So it's understood that in this case, where a network call was involved, the concurrent processing was much faster than the sequential processing. This is because the network call is the bottleneck here and the CPU is mostly idle while waiting for the network call to return. Also it's important to note that the network calls were disjoint and hence could be parallelized.
+
+The same logic can be applied to I/O bound tasks as well.

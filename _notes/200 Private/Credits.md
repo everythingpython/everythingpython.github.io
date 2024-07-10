@@ -5,7 +5,7 @@ date: 11-05-2022
 permalink: /credits
 format: list
 ---
-
+#private
 -   [Raghuveer](https://github.com/rgvr), who created [Simply Jekyll theme](https://github.com/rgvr/simply-jekyll)
 -   [Santosh Thottingal](https://github.com/santhoshtr) who introduced me to Digital Garden
 -   [Puttalu](https://github.com/aashiks) for OrgMode classes!
