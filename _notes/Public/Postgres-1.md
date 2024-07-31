@@ -1,5 +1,5 @@
 ---
-title: Postgres - 1
+title: Postgres-1
 feed: show
 date: 01-08-2024
 ---
