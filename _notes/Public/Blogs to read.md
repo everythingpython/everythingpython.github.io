@@ -1,7 +1,7 @@
 ---
 title: Blogs to read
 feed: show
-date: 02-08-2024
+date: 01-08-2024
 permalink: /blogs-to-read
 ---
 
