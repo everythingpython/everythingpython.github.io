@@ -2,6 +2,7 @@
 title: Blogs to read
 feed: show
 date: 02-08-2024
+permalink: /blogs-to-read
 ---
 
 - https://sensortower.com/blog/speeding-up-the-backend-with-graph-theory
