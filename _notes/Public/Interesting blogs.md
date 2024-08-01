@@ -1,5 +1,5 @@
 ---
-title: Interesting blogs
+title: interesting blogs
 feed: show
 date: 02-08-2024
 ---
