@@ -8,3 +8,5 @@ date: 02-08-2024
 - https://zerodha.tech/blog/1-5-million-pdfs-in-25-minutes/
 - https://arpit.substack.com/p/implementing-hash-sets-with-hash
 - https://zerodha.tech/blog/working-with-postgresql/
+- https://tailscale.com/blog/new-internet
+- https://satoricyber.com/postgres-security/postgres-audit/
