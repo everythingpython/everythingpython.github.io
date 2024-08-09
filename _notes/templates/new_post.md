@@ -1,5 +1,5 @@
 ---
 title: 
 feed: 
-date:
+date: "{{date}}"
 ---
