@@ -1,7 +1,0 @@
-Technical Content
-------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   n-days-of-python/n-days-of-python

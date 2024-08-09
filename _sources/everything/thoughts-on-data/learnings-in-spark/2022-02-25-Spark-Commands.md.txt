@@ -1,8 +1,0 @@
-# Spark Commands I can never remember
-
-- How to create a Spark Dataframe : 
-
-~~~~
-d = [{'name': 'Alice', 'age':20 },{'name': 'Bob', 'age':25 }]
-spark.createDataFrame(d).show()
-~~~~
