@@ -1,7 +1,7 @@
 ---
 title: Authentication using Postgres & Python
 feed: show
-date: 2024-08-10
+date: 10-08-2024
 ---
 In the edition before last, I spoke about setting up Postgres locally. If you'd like a revision, here it is - [[Postgres (post 1)]]
 
