@@ -13,7 +13,7 @@ Building a Classifier
 
 Code -
 
-{% gist 5181b0e3c9957617598d4b446609ba01 scrape_hacker_news.py %}
+{% gist 5181b0e3c9957617598d4b446609ba01 hn_scraper_llm_topics.py.py %}
 
 {% gist d6a97bbd3534c532d148ea8a1efc851b strings.py %}
 
