@@ -1,18 +1,17 @@
 import json
 import os
 import urllib.request
-
+from data_models import AIResponseList
 import requests
 from anthropic import Anthropic
 from openai import OpenAI
-from pydantic import BaseModel
-
+from strings import *
 from keys import *
 
 anthropic = Anthropic(api_key=anthropic)
 openai_k = openai_key
 
-url = "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty"
+url = hacker_news_latest_url
 data = urllib.request.urlopen(url)
 data = json.loads(data.read().decode("utf-8"))
 
@@ -50,20 +49,12 @@ try:
         pass
     print(f"Total URLs to process - {len(content_full)} ")
 
-    class AIResponse(BaseModel):
-        name: str
-        url: str
-        topic: str
-
-    class AIResponseList(BaseModel):
-        responses: list[AIResponse]
-
     response_model = AIResponseList
 
     messages = [
         {
             "role": "user",
-            "content": f"Please go through the content and for each title return the topic of the content. If it's about Python, return Python. If it's about GenAI, return GenAI. Else return irrelevant:\n\n{content_full}",
+            "content": f"{get_sys_prompt(content_full)}"
         }
     ]
     client = OpenAI(api_key=openai_k)
