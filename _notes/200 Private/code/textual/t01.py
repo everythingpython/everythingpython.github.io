@@ -1,14 +1,16 @@
-import urllib, urllib.request, json
-import requests
-from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
+import json
 import os
+import urllib.request
+
+import requests
+from anthropic import Anthropic
+from openai import OpenAI
+from pydantic import BaseModel
 
 from keys import *
-from openai import OpenAI
 
 anthropic = Anthropic(api_key=anthropic)
 openai_k = openai_key
-
 
 url = "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty"
 data = urllib.request.urlopen(url)
@@ -22,7 +24,6 @@ if os.path.exists("topic_analysis.json"):
             existing_urls = {item["url"] for item in existing_data["responses"]}
 print(f"Before = {len(data)}")
 
-
 d_ict = {"name": [], "url": []}
 for i in list(data)[1:10]:
     url = f"https://hacker-news.firebaseio.com/v0/item/{i}.json?print=pretty"
@@ -33,19 +34,21 @@ for i in list(data)[1:10]:
 
 try:
     content_full = []
-    for name, url in zip(d_ict["name"], d_ict["url"]):
-        if url not in existing_urls:
-            content_d = {}
-            print(f"Processing {url}")
-            response = requests.get(url)
-            content = response.text[1:1000]
-            content_d["name"] = name
-            content_d["url"] = url
-            content_d["content"] = content
-            content_full.append(content_d)
+    try:
+        for name, url in zip(d_ict["name"], d_ict["url"]):
+            if url not in existing_urls:
+                content_d = {}
+                print(f"Processing {url}")
+                response = requests.get(url)
+                content = response.text[1:1000]
+                content_d["name"] = name
+                content_d["url"] = url
+                content_d["content"] = content
+                content_full.append(content_d)
+    except Exception as e:
+        print("Skipping {}".format(url))
+        pass
     print(f"Total URLs to process - {len(content_full)} ")
-
-    from pydantic import BaseModel
 
     class AIResponse(BaseModel):
         name: str
@@ -55,7 +58,6 @@ try:
     class AIResponseList(BaseModel):
         responses: list[AIResponse]
 
-    # Define the response model
     response_model = AIResponseList
 
     messages = [
@@ -73,11 +75,7 @@ try:
     # The response will now be forced to be either "Python" or "GenAI"
     topic = completion.choices[0].message.parsed
 
-    import json
-
     if topic:
-        import datetime
-
         # Convert the topic object to a dictionary
         topic_dict = topic.model_dump()
 
@@ -91,6 +89,13 @@ try:
             with open(json_filename, "r") as json_file:
                 existing_data = json.load(json_file)
 
+        # Filter out irrelevant topics
+        new_responses = [
+            response
+            for response in topic_dict["responses"]
+            if response["topic"].lower() != "irrelevant"
+        ]
+        topic_dict["responses"] = new_responses
         # Merge existing data with new data
         if "responses" in existing_data:
             existing_data["responses"].extend(topic_dict["responses"])
@@ -99,7 +104,9 @@ try:
 
         # Convert the merged data back to JSON
         topic_json = json.dumps(existing_data, indent=2)
-
+        # Write the merged data to the JSON file
+        with open(json_filename, "w") as json_file:
+            json_file.write(topic_json)
         print(f"JSON output written to {json_filename}")
 
     print(f"The content is:\n {topic}")
