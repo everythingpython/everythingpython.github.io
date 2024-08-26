@@ -7,3 +7,4 @@ _notes/Public/.obsidian
 .obsidian/workspace.json
 **pycache**
 **.venv**
+**.idea**
