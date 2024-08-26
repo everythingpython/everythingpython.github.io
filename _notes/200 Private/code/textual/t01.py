@@ -1,6 +1,7 @@
 import urllib, urllib.request, json
 import requests
 from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
+import os
 
 from keys import *
 from openai import OpenAI
@@ -13,9 +14,17 @@ url = "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty"
 data = urllib.request.urlopen(url)
 data = json.loads(data.read().decode("utf-8"))
 
+existing_urls = set()
+if os.path.exists("topic_analysis.json"):
+    with open("topic_analysis.json", "r") as json_file:
+        existing_data = json.load(json_file)
+        if "responses" in existing_data:
+            existing_urls = {item["url"] for item in existing_data["responses"]}
+print(f"Before = {len(data)}")
+
 
 d_ict = {"name": [], "url": []}
-for i in list(data)[1:3]:
+for i in list(data)[1:10]:
     url = f"https://hacker-news.firebaseio.com/v0/item/{i}.json?print=pretty"
     data = urllib.request.urlopen(url)
     json_data = json.loads(data.read().decode("utf-8"))
@@ -25,7 +34,7 @@ for i in list(data)[1:3]:
 try:
     content_full = []
     for name, url in zip(d_ict["name"], d_ict["url"]):
-        if url:
+        if url not in existing_urls:
             content_d = {}
             print(f"Processing {url}")
             response = requests.get(url)
@@ -34,6 +43,7 @@ try:
             content_d["url"] = url
             content_d["content"] = content
             content_full.append(content_d)
+    print(f"Total URLs to process - {len(content_full)} ")
 
     from pydantic import BaseModel
 
@@ -62,6 +72,35 @@ try:
 
     # The response will now be forced to be either "Python" or "GenAI"
     topic = completion.choices[0].message.parsed
+
+    import json
+
+    if topic:
+        import datetime
+
+        # Convert the topic object to a dictionary
+        topic_dict = topic.model_dump()
+
+        # Convert the dictionary to JSON
+        topic_json = json.dumps(topic_dict, indent=2)
+        json_filename = f"topic_analysis.json"
+
+        # Read existing JSON data from the file
+        existing_data = {}
+        if os.path.exists(json_filename):
+            with open(json_filename, "r") as json_file:
+                existing_data = json.load(json_file)
+
+        # Merge existing data with new data
+        if "responses" in existing_data:
+            existing_data["responses"].extend(topic_dict["responses"])
+        else:
+            existing_data = topic_dict
+
+        # Convert the merged data back to JSON
+        topic_json = json.dumps(existing_data, indent=2)
+
+        print(f"JSON output written to {json_filename}")
 
     print(f"The content is:\n {topic}")
 except Exception as e:
