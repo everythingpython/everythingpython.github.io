@@ -1,6 +1,6 @@
 ---
 layout: Post
 permalink: /notes
-feedformat: list
+feedformat: row
 title: My Notes
 ---
