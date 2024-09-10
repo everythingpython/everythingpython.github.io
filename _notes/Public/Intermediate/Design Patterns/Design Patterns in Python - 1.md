@@ -3,6 +3,9 @@ title:
 feed: show
 date: 14-03-2024
 ---
+
+# 14-03-2024
+
 If you’ve been using Python in production for a while like I have, you’ve either intentionally or inadvertently used some design patterns in your code. But what are they anyway?
 
 Design Patterns are well, patterns or reusable structures of code (templates) - that can be employed to implement solutions to software problems.

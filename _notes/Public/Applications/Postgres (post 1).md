@@ -3,6 +3,8 @@ title: Postgres (post 1)
 feed: show
 date: 01-08-2024
 ---
+# 01-08-2024
+
 ## Installing Postgres locally and connecting to it from Python
 
 First of all, what is Postgres and why do I care?
