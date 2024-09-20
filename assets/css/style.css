@@ -254,7 +254,6 @@ main {
 
 .related-wrapper {
     column-count: 2 !important;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem 2rem;
 }
@@ -296,6 +295,7 @@ ul ul {
 /* Notes Feed */
 .notelist-wrapper {
     column-count: 2 !important;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
 }
