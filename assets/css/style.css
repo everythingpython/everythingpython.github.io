@@ -304,6 +304,8 @@ ul ul {
 .notelist-feed {
     color: var(--color-text-main);
     display: block;
+    height: 300px;
+    width: 300px;
     padding: 1rem;
     border-bottom: 1px solid var(--color-border-light);
 }
