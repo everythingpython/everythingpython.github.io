@@ -296,7 +296,6 @@ ul ul {
 /* Notes Feed */
 .notelist-wrapper {
     column-count: 2 !important;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
 }
@@ -304,8 +303,6 @@ ul ul {
 .notelist-feed {
     color: var(--color-text-main);
     display: block;
-    height: 300px;
-    width: 300px;
     padding: 1rem;
     border-bottom: 1px solid var(--color-border-light);
 }
