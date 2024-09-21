@@ -70,9 +70,13 @@
 <body>
     <main>
     {%- include Nav.html -%}
-    <p>Estimated Reading Time:
-        {{ page.content | number_of_words | divided_by: 180 | ceil }} min read</p>
-
+    {% if page.url contains '/note/' %}
+    <div class="reading-time">
+        <span class="reading-time-icon">⏱️</span>
+        <span class="reading-time-text">{{ page.content | number_of_words | divided_by: 180 | ceil }} min read</span>
+    </div>
+{% endif %}
+    
     <section class="section">
         <div class="columns is-centered">
 

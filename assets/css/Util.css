@@ -268,3 +268,20 @@ layout: Stylesheet
 .margin-bottom-30-neg {
     margin-bottom: -30px  !important;
 }
+
+.reading-time {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem; /* Adjust to your preference */
+    color: #6c757d; /* Subtle text color */
+    margin-top: 10px;
+}
+
+.reading-time-icon {
+    margin-right: 5px;
+    font-size: 1.2rem; /* Slightly larger icon */
+}
+
+.reading-time-text {
+    font-weight: 500; /* Medium weight for readability */
+}
