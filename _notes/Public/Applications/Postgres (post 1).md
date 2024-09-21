@@ -2,6 +2,8 @@
 title: Postgres (post 1)
 feed: show
 date: 01-08-2024
+tags:
+  - databases
 ---
 # 01-08-2024
 

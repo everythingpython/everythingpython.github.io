@@ -2,6 +2,8 @@
 title: Getting topics of Interest from HN
 feed: show
 date: 26-08-2024
+tags:
+  - application
 ---
 
 # 26-08-2024

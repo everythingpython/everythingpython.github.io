@@ -2,6 +2,8 @@
 title: 
 feed: show
 date: 06-04-2024
+tags:
+  - application
 ---
 
 # 06-04-2024
