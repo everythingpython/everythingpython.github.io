@@ -70,8 +70,8 @@
 <body>
     <main>
     {%- include Nav.html -%}
-    <p>Estimated Reading Time: 
-        {{ post.content | number_of_words | divided_by: 180 }} min read</p>
+    <p>Estimated Reading Time:
+        {{ page.content | number_of_words | divided_by: 180 | ceil }} min read</p>
 
     <section class="section">
         <div class="columns is-centered">
