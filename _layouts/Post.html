@@ -71,11 +71,15 @@
     <main>
     {%- include Nav.html -%}
     {% if page.url contains '/note/' %}
-    <div class="reading-time">
-        <span class="reading-time-icon">⏱️</span>
-        <span class="reading-time-text">{{ page.content | number_of_words | divided_by: 180 | ceil }} min read</span>
-    </div>
-{% endif %}
+        {% assign total_seconds = page.content | number_of_words | times: 60 | divided_by: 180 %}
+        {% assign minutes = total_seconds | divided_by: 60 | floor %}
+        {% assign seconds = total_seconds | modulo: 60 | floor %}
+        
+        <div class="reading-time">
+            <span class="reading-time-icon">⏱️</span>
+            <span class="reading-time-text">{{ minutes }} min{% if seconds > 0 %} {{ seconds }} sec{% endif %} read</span>
+        </div>
+    {% endif %}
     
     <section class="section">
         <div class="columns is-centered">
