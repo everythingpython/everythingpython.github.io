@@ -269,19 +269,25 @@ layout: Stylesheet
     margin-bottom: -30px  !important;
 }
 
-.reading-time {
-    display: flex;
+
+.reading-time-box {
+    display: inline-flex;
     align-items: center;
-    font-size: 0.9rem; /* Adjust to your preference */
-    color: #6c757d; /* Subtle text color */
-    margin-top: 10px;
+    background-color: #f0f4f8; /* Light background color */
+    color: #333; /* Text color */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 10px 15px; /* Padding inside the box */
+    margin-top: 15px; /* Space above the box */
+    font-size: 0.9rem; /* Font size adjustment */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .reading-time-icon {
-    margin-right: 5px;
+    margin-right: 8px; /* Space between icon and text */
     font-size: 1.2rem; /* Slightly larger icon */
 }
 
 .reading-time-text {
-    font-weight: 500; /* Medium weight for readability */
+    font-weight: 500; /* Medium weight for text */
 }

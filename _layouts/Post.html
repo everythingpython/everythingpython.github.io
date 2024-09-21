@@ -75,7 +75,7 @@
         {% assign minutes = total_seconds | divided_by: 60 | floor %}
         {% assign seconds = total_seconds | modulo: 60 | floor %}
         
-        <div class="reading-time">
+        <div class="reading-time-box">
             <span class="reading-time-icon">⏱️</span>
             <span class="reading-time-text">{{ minutes }} min{% if seconds > 0 %} {{ seconds }} sec{% endif %} read</span>
         </div>
