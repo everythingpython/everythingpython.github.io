@@ -51,7 +51,7 @@ While my thoughts were rather scattered and scrambling to think about the topic,
 ---
 Also I've started listening to the [San Diego Machine Learning](https://www.youtube.com/watch?v=JqDAEH_2t6M&t=1653s) group's reading of this book alongside after my reading of the book. 
 - Version control was asked about. Of course that helps with reliability, backups etc
-- Steven mentioned that there would be redundant computers in computations for space tech that didn't align with DDIA's version of redundancy. I read up a little more about [this](https://www.nasa.gov/history/sts1/pages/computer.html#:~:text=On%20the%20Shuttle%2C%20four%20identical,data%20buses%2C%20in%20precise%20synchronization).
+- Steven mentioned that there would be redundant computers in computations for space tech that didn't align with DDIA's version of redundancy. I read up a little [more](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=16a3dad9fb493b7fda165def84d84952aaa6d42f#:~:text=Therefore%2C%20redundancy%20management%20design%20for,%2D%20or%20two%2Dfailure%20case.) about [this](https://www.nasa.gov/history/sts1/pages/computer.html#:~:text=On%20the%20Shuttle%2C%20four%20identical,data%20buses%2C%20in%20precise%20synchronization).
 - There was a book called # Toward Zero Defect Programming that was mentioned by Dr. Stavely (Cleanroom technique)
 
 Had a lot of fun doing this :)
