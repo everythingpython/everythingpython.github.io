@@ -4,6 +4,8 @@ feed: show
 date: 23-09-2024
 ---
 #ddia
+
+*(Here's the [preface]([[Reading DDIA - Preface]]) in case you missed it)*
 # Chapter 1 - Thoughts 
 
 This chapter's goal is to effectively give us a high level overview of what this book is fundamentally about - 
@@ -51,4 +53,5 @@ Also I've started listening to the [San Diego Machine Learning](https://www.yout
 - There was a book called # Toward Zero Defect Programming that was mentioned by Dr. Stavely (Cleanroom technique)
 
 Had a lot of fun doing this :)
-Note to self - Let's keep this up!
+
+*Note to self - Let's keep this up!*
