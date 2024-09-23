@@ -1,9 +1,11 @@
 ---
-title: Creational Patterns - The Factory Method
+title: Design Patterns in Python - 2
 feed: show
 date: 15-03-2024
 ---
-In the previous edition - [[Design Patterns in Python - 1]], I wrote about the simplest creational pattern - The Singleton. In this edition, we look at another way to create objects - the Factory method.
+# Creational Patterns - The Factory Method
+
+In the previous edition - [[Design Patterns in Python - 1]] , I wrote about the simplest creational pattern - The Singleton. In this edition, we look at another way to create objects - the Factory method.
 
 Again, we start with examining the meaning of the word and why it would have been used for the behavior to follow. A _factory_ in the common usage of the word is a place where products are manufactured, where the factory is the entity doing the manufacturing.
 
