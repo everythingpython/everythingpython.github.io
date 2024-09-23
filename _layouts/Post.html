@@ -67,6 +67,16 @@
     <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
 </head>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-07QBYERP1C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-07QBYERP1C');
+</script>
+
 <body>
     <main>
     {%- include Nav.html -%}
