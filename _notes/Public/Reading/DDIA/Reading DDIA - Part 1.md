@@ -3,6 +3,7 @@ title: Reading DDIA - Part 1
 feed: show
 date: 23-09-2024
 ---
+#ddia
 # Chapter 1 - Thoughts 
 
 This chapter's goal is to effectively give us a high level overview of what this book is fundamentally about - 
@@ -46,7 +47,7 @@ While my thoughts were rather scattered and scrambling to think about the topic,
 ---
 Also I've started listening to the [San Diego Machine Learning](https://www.youtube.com/watch?v=JqDAEH_2t6M&t=1653s) group's reading of this book alongside after my reading of the book. 
 - Version control was asked about. Of course that helps with reliability, backups etc
-- Steven mentioned that there would be redundant computers that didn't align with DDIA's version of redundancy. I read up a little more about [this](https://www.nasa.gov/history/sts1/pages/computer.html#:~:text=On%20the%20Shuttle%2C%20four%20identical,data%20buses%2C%20in%20precise%20synchronization).
+- Steven mentioned that there would be redundant computers in computations for space tech that didn't align with DDIA's version of redundancy. I read up a little more about [this](https://www.nasa.gov/history/sts1/pages/computer.html#:~:text=On%20the%20Shuttle%2C%20four%20identical,data%20buses%2C%20in%20precise%20synchronization).
 - There was a book called # Toward Zero Defect Programming that was mentioned by Dr. Stavely (Cleanroom technique)
 
 Had a lot of fun doing this :)
