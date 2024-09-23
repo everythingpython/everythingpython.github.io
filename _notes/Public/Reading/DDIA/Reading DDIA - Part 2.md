@@ -2,8 +2,11 @@
 title: Reading DDIA - Part 2
 feed: show
 date: 23-09-2024
+tags:
+  - ddia
+  - books
+  - reading
 ---
-#ddia
 # Chapter 1 - Thoughts - Cont.d 
 
 In [[Reading DDIA - Part 1]] , I read about Reliability. The next section is Scalability . 

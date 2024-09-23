@@ -2,9 +2,11 @@
 title: Reading DDIA - Part 1
 feed: show
 date: 23-09-2024
+tags:
+  - "#ddia"
+  - books
+  - reading
 ---
-#ddia
-
 *(Here's the preface in case you missed it - [[Reading DDIA - Preface]])*
 # Chapter 1 - Thoughts 
 
