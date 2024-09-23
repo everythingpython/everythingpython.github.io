@@ -3,8 +3,7 @@ title: Design Patterns in Python - 1
 feed: show
 date: 14-03-2024
 ---
-
-# 14-03-2024
+## 14-03-2024
 
 If you’ve been using Python in production for a while like I have, you’ve either intentionally or inadvertently used some design patterns in your code. But what are they anyway?
 

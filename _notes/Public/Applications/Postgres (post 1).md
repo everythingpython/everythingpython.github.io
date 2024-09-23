@@ -5,7 +5,7 @@ date: 01-08-2024
 tags:
   - databases
 ---
-# 01-08-2024
+## 01-08-2024
 
 ## Installing Postgres locally and connecting to it from Python
 

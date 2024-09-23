@@ -8,7 +8,7 @@ tags:
   - reading
 ---
 *(Here's the preface in case you missed it - [[Reading DDIA - Preface]])*
-# Chapter 1 - Thoughts 
+## Chapter 1 - Thoughts 
 
 This chapter's goal is to effectively give us a high level overview of what this book is fundamentally about - 
 

@@ -3,7 +3,7 @@ title: LC Num 21
 date: 15-04-2024
 feed: show
 ---
-## 2024-04-15
+## 15-04-2024
 
 [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 
