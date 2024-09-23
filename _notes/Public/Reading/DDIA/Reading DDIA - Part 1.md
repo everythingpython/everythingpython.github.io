@@ -5,7 +5,7 @@ date: 23-09-2024
 ---
 #ddia
 
-*(Here's the [preface]([[Reading DDIA - Preface]]) in case you missed it)*
+*(Here's the preface in case you missed it - [[Reading DDIA - Preface]])*
 # Chapter 1 - Thoughts 
 
 This chapter's goal is to effectively give us a high level overview of what this book is fundamentally about - 
