@@ -1,5 +1,5 @@
 ---
-title: 
+title: Design Patterns in Python - 1
 feed: show
 date: 14-03-2024
 ---
@@ -20,7 +20,7 @@ On what basis though? What do each of these words mean in a programmatic sense? 
   
 The first one in this [ ] (list, heh) is “_Creational Patterns_”. Simplest to explain, they pertain to patterns that involve the **creation** of one or more objects.
 
-The following patterns come under the Creational Patterns umbrella -
+The following patterns come under the Creational Patterns ☂️ -
 
 - Singleton
 - Factory Method
