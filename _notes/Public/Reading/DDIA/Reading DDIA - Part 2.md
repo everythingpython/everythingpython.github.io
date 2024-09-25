@@ -50,7 +50,9 @@ b) The second thing mentioned in relation to scale is the performance of the sys
 	- Response times are best thought of in terms of percentile - typically the 95th, the 99th and 99.9th percentiles, abbreviated p95, p99 and p999.
 	For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. Used in SLOs and SLAs
 		
-> I didn't completely understand this right away, so I decided to write a small program to see how this would be computed - 
+> 💻 I didn't completely understand this right away, so I decided to write a small program to see how this would be computed - 
+
+
 ```python
 import numpy as np
 
@@ -67,7 +69,9 @@ print(f'p99: {p99} ms')
 print(f'p999: {p999} ms')
 ```
 
-Response - 
+> Response - 
+
+
 ```bash
 (py312) abhiram@everythingpython everythingpython.github.io % python percentile.py
 The response times are : [150, 200, 250, 300, 180, 220, 210, 190, 500, 800, 1000]
@@ -81,7 +85,7 @@ Basically if you computed for what value is 95% of the response times lesser tha
 Finally what is discussed in this section is the way to cope with said load i.e. via horizontal or  vertical scaling.
 But what is practically followed is a hybrid approach since there is no one-size-fits-all. Also some systems are elastic in nature - wherein the usage determines the resources allocated. 
 
->This actually reminds me of my [M.Tech thesis paper](https://ieeexplore.ieee.org/abstract/document/7015482) - Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O , we tried to predict what a future workload might consume along these axes. 
+>📝 This actually reminds me of my [M.Tech thesis paper](https://ieeexplore.ieee.org/abstract/document/7015482) - Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O , we tried to predict what a future workload might consume along these axes. 
 
 One nice example he gives in the section (which is what the question earlier is based on) is that a system that is designed to handle 3 requests per minute where each request has a 2 GB payload looks very different from a system that is designed to handle 100000 requests per second of 1 kB per request payload - even though their payloads are identical. 
 
