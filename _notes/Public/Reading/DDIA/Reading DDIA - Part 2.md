@@ -30,6 +30,7 @@ The former is mostly used when there is a need for more parallelization whereas 
 ---
 
 Now let's read the section .
+
 *Reading section*
 
 ---
@@ -41,16 +42,16 @@ Now let's read the section .
 Some of what I've mentioned from my learnings is echoed in the book as well - 
 a)  Scale cannot be thought about without talking about the load on the system. 
 - To describe it, a few *load parameters* are considered. 
-	- The parameters themselves depend on the architecture of the system. Some examples include : requests per second to a web server, ratio of reads to writes in a database, the number of simultaneous users in a chat room, hit rate on a cache etc.
+- The parameters themselves depend on the architecture of the system. Some examples include : requests per second to a web server, ratio of reads to writes in a database, the number of simultaneous users in a chat room, hit rate on a cache etc.
 - The example of Twitter is given. Makes sense since it's a high load, high concurrency system processing tens of thousands of tweets across the world per second. 
 b) The second thing mentioned in relation to scale is the performance of the system itself. 
 - The metrics of interest here are **throughput**  in a batch processing system and **response time** in an online system.
-	- Throughput is the number of requests that can be processed per second or the total amount of time that a job takes to process a dataset of a certain size. 
-	- Response time is the amount of time for a system between when the request is made by a client and when it receives a response
-	- Response times are best thought of in terms of percentile - typically the 95th, the 99th and 99.9th percentiles, abbreviated p95, p99 and p999.
-	For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. Used in SLOs and SLAs
+- Throughput is the number of requests that can be processed per second or the total amount of time that a job takes to process a dataset of a certain size. 
+- Response time is the amount of time for a system between when the request is made by a client and when it receives a response
+- Response times are best thought of in terms of percentile - typically the 95th, the 99th and 99.9th percentiles, abbreviated p95, p99 and p999. 
 		
-> 💻 I didn't completely understand this right away, so I decided to write a small program to see how this would be computed - 
+> 💻 For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. (Used in SLOs and SLAs.) 
+> I didn't completely understand this right away, so I decided to write a small program to see how this would be computed - 
 
 
 ```python
