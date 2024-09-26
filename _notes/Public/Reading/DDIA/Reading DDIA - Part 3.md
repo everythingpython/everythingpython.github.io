@@ -14,7 +14,7 @@ This section is about what the book says is the third factor - Maintainability.
 
 ### My  thoughts prior to reading the section - 
 
-Something they said in the San Diego ML Meetup struck me as my reaction as well - Maintainability is not one of the "concerns" I would have listed for a data intensive system.
+Something they said in the [San Diego Machine Learning](https://www.youtube.com/watch?v=JqDAEH_2t6M) struck me as my reaction as well - Maintainability is not one of the "concerns" I would have listed for a data intensive system.
 But now that it is, let's think about it - 
 What does it mean to **maintain** a system?
 My interpretation is - how would the system be set up for functioning smoothly over time?
