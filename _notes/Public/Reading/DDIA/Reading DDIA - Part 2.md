@@ -36,7 +36,9 @@ Now let's read the section .
 
 ---
 
->❓  *What is the throughput of a system that receives and handled 3 requests per minute, each request of size 2 GB?*
+> [!Question Time]
+> 
+❓  *What is the throughput of a system that receives and handled 3 requests per minute, each request of size 2 GB?*
 
 ### Thoughts after reading the section
 
@@ -53,6 +55,7 @@ Some of what I've mentioned from my learnings is echoed in the book as well -
 		
 
 > [!Explanation]
+> 
  💻 For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. (Used in SLOs and SLAs.) 
  I didn't completely understand this right away, so I decided to write a small program to see how this would be computed -
   
@@ -88,6 +91,7 @@ Finally what is discussed in this section is the way to cope with said load i.e.
 But what is practically followed is a hybrid approach since there is no one-size-fits-all. Also some systems are elastic in nature - wherein the usage determines the resources allocated. 
 
 > [!Sidebar]
+> 
 📝 This actually reminds me of my [M.Tech thesis paper](https://ieeexplore.ieee.org/abstract/document/7015482) - Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O , we tried to predict what a future workload might consume along these axes. 
 
 One nice example he gives in the section (which is what the question earlier is based on) is that a system that is designed to handle 3 requests per minute where each request has a 2 GB payload looks very different from a system that is designed to handle 100000 requests per second of 1 kB per request payload - even though their payloads are identical. 

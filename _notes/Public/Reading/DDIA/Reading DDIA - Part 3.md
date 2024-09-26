@@ -42,7 +42,10 @@ As in the previous two sections, the topic of maintainability is also broached b
    Documentation management and maintenance is also mentioned as important as I've experienced. 
    This makes sense. For a system to stay robust over time, a dedicated team makes a lot of sense. My earliest memory of being in a software company over 12 years ago, the closest we had to "ops" teams were system administration and Database administration teams - abbreviated Sys Admins or DBAs. Over time the role has evolved to being Ops and now to Devops and now even MLOps (although the latter was not much in existence at the time of this book's writing)
 1)  <u>Simplicity</u> - Managing complexity - Here the main crux is around not just keeping the architecture simple but also avoiding "accidental complexity" . Moseley and Marks define accidental complexity as complexity that does not manifest in the problem that is being solved by the software, but rather when it is being implemented. 
->❓  *Can you think of an example of this*
+
+> [!Question Time]
+>
+ >❓  *Can you think of an example of this?*
 
 One of the ways of making software simple is via abstraction, where the complex details are hidden and simple ways to interact with the system are provided - e.g. APIs for web apps, SQL for database management, high level programs that are used to interact with the machine without writing machine code  etc. 
 
