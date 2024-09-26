@@ -45,7 +45,7 @@ As in the previous two sections, the topic of maintainability is also broached b
  
 This involves having an "ops" team that takes care of system health monitoring, tracking root causes of platform degradation, system failures, keeping softwares up-to-date, application migration, retaining documentation as systems and personnel change etc. 
    Documentation management and maintenance is also mentioned as important as I've experienced. 
-   This makes sense. For a system to stay robust over time, a dedicated team makes a lot of sense. My earliest memory of being in a software company over 12 years ago, the closest we had to "ops" teams were system administration and Database administration teams - abbreviated Sys Admins or DBAs. Over time the role has evolved to being Ops and now to Devops and now even MLOps (although the latter was not much in existence at the time of this book's writing)
+    For a system to stay robust over time, a dedicated team makes a lot of sense. My earliest memory of being in a software company over 12 years ago, the closest we had to "ops" teams were system administration and Database administration teams - abbreviated Sys Admins or DBAs. Over time the role has evolved to being Ops and now to Devops and now even MLOps (although the latter was not much in existence at the time of this book's writing)
    
 2)  <u>Simplicity</u> - *Managing complexity* 
 
