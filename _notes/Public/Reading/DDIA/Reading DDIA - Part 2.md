@@ -12,10 +12,10 @@ tags:
 In [[Reading DDIA - Part 1]] , I read about Reliability. The next section is Scalability . 
 First let me talk about the assumptions I made about the term Scalability, what I understand from it prior to reading Martin Kleppman's thoughts on the topic - 
 
-# What is a scalable system?
+# <u>What is a scalable system?</u>
 
 
-### My own thoughts prior to reading the section - 
+### My  thoughts prior to reading the section - 
 
 Scale refers to how does a system grow. Growth can be needed for multiple reasons - 
 - The amount of data to be processed can increase

@@ -18,7 +18,7 @@ Thinking about data systems along the axes of :
 - Maintainability
 
 
-# What is a reliable system?
+# <u>What is a reliable system?</u>
 
 ### My thoughts before reading the section : 
 - A system that is available to return results/outputs that are expected of it when it is employed. 
