@@ -96,4 +96,5 @@ The ideal architecture that handles scale is built around which operations are a
 
 I'm looking forward to reading more about how this book addresses the problems and solutions around Scale. 
 
+---
 *Note to self - Let's keep this up!*

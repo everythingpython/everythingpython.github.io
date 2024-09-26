@@ -18,3 +18,4 @@ Each chapter will likely be read in multiple sittings.
 Chapter 1 (started 23rd Sep 2024) - 
 - [[Reading DDIA - Part 1]]
 - [[Reading DDIA - Part 2]]
+- [[Reading DDIA - Part 3]]
