@@ -38,10 +38,16 @@ As in the previous two sections, the topic of maintainability is also broached b
 - Operability
 - Simplicity
 - Evolvability
-1) <u>Operability</u> - making life easy for operations involves having an "ops" team that takes care of system health monitoring, tracking root causes of platform degradation, system failures, keeping softwares up-to-date, application migration, retaining documentation as systems and personnel change etc. 
+
+1) <u>Operability</u> - *making life easy for operations* 
+ 
+This involves having an "ops" team that takes care of system health monitoring, tracking root causes of platform degradation, system failures, keeping softwares up-to-date, application migration, retaining documentation as systems and personnel change etc. 
    Documentation management and maintenance is also mentioned as important as I've experienced. 
    This makes sense. For a system to stay robust over time, a dedicated team makes a lot of sense. My earliest memory of being in a software company over 12 years ago, the closest we had to "ops" teams were system administration and Database administration teams - abbreviated Sys Admins or DBAs. Over time the role has evolved to being Ops and now to Devops and now even MLOps (although the latter was not much in existence at the time of this book's writing)
-1)  <u>Simplicity</u> - Managing complexity - Here the main crux is around not just keeping the architecture simple but also avoiding "accidental complexity" . Moseley and Marks define accidental complexity as complexity that does not manifest in the problem that is being solved by the software, but rather when it is being implemented. 
+   
+2)  <u>Simplicity</u> - *Managing complexity* 
+
+Here the main crux is around not just keeping the architecture simple but also avoiding "accidental complexity" . Moseley and Marks define accidental complexity as complexity that does not manifest in the problem that is being solved by the software, but rather when it is being implemented. 
 
 > [!Question Time]
 >
@@ -49,7 +55,9 @@ As in the previous two sections, the topic of maintainability is also broached b
 
 One of the ways of making software simple is via abstraction, where the complex details are hidden and simple ways to interact with the system are provided - e.g. APIs for web apps, SQL for database management, high level programs that are used to interact with the machine without writing machine code  etc. 
 
-3) <u>Evolvability</u> - Making change easy . Since with time, the only thing that remains constant is change, it's no surprise that even software systems are expected to evolve - either in user base or requirements/features or business priorities, internal components due to newer and better software being developed etc. Now how best can we introduce these changes without having to massively break what's existing? That is what is being mentioned in this subsection. Martin makes a mention of the "Agile" software practice. The Agile methodology is a whole bunch of books in itself but in short, it's a practice that believes in quick, iterative delivery that involves constant feedback and is adaptive to change. 
+3) <u>Evolvability</u> -  *Making change easy* 
+
+ Since, with time, the only thing that remains constant is change, it's no surprise that even software systems are expected to evolve - either in user base or requirements/features or business priorities, internal components due to newer and better software being developed etc. Now how best can we introduce these changes without having to massively break what's existing? That is what is being mentioned in this subsection. Martin makes a mention of the "Agile" software practice. The Agile methodology is a whole bunch of books in itself but in short, it's a practice that believes in quick, iterative delivery that involves constant feedback and is adaptive to change. 
 
 This brings us to the end of Chapter 1. 
 
