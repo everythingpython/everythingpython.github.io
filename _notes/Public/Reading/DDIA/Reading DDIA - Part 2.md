@@ -35,10 +35,7 @@ Now let's read the section .
 *Reading section*
 
 ---
-
-> [!Question Time]
-> 
-❓  *What is the throughput of a system that receives and handled 3 requests per minute, each request of size 2 GB?*
+<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:white"> <p> <b> ✏️ Question Time</b> </p> <p></p> <p>❓ <em>What is the throughput of a system that receives and handled 3 requests per minute, each request of size 2 GB?</em></p> </div>
 
 ### Thoughts after reading the section
 
@@ -53,11 +50,10 @@ Some of what I've mentioned from my learnings is echoed in the book as well -
 	- Response time is the amount of time for a system between when the request is made by a client and when it receives a response
 	- Response times are best thought of in terms of percentile - typically the 95th, the 99th and 99.9th percentiles, abbreviated p95, p99 and p999. 
 		
-
-> [!Explanation]
-> 
- 💻 For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. (Used in SLOs and SLAs.) 
+<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:white"> <p> <b>✏️ Explanation </b></p> <p></p> <p>❓ <em>💻 For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. (Used in SLOs and SLAs.) 
  I didn't completely understand this right away, so I decided to write a small program to see how this would be computed -
+ </em></p> </div>
+
   
 ```python
 import numpy as np
@@ -90,9 +86,9 @@ Basically if you computed for what value is 95% of the response times lesser tha
 Finally what is discussed in this section is the way to cope with said load i.e. via horizontal or  vertical scaling.
 But what is practically followed is a hybrid approach since there is no one-size-fits-all. Also some systems are elastic in nature - wherein the usage determines the resources allocated. 
 
-> [!Sidebar]
-> 
-📝 This actually reminds me of my [M.Tech thesis paper](https://ieeexplore.ieee.org/abstract/document/7015482) - Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O , we tried to predict what a future workload might consume along these axes. 
+
+<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:white"> <p> <b>✏️ Sidebar </b></p> <p></p> <p>❓ 📝 This actually reminds me of my <a href="https://ieeexplore.ieee.org/abstract/document/7015482">M.Tech thesis paper</a> - Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O , we tried to predict what a future workload might consume along these axes. 
+</p> </div>
 
 One nice example he gives in the section (which is what the question earlier is based on) is that a system that is designed to handle 3 requests per minute where each request has a 2 GB payload looks very different from a system that is designed to handle 100000 requests per second of 1 kB per request payload - even though their payloads are identical. 
 
