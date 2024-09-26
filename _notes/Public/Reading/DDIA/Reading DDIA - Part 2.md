@@ -86,15 +86,16 @@ Basically if you computed for what value is 95% of the response times lesser tha
 Finally what is discussed in this section is the way to cope with said load i.e. via horizontal or  vertical scaling.
 But what is practically followed is a hybrid approach since there is no one-size-fits-all. Also some systems are elastic in nature - wherein the usage determines the resources allocated. 
 
+---
 
 <div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:white"> 
 <p> </p><p></p>
 <b>✏️ Sidebar </b>
 <p>❓ 📝 This actually reminds me of my <a href="https://ieeexplore.ieee.org/abstract/document/7015482">M.Tech thesis paper</a> - Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O , we tried to predict what a future workload might consume along these axes. 
-</p> <p>
+</p> 
 <p></p></div>
 
-
+---
 One nice example he gives in the section (which is what the question earlier is based on) is that a system that is designed to handle 3 requests per minute where each request has a 2 GB payload looks very different from a system that is designed to handle 100000 requests per second of 1 kB per request payload - even though their payloads are identical. 
 
 The ideal architecture that handles scale is built around which operations are assumed to be more frequent and which operations are assumed to be rare. 

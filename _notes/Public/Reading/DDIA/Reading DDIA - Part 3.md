@@ -32,6 +32,8 @@ Now let's read the section .
 
 ---
 
+<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:white"> <p></p><p> <b> ✏️ Question Time</b> </p>  <p>❓ <em>Can you think of an example of accidental complexity?</em></p> <p></p></div>
+
 ### Thoughts after reading the section
 
 As in the previous two sections, the topic of maintainability is also broached by Martin along 3 design principles : 
@@ -48,9 +50,6 @@ This involves having an "ops" team that takes care of system health monitoring, 
 2)  <u>Simplicity</u> - *Managing complexity* 
 
 Here the main crux is around not just keeping the architecture simple but also avoiding "accidental complexity" . Moseley and Marks define accidental complexity as complexity that does not manifest in the problem that is being solved by the software, but rather when it is being implemented. 
-
-
-<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:white"> <p></p><p> <b> ✏️ Question Time</b> </p>  <p>❓ <em>Can you think of an example of accidental complexity?</em></p> <p></p></div>
 
 
 One of the ways of making software simple is via abstraction, where the complex details are hidden and simple ways to interact with the system are provided - e.g. APIs for web apps, SQL for database management, high level programs that are used to interact with the machine without writing machine code  etc. 
