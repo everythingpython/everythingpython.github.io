@@ -119,13 +119,7 @@
                     <div class="jumbo">{{page.title}}</div>
                     
                     {%- include Content.html -%}
-                    <script src="https://utteranc.es/client.js"
-        repo="everythingpython/everythingpython.github.io"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+
                     {%- include Feed.html -%}
             {%- endif -%}
 
@@ -154,6 +148,13 @@
                     {%- include Content.html -%}
                     {%- include Backlinks.html -%}
                     </div>
+                    <script src="https://utteranc.es/client.js"
+                    repo="everythingpython/everythingpython.github.io"
+                    issue-term="pathname"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
             </div>
             {%- endif -%}
 
