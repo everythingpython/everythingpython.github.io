@@ -19,3 +19,6 @@ Chapter 1 (Started 23rd Sep 2024 ; Completed 26 Sep 2024) -
 - [[Reading DDIA - Part 1]]
 - [[Reading DDIA - Part 2]]
 - [[Reading DDIA - Part 3]]
+
+Chapter 2 (Started 02 Oct 2024)
+- [[Reading DDIA - Part 4]]
