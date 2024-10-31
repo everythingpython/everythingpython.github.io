@@ -32,7 +32,9 @@ Now let's create a quick app and run it.
 
 Here's the code to create a simple app, that accepts a user input, does a quick Github search to find the top 3 repos corresponding to that term and outputs it. Assume the filename is `streamlit_app.py`
 
-```python streamlit_app.py
+
+```python
+
 import streamlit as st
 import requests
 
@@ -72,18 +74,26 @@ if st.button("Search") and query:
             st.write("No repositories found.")
 ```
 
+
 So once we've activated our environment like above, the way to run it is - 
 
-```shell
+
+```
 (streamlit_apps)D:\streamlit_apps> streamlit run streamlit_app.py
 ```
 
+
 This results in the browser being launched and a window opening up like so - 
-![[Pasted image 20241030232233.png]]
+
+![Alt Text](/assets/img/install-streamlit/1.png)
+
+![[1.png]]
 
 And any search results in the top repos by stars as expected - 
 
-![[Pasted image 20241030232307.png]]
+![Alt Text](/assets/img/install-streamlit/1.png)
+
+![[2.png]]
 
 Hope this gives you the push to create your own fun little apps!
 Let me know what you create!

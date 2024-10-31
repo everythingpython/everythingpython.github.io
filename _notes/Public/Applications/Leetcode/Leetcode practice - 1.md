@@ -103,4 +103,6 @@ class Solution:
         
         return head
 ```
+
+
 ![Alt Text](/assets/img/lc/lc21/lc21_2.png)
