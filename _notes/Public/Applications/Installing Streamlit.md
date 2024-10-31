@@ -87,13 +87,11 @@ This results in the browser being launched and a window opening up like so -
 
 ![Alt Text](/assets/img/install-streamlit/1.png)
 
-![[1.png]]
 
 And any search results in the top repos by stars as expected - 
 
-![Alt Text](/assets/img/install-streamlit/1.png)
+![Alt Text](/assets/img/install-streamlit/2.png)
 
-![[2.png]]
 
 Hope this gives you the push to create your own fun little apps!
 Let me know what you create!
