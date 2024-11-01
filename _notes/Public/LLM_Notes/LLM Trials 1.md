@@ -6,6 +6,8 @@ tags:
   - ollama
   - llms
 ---
+_Date : 2024-11-01_
+
 I've been trying a lot of stuff with LLMs over the last 18 months or so. These trial posts have been a long time coming. 
 
 I set up Ollama a few months ago and the model I'm using locally currently - `llama3.1:8b` .
