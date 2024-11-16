@@ -81,8 +81,6 @@ This should be the net structure -
 
 Now let's see the result of our work. 
 
----
-
 Run - `mkdocs serve` and you should be able to launch your budding blog at `localhost:8000`
 
 ![Alt Text](/assets/img/blog/mkdocs/mkdocs-4.png)
