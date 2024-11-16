@@ -2,6 +2,7 @@ FROM ruby:3.1.1-alpine3.15
 
 RUN apk add --no-cache build-base nodejs-current
 
+RUN gem install jekyll-gist
 RUN gem install bundler
 
 WORKDIR /usr/src/app
