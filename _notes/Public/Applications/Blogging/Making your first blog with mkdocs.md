@@ -88,6 +88,14 @@ Run - `mkdocs serve` and you should be able to launch your budding blog at `loca
 The next article in this category will cover the publishing of the blog!
 
 
+---
+**References -**
+
+The official pages are excellent - 
+
+- https://github.com/squidfunk/mkdocs-material#trusted-by-
+- https://squidfunk.github.io/mkdocs-material/
+- https://www.mkdocs.org/
 
 
 
