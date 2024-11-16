@@ -2,11 +2,14 @@
 title: 
 feed: show
 date: 2024-11-16
+tags:
+  - leetcode
+  - easy
 ---
 I think I'm going to be more regular in trying out Leetcode problems going forward - or grinding Leetcode, as the kids call it these days. 
 I'm doing this mainly so my logical skills will stay sharp and I hope to find some nice Python concepts along the way that can then fuel my blog.
 
-Today I solved one of the easy problems - Finding if there's a duplicate element in a list of numbers. This is Leetcode problem # 217 in the #easy category.
+Today I solved one of the easy problems - Finding if there's a duplicate element in a list of numbers. This is [Leetcode problem # 217](https://leetcode.com/problems/contains-duplicate/) in the 'easy' category.
 
 
 Now mind you, I did not actually have to find which numbers were duplicate. So that was one layer of complexity avoided.

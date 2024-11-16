@@ -2,6 +2,9 @@
 title: LC Num 21
 date: 15-04-2024
 feed: show
+tags:
+  - leetcode
+  - easy
 ---
 ## 15-04-2024
 
