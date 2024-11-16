@@ -6,6 +6,8 @@ tags:
   - blogs
   - application
 ---
+### 16th Nov 2024*
+
 Now, why do this? 
 What's wrong with medium.com and substack.com and wordpress.com and blogger.com and all the tens of websites out there?
 Nothing. You could totally just create a blog there and publish. That's why Content Management Systems exist - so you could focus on the *content* and not on the *management* .

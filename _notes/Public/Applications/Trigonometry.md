@@ -5,7 +5,7 @@ date: 06-04-2024
 tags:
   - application
 ---
-## 06-04-2024
+###  6th April 2024
 
 I'm a big believer in melding programming with mathematics. It's a great way to learn both. Ed-tech aside, I think maths can be a lot of fun when you're able to see the results of your work in real-time.
 
