@@ -20,20 +20,21 @@ This particular blog itself is published using Obsidian and Jekyll (Ruby). But m
 
 This is how I went about it. And this is how you go about it - 
 
-a) As always, create a virtual environment first. If you need help, I've done this in a few of my earlier [articles]([https://everythingpython.substack.com/p/virtual-environments-using-uv]) .
-b) After you've activated the virtual environment - let's call it `blog_env`, install the package `mkdocs-material` inside it - 
+-  As always, create a virtual environment first. If you need help, I've done this in a few of my earlier [articles]([https://everythingpython.substack.com/p/virtual-environments-using-uv]) .
+- After you've activated the virtual environment - let's call it `blog_env`, install the package `mkdocs-material` inside it - 
 
 ```python
 uv pip install mkdocs-material
 ```
 
-c) Once you've installed the package, create a new blog skeleton using - 
+- Once you've installed the package, create a new blog skeleton using - 
 
 ```python
 mkdocs new .
 ```
 
-d) This will create a structure like so - 
+- This will create a structure like so -
+
 ![Alt Text](/assets/img/blog/mkdocs/mkdocs-1.png)
 
 
@@ -46,6 +47,8 @@ This is what my site's mkdocs.yml looks like -
 Basically, the theme I'm using is the default theme mkdocs-material supports, which is "material". 
 My site has two navigation options - Tech and Non-Tech - under which I've segregated my posts. 
 I also have a few plugins which will end up being elaborated in a future post. For this post, we will restrict our discussion to the "blog" plugin. 
+
+---
 
 **The very first thing we will do is set up our Home page.** 
 This is accomplished by creating an `index.md` file under the **docs** directory.
@@ -77,6 +80,8 @@ This should be the net structure -
 ---
 
 Now let's see the result of our work. 
+
+---
 
 Run - `mkdocs serve` and you should be able to launch your budding blog at `localhost:8000`
 
