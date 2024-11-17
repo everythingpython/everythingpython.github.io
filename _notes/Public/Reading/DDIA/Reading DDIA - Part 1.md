@@ -7,10 +7,10 @@ tags:
   - books
   - reading
 ---
+### 23rd Sep 2024
+
 *(Here's the preface in case you missed it - [[Reading DDIA - Preface]])*
 ## Chapter 1 - Reliable, Scalable and Maintainable Applications
-
-### Thoughts   [23-09-2024]
 
 This chapter's goal is to effectively give us a high level overview of what this book is fundamentally about - 
 

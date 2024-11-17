@@ -3,7 +3,8 @@ title: Iterating over Itertools - 1
 feed: show
 date: 2024-10-31
 ---
-_Date : 2024-10-31_
+### 31st Oct 2024
+
 
 I had the opportunity to work with some of the functions in the `itertools` package in Python over the month and I thought before the month ends in a few minutes, I’ll write about a few of them -
 

@@ -3,9 +3,8 @@ title: Reading DDIA - Part 3
 date: 26-09-2024
 feed: show
 ---
+### 26th Sep 2024
 ## Chapter 1 - Reliable, Scalable and Maintainable Applications
-
-### Thoughts - Cont.d  [26-09-2024] 
 
 In [[Reading DDIA - Part 2]] , I read about the second way in which design decisions are typically driven - Scalability.
 This section is about what the book says is the third factor - Maintainability. 

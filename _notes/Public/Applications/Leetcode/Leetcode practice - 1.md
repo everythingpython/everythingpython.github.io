@@ -6,7 +6,7 @@ tags:
   - leetcode
   - easy
 ---
-### 15-04-2024
+### 15th Apr 2024
 
 [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 

@@ -5,7 +5,7 @@ date: 01-08-2024
 permalink: /blogs-to-read
 ---
 
-## 01-08-2024
+## 1st Aug 2024
 
 - [https://sensortower.com/blog/speeding-up-the-backend-with-graph-theory]()
 - [https://www.postgresql.org/docs/8.4/high-availability.html]()

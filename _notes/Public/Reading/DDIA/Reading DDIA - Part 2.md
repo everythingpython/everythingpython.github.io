@@ -7,9 +7,9 @@ tags:
   - books
   - reading
 ---
-## Chapter 1 - Reliable, Scalable and Maintainable Applications
+### 25th Sep 2024
 
-### Thoughts  - Cont.d  [25-09-2024]
+## Chapter 1 - Reliable, Scalable and Maintainable Applications
 
 In [[Reading DDIA - Part 1]] , I read about Reliability. The next section is Scalability . 
 First let me talk about the assumptions I made about the term Scalability, what I understand from it prior to reading Martin Kleppman's thoughts on the topic - 

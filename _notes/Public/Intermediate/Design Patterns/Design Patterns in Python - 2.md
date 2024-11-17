@@ -3,7 +3,7 @@ title: Design Patterns in Python - 2
 feed: show
 date: 15-03-2024
 ---
-## 15-03-2024
+### 15th March 2024
 
 ### Creational Patterns - The Factory Method
 
