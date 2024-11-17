@@ -66,8 +66,7 @@ print(date.today())
 
 We get "2024-11-17" .
 
-I took longer than I'd like to admit to understand how the representation was being printed and I finally realised it's because the `__str__` definition for this class controls the display to be sent as the Isoformat of a date which is `"year-month-day"` . In hindsight, this is perfectly obvious. 🤦
-
+> I took longer than I'd like to admit to understand how the representation was being printed and I finally realised it's because the `__str__` definition for this class controls the display to be sent as the Isoformat of a date which is `"year-month-day"` . In hindsight, this is perfectly obvious. 🤦
 
 ---
 
