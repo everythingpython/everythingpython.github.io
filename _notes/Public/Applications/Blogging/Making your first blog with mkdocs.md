@@ -19,7 +19,7 @@ But if you're like me and want some more control over how you publish your blogs
 
 ---
 
-<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:white"> <p></p><p> <b>
+<div style="background-color:black; border: 0.25px solid #black ; padding: 6px; border-radius: 5px; color:white"> <p></p><p> <b>
 ✏️ Note
 </b> </p>  <p>❓ <em>
 This article assumes that you are using Windows for your development. But the same steps can be used on any flavor of Linux as well.
@@ -33,23 +33,28 @@ This particular blog itself is published using Obsidian and Jekyll (Ruby) - More
 This is how I went about it. And this is how you go about it - 
 
 - First, let's create a folder for our blog setup. Call it `blog_setup`  and navigate to it.
+- As always, create a virtual environment first. If you need help installing the package manager `uv`, I've done this in a few of my earlier [articles]([https://everythingpython.substack.com/p/virtual-environments-using-uv]) . I now almost completely use `uv` for all my virtual environments. After creating the virtual environment, activate it.
+- After you've activated the virtual environment - let's call it `blog_env`, install the package `mkdocs-material` inside it and create a new blog's skeleton - 
 
-```batch
+```text
 D:> mkdir blog_setup
 D:> cd blog_setup
-D:\blog_setup>
-```
-- As always, create a virtual environment first. If you need help installing the package manager `uv`, I've done this in a few of my earlier [articles]([https://everythingpython.substack.com/p/virtual-environments-using-uv]) . I now almost completely use `uv` for all my virtual environments.
-- After you've activated the virtual environment - let's call it `blog_env`, install the package `mkdocs-material` inside it - 
 
-```batch
-D:\blog_setup> uv pip install mkdocs-material
+D:\blog_setup> uv venv
+D:\blog_setup> .venv\Scripts\activate
+
+(blog_setup) D:\blog_setup>
+(blog_setup) D:\blog_setup> uv pip install mkdocs-material
+(blog_setup) D:\blog_setup> mkdocs new .
 ```
 
-- Once you've installed the package, create a new blog skeleton using - 
-```batch
-D:\blog_setup>mkdocs new .
-```
+---
+<div style="background-color:black; border: 0.25px solid #black; padding: 6px; border-radius: 5px; color:white"> <p></p><p> <b>
+✏️ Note
+</b> </p>  <p>❓ <em>
+If you do not mention a name for your virtual environment, the name of the folder you're in ends up being the name of the environment. 
+</em></p> <p></p></div>
+---
 
 - This will create a structure like so -
 
@@ -109,7 +114,7 @@ This should be the net structure -
 
 Now let's see the result of our work.  Execute the following in the CMD window - 
 
-```batch
+```text
 (blog_setup) D:\blog_setup>mkdocs serve
 ``` 
 
