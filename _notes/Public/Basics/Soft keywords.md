@@ -1,6 +1,6 @@
 ---
 title: Soft keywords
-feed: show
+feed: hide
 date: 2024-11-19
 ---
 ## 19th Nov 2024

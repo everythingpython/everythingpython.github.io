@@ -9,8 +9,7 @@ tags:
 
 I was trying to write an article on Dataclasses[^2] and I looked up an example on the official website[^1]
 
-Easy enough on the face of it, but it led me into quite a rabbit hole.
-
+Easy enough on the face of it, but it led me into quite a rabbit hole. 
 A dataclass allows for the creation of "special methods" for a class when the annotation @dataclass is sighted. 
 
 So if I have a class "Superhero" with the annotation : 
@@ -20,7 +19,8 @@ So if I have a class "Superhero" with the annotation :
 @dataclass
 class Superhero:
     """
-    A class of superheroes and properties about their appearance in Marvel movies
+    A class of superheroes and properties about their appearance 
+    in Marvel movies
     """
     name: str
     superpower: str
@@ -48,7 +48,8 @@ I created one more function without dataclasses -
 ```python
 class Superhero_nodc():
     """
-    A class of superheroes and properties about their appearance in Marvel movies
+    A class of superheroes and properties about their appearance 
+    in Marvel movies
     """
     def __init__(self, name, superpower,appearances=0):
          
@@ -103,8 +104,9 @@ I also learnt about the interactive Help that the Python REPL offers along the w
 Also here's a neat little experiment I ended up doing - Comparing the attributes for a dataclass and a regular class using tabs in Textual[^3] !
 ![Alt Text](/assets/img/basics/tabs_textual.gif)
 
+---
 ### References 
 
-[^1]: https://docs.python.org/3/library/dataclasses.html#mutable-default-values
-[^2]: https://peps.python.org/pep-0557/
-[^3]: https://textual.textualize.io/widgets/tabbed_content/#__tabbed_1_2
+[^1]: [Dataclasses](https://docs.python.org/3/library/dataclasses.html#mutable-default-values)
+[^2]: [PEP 0557](https://peps.python.org/pep-0557/)
+[^3]: [Textual - Widgets](https://textual.textualize.io/widgets/tabbed_content/#__tabbed_1_2)
