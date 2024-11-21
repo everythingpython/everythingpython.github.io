@@ -5,6 +5,8 @@ date: 2024-11-20
 tags:
   - not-python
 ---
+### 20th Nov 2024
+
 I'm not feeling all too well but I didn't want to break my streak of writing. So today I'm writing about a non-Python related topic - Timeline Charts. 
 
 I was doing a profiling activity for work and I was scratching my head for a way to represent the info so as to explain it easily.  Then I got to thinking, how does Google build all those charts to track page loads and API runtimes in Developer tools?
