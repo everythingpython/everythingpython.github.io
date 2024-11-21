@@ -44,8 +44,7 @@ Here's an example -
 ```
 
 This results in a chart like - 
-
-![[Pasted image 20241120220154.png]]
+![Alt Text](/assets/img/non-python/chart.png)
 
 This was a lot of fun to learn and ended up being a great way to present my work. 
 
