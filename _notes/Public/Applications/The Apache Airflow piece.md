@@ -11,16 +11,16 @@ The next piece I need for my planned workflow is running Airflow - locally - at 
 
 So when I tried to install it in a `uv` virtual environment, this happened - 
 
-![Alt Text](/assets/img/Applications/airflow/airflow-err.png)
+![Alt Text](/assets/img/applications/airflow/airflow-err.png)
 
 So after looking up a few [Github issues](https://github.com/google/re2/issues/437) , I thought I had the solution. Just install `abseil` and `re` on brew separately and then build `google-re2` 
 
-![Alt Text](/assets/img/Applications/airflow/install-abseil-re.png)
+![Alt Text](/assets/img/applications/airflow/install-abseil-re.png)
 
 Hurray! 
 Right?
 
-![Alt Text](/assets/img/Applications/airflow/no-dice.png)
+![Alt Text](/assets/img/applications/airflow/no-dice.png)
 
 NOPE :-/
 
