@@ -19,3 +19,5 @@ The correct syntax is
 In the imge below, `a` is a list as used earlier. Therefore - 
 
 ![Alt Text](/assets/img/basics/lc_tuples/lc_tuples_2.png)
+
+3) WIP
