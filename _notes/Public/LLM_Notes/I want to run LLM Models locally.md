@@ -1,5 +1,5 @@
 ---
-title: LLM Trials 1
+title: I want to run LLM Models locally. What do I do?
 feed: show
 date: 2025-01-03
 tags:
@@ -8,8 +8,6 @@ tags:
 ---
 ### 3rd Jan 2024
 
-### How to run models locally
-
 One of the most sought after things to learn right now is about how to set up your own local LLM server and how to use LLM models locally.
 With the arrival of some things like Ollama and LM Studio etc, it has become very easy.
 Ollama is an orchestrator that lets you serve up models locally, models like Llama 3.1, Qwen-2.5, Phi, whatever models you have on HuggingFace.
@@ -17,8 +15,7 @@ These are available to be served up and many more.
 
 ### Setting up Ollama - 
 
-- Depending on your operating system, download the corresponding Ollama executable from the official website - https://ollama.com/download
-
+- Depending on your operating system, download the corresponding Ollama executable from the official website : https://ollama.com/download
 - Once you download and run it, it should be running as a small service in the background of your operating system. For example, if you're on Windows, you should be able to see it running on the tray on your screen's bottom right corner. 
 - To download any models, check out https://ollama.com/search
 - Smaller models are better for lower config laptops/desktops.
