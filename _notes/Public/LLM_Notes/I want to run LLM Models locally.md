@@ -40,4 +40,10 @@ The Github README for OpenWebUI is extremely helpful. A few months ago when I tr
 
 So when you visit localhost:8000 on your browser you should be able to see a chatgpt-ish interface and the list of models you downloaded on Ollama on a top-left corner dropdown.
 
+---
+
+### What are my other options?
+
+There's a couple of other options like LMStudio and Msty, but those are "left as an exercise to the reader" to try out. :D
+
 Happy local chatting!
