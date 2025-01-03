@@ -15,9 +15,9 @@ These are available to be served up and many more.
 
 ### Setting up Ollama - 
 
-- Depending on your operating system, download the corresponding Ollama executable from the official website : https://ollama.com/download
+- Depending on your operating system, download the corresponding Ollama executable from the official [website](https://ollama.com/download).
 - Once you download and run it, it should be running as a small service in the background of your operating system. For example, if you're on Windows, you should be able to see it running on the tray on your screen's bottom right corner. 
-- To download any models, check out https://ollama.com/search
+- To download any models, fetch them from [here](https://ollama.com/search).
 - Smaller models are better for lower config laptops/desktops.
 
 The next thing to do to mimic a local Chat-GPT-ish experience is to hook this backend Ollama server to a front-end web interface. This is where https://openwebui.com/ comes in.
@@ -26,9 +26,8 @@ The next thing to do to mimic a local Chat-GPT-ish experience is to hook this ba
 
 The Github README for OpenWebUI is extremely helpful. A few months ago when I tried it out, they only had the Docker based offering but now it seems that all that is to be done to set it up is - 
 
-- Create a virtual environment
-- Activate virtual environment
-- `pip install open-webui`
+- [Create and activate a virtual environment](https://everythingpython.substack.com/p/virtual-environments-using-uv) 
+- `uv pip install open-webui`
 - `open-webui serve`
 
 So when you visit localhost:8000 on your browser you should be able to see a chatgpt-ish interface and the list of models you downloaded on Ollama on a top-left corner dropdown.
