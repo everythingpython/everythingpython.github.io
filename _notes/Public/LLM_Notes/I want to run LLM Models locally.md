@@ -42,6 +42,11 @@ So when you visit localhost:8000 on your browser you should be able to see a cha
 
 ---
 
+### Performance
+- "How fast is it?", a friend asked. It's not going to be comparable to OpenAI/Claude/Gemini server speeds given that it is limited by your local laptop's CPU/GPU. But on a Mac M1 or a Windows i5 with 32 GB RAM, it's able to run and engage in processing and conversations at fairly decent, tolerable speeds.
+
+---
+
 ### What are my other options?
 
 There's a couple of other options like LMStudio and Msty, but those are "left as an exercise to the reader" to try out. :D
