@@ -5,6 +5,8 @@ date: 2025-01-07
 ---
 ### 7th Jan 2025
 
+![Alt Text](/assets/img/intermediate/frozenlists.webp)
+
 I happened to see this package - **FrozenList** - get installed when i was installing a set of requirements for an environment for work. I've not yet dived deep into which package frozenlist was a dependency for. 
 
 But I still wanted to see what it was and Googled it. 
