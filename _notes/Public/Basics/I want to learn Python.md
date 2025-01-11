@@ -9,7 +9,7 @@ This is one of the most common questions I get asked by people who are just star
 
 If you have no prior programming experience, how Do you start? Valid question.
 
-![alt text](how-to-start-1/how-to-start.jpg)
+![alt text](/assets/img/basics/how-to-start-1/how-to-start.jpg)
 
 Let's take it step by step.
 
@@ -17,20 +17,21 @@ Most guides start with understanding the syntax of Python, the basic data types,
 
 That will be the end state of this Post i.e you will have Python installed on your system.
 
-### Step 1: Install Python
+###  Install Python
 
 1. Go to the [Python website](https://www.python.org/downloads/) and download the latest version of Python.
 
-![alt text](how-to-start-1/download.png)
+![alt text](/assets/img/basics/how-to-start-1/download.png)
 
 2. Run the installer and make sure to check the box that says "Add Python to PATH".
-![alt text](how-to-start-1/pyinstallation-0.png)
 
-![alt text](how-to-start-1/pyinstallation-1.png)
+![alt text](/assets/img/basics/how-to-start-1/pyinstallation-0.png)
+
+![alt text](/assets/img/basics/how-to-start-1/pyinstallation-1.png)
 
 If your setup was successful, you should see this screen - 
 
-![alt text](how-to-start-1/pyinstallation-2.png)
+![alt text](/assets/img/basics/how-to-start-1/pyinstallation-2.png)
 
 ---
 
@@ -39,7 +40,7 @@ If your setup was successful, you should see this screen -
 
 1. Open a command prompt and type `python --version`. You should see the version of Python you just installed.
 
-![alt text](how-to-start-1/pyinstallation-3.png)
+![alt text](/assets/img/basics/how-to-start-1/pyinstallation-3.png)
 
 
 If you have reached this stage, congratulations! You have successfully installed Python on your system.
