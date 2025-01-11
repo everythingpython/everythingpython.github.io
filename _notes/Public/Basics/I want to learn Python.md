@@ -36,7 +36,7 @@ If your setup was successful, you should see this screen -
 ---
 
 
-### Step 2: Verify Installation
+### Verify the installation
 
 1. Open a command prompt and type `python --version`. You should see the version of Python you just installed.
 
