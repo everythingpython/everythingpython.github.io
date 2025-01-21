@@ -39,6 +39,8 @@ The goal is to understand the following steps :
 - **CASE 1** - Some of us might want to save them in the same folder so that we don't create duplicates of the files 
 - **CASE 2** - Others might want to save them in a different folder so as to preserve the originals 
 
+---
+
 Here's how the code for this looks like for **CASE 1** - 
 
 ```python
@@ -58,12 +60,16 @@ for i, filename in enumerate(files):
 print("Files renamed successfully!")
 ```
 
-We'll go through it line by line :
+---
 
-1. `import os`
+**We'll go through it line by line :**
+
+>`import os`
 
 This is called **importing a package** . Think of it as picking up a particular box of tools to do one or more number of tasks . For example, if you wanted to write something, and you anticipate that you might need to draw a line or erase a mistake, you might end up buying a pencil box that contains a pen/pencil, a scale and an eraser. Here `import` is the equivalent of the action of purchasing something . And `os` is the equivalent of a pencil box - *a set of tools*. In Python, anything that is imported is a **package**. 
 
 Once you've imported a package, you can use the **methods** inside the package to perform different actions. A **method** for the purposes of this post, is one of the aforementioned tools.
 
-2. `folder_path = "./photos"`
+---
+
+>`folder_path = "./photos"`
