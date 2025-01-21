@@ -34,10 +34,10 @@ b) The Python script to enable the renaming
 For the purposes of this exercise, I've created a hundred dummy images with names like IMG_001.jpg, IMG_002.jpg, IMG_003.jpg etc. I'm going to assume that I want to rename them to Family_Func_Oct24_001.jpg, Family_Func_Oct24_002.jpg, Family_Func_Oct24_003.jpg etc
  
 The goal is to understand the following steps : 
-1) Access the folder with these 100 images using code
-2) Rename them and save them either in the same folder or in a different folder. 
-	- **CASE 1** - Some of us might want to save them in the same folder so that we don't create duplicates of the files 
-	- **CASE 2** - Others might want to save them in a different folder so as to preserve the originals 
+- Access the folder with these 100 images using code
+- Rename them and save them either in the same folder or in a different folder. 
+- **CASE 1** - Some of us might want to save them in the same folder so that we don't create duplicates of the files 
+- **CASE 2** - Others might want to save them in a different folder so as to preserve the originals 
 
 Here's how the code for this looks like for **CASE 1** - 
 
