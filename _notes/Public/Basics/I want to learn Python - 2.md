@@ -31,7 +31,7 @@ If you'd like to follow along you will need two things -
 a) A folder full of files with names like this or in some format like this. 
 b) The Python script to enable the renaming
 
-For the purposes of this exercise, I've created a hundred dummy images with names like IMG_001.jpg, IMG_002.jpg, IMG_003.jpg etc. I'm going to assume that I want to rename them to Family_Function_Oct_2024_001.jpg, Family_Function_Oct_2024_002.jpg, Family_Function_Oct_2024_003.jpg etc
+For the purposes of this exercise, I've created a hundred dummy images with names like IMG_001.jpg, IMG_002.jpg, IMG_003.jpg etc. I'm going to assume that I want to rename them to Family_Func_Oct24_001.jpg, Family_Func_Oct24_002.jpg, Family_Func_Oct24_003.jpg etc
  
 The goal is to understand the following steps : 
 - Access the folder with these 100 images using code
@@ -45,7 +45,7 @@ Here's how the code for this looks like for **CASE 1** -
 import os
 
 folder_path = "./photos"  # Replace with your folder path
-new_prefix = "Family_Function_Oct_2024"
+new_prefix = "Family_Func_Oct24"
 
 files = os.listdir(folder_path)
 for i, filename in enumerate(files):
