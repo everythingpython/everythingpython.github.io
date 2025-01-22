@@ -1,7 +1,7 @@
 ---
 title: Azure Devops TIL
 date: 22-01-2025
-feed: hide
+feed: show
 ---
 
 ### 22nd Jan 2025
