@@ -14,6 +14,25 @@ Finally after some github-repo-hunting and documentation reading (No, LLMs didn'
 
 Once I explicitly set the buildContext, everything else fell in place. 😪 
 
+Here's the net snippet for the Docker part of the ADO YAML :
+
+```yaml
+  - job: Build
+    displayName: Build Docker Image
+    steps:
+      - task: Docker@2
+        displayName: Build image and tag
+        inputs:
+          command: 'build'
+          Dockerfile: ./src/intermediate_folder/Dockerfile
+          buildContext: './src/'
+          arguments: "--no-cache --build-arg <arg1> --build-arg <arg2> --pull -t latest "
+          tags: $(Build.BuildNumber)
+```
+
+Since I had omitted the buildContext, I couldn't access the files in the src folder. 
+Took me a while to figure this out. 😅
+
 ---
 
 ### Reference - 
