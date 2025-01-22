@@ -73,3 +73,8 @@ Once you've imported a package, you can use the **methods** inside the package t
 ---
 
 >`folder_path = "./photos"`
+
+
+
+---
+# WIP
