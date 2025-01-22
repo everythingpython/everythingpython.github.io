@@ -18,4 +18,4 @@ Once I explicitly set the buildContext, everything else fell in place. 😪
 
 ### Reference - 
 
-- [https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/docker-v2?view=azure-pipelines&tabs=yaml](ADO Documentation)
+- [ADO Documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/docker-v2?view=azure-pipelines&tabs=yaml)
