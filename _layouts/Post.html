@@ -80,6 +80,7 @@
 <body>
     <main>
     {%- include Nav.html -%}
+    {% include announcement-banner.html %}
     {% if page.url contains '/note/' %}
         {% assign total_seconds = page.content | number_of_words | times: 60 | divided_by: 180 %}
         {% assign minutes = total_seconds | divided_by: 60 | floor %}

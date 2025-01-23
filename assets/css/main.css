@@ -3902,3 +3902,20 @@ a.tag:hover {
     color:(--color-text-sub) !important;
   }
   
+  .announcement-banner {
+    background-color: #ffcc00; /* Yellow background */
+    color: #000; /* Black text */
+    text-align: center;
+    padding: 10px;
+    font-size: 1.1em;
+    border-bottom: 2px solid #000;
+  }
+  
+  .announcement-banner a {
+    color: #007bff; /* Blue link */
+    text-decoration: underline;
+  }
+  
+  .announcement-banner a:hover {
+    color: #0056b3; /* Darker blue on hover */
+  }
