@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "5cc22dbeb80a6a30",
+        "id": "938ea65f0ce37eab",
         "type": "tabs",
         "children": [
           {
-            "id": "95843000e0bf3356",
+            "id": "415a4e1311aeaba0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_notes/Public/Trigonometry.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -39,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -48,13 +48,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "I'm Abhiram",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,14 +64,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 596.5
   },
   "right": {
     "id": "20aaa6155b412a1b",
@@ -85,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/Public/Trigonometry.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +96,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
             }
           },
           {
@@ -102,10 +107,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_notes/Public/Trigonometry.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
             }
           },
           {
@@ -116,7 +122,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -124,9 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "_notes/Public/Trigonometry.md"
-              }
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
             }
           }
         ]
@@ -146,33 +154,54 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "95843000e0bf3356",
+  "active": "99b0a6009c7160fe",
   "lastOpenFiles": [
-    "_notes/Public/Using Decorators.md",
-    "_notes/Public/Trigonometry.md",
-    "_notes/Public/About 3.10.md",
-    "_notes/Public/Dataclasses in Python.md",
-    "_notes/Public/Trigonometry Using Python.md",
-    "_notes/Public/Trigonometry/Trigonometry Using Python.md",
-    "assets/img/article-trig/trig.gif",
-    "assets/img/article-trig",
-    "assets/img/New folder",
-    "_notes/Public/Trigonometry/dashboard.ipynb",
-    "_notes/Public/Trigonometry",
-    "_notes/Public/Design Patterns/Design Patterns in Python - 1.md",
-    "_posts/2020-03-01-features.md",
-    "_notes/Public/Design Patterns",
-    "pages/index.md",
-    "_notes/200 Private/Markdown Rendered.md",
-    "_notes/200 Private/Hidden Note.md",
-    "_notes/200 Private/Credits.md",
-    "_notes/200 Private",
-    "_posts/2020-03-01-how-to.md",
-    "pages/404.md",
-    "pages/posts.md",
-    "pages/notes.md",
-    "_notes/Public/Credits.md",
-    "_notes/Public/Hidden Note.md",
-    "_notes/Public/Markdown Rendered.md"
+    "2024-11-25.md",
+    "_notes/Public/Applications/The Apache Airflow piece.md",
+    "assets/img/applications/airflow/no-dice.png",
+    "_notes/Public/Applications/Read GoogleNews using Python.md",
+    "assets/img/applications/airflow/install-abseil-re.png",
+    "assets/img/applications/airflow/airflow-err.png",
+    "assets/img/applications/airflow",
+    "assets/img/applications/untitled folder",
+    "_notes/Public/Basics/List comprehension tuples and obj equals.md",
+    "_notes/Public/Intermediate/Chop Chop - Hash functions in Python.md",
+    "_notes/Public/Intermediate/Iterating over Itertools - 1.md",
+    "assets/img/applications/GoogleNews.png",
+    "assets/img/applications",
+    "assets/img/basics/lc_tuples/lc_tuples_1.png",
+    "assets/img/basics/lc_tuples.md",
+    "_notes/Public/Not_Python/Timeline charts.md",
+    "_notes/Public/Intermediate/Design Patterns/Design Patterns in Python - 2.md",
+    "_notes/Public/Intermediate/concurrency-async/Concurrency in Python.md",
+    "_notes/Public/Basics/Using Decorators.md",
+    "_notes/Public/Basics/The Basics - 1.md",
+    "assets/img/basics/lc_tuples",
+    "assets/img/non-python/chart.png",
+    "assets/img/basics/lc_tuples/lc_tuples_2.png",
+    "_notes/Public/Applications/Installing Streamlit.md",
+    "_notes/Public/Applications/Getting topics of Interest from HN.md",
+    "_notes/Public/Applications/Authentication using Postgres & Python.md",
+    "_notes/Public/LLM_Notes/LLM Trials 1.md",
+    "assets/img/non-python",
+    "assets/img/untitled folder",
+    "assets/img/chart.png",
+    "assets/chart.png",
+    "assets/img/sun.svg",
+    "assets/img/01_py310",
+    "assets/img/_images/others",
+    "assets/img/_images/untitled folder",
+    "assets/img/_images/ubuntu",
+    "_notes/Public/Data/Apache Iceberg.md",
+    "_notes/Public/Intermediate/Class Methods.md",
+    "_notes/Public/Intermediate/Dataclasses in Python.md",
+    "_notes/Public/Intermediate/Design Patterns/Design Patterns in Python - 1.md",
+    "_notes/Public/PEPs/Dataclasses.md",
+    "_notes/Public/Basics/Soft keywords.md",
+    "_notes/Public/Applications/Blogging/Making your first blog with mkdocs.md",
+    "_notes/Public/Reading/DDIA/Reading DDIA - Part 1.md",
+    "_notes/Public/Applications/Trigonometry.md",
+    "_notes/Public/Applications/Postgres (post 1).md",
+    "Untitled.canvas"
   ]
 }
