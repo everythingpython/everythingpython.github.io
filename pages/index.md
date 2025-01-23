@@ -6,3 +6,5 @@ layout: Post
 permalink: /
 title: Everything Python
 ---
+
+    <img src="../assets/img/logo.png">

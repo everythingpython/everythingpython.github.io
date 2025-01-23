@@ -9,4 +9,5 @@ _notes/Public/.obsidian
 **.venv**
 **.idea**
 **_notes/200 Private**
-**.DS_Store**
+**\.DS_Store**
+\.DS_Store
