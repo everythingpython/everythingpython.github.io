@@ -8,7 +8,7 @@ chrome.storage.sync.get(["blockedSites", "visitCounts"], (data) => {
     else if (hostname.includes("facebook.com")) siteKey = "facebook";
     else if (hostname.includes("reddit.com")) siteKey = "reddit";
     else if (hostname.includes("instagram.com")) siteKey = "instagram";
-    else if (hostname.includes("linkedin.com")) siteKey = "linkedIn";
+    else if (hostname.includes("linkedin.com")) siteKey = "linkedin";
     else if (hostname.includes("youtube.com")) siteKey = "youtube";
 
     if (siteKey) {
