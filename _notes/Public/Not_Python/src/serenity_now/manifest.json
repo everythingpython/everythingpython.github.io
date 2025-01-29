@@ -2,11 +2,11 @@
   "manifest_version": 3,
   "name": "Focus Mode",
   "version": "1.0",
-  "description": "Shows a splash screen on social media sites.",
+  "description": "Shows a stylish splash screen on social media sites and counts visits.",
   "permissions": ["storage"],
   "host_permissions": [
-    "*://*.twitter.com/*", "*://*.facebook.com/*", "*://*.reddit.com/*",
-    "*://*.instagram.com/*", "*://*.linkedin.com/*"
+    "*://*.x.com/*", "*://*.facebook.com/*", "*://*.reddit.com/*",
+    "*://*.instagram.com/*", "*://*.linkedin.com/*","*://*.youtube.com/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -18,7 +18,7 @@
     {
       "matches": [
         "*://*.x.com/*", "*://*.facebook.com/*", "*://*.reddit.com/*",
-        "*://*.instagram.com/*", "*://*.linkedin.com/*"
+        "*://*.instagram.com/*", "*://*.linkedin.com/*","*://*.youtube.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"

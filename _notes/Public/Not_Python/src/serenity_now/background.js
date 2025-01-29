@@ -1,11 +1,12 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set({
         blockedSites: {
-            twitter: true,
+            x: true,
             facebook: true,
             reddit: true,
             instagram: true,
-            linkedin: true
+            linkedin: true,
+            youtube: true
         }
     });
 });

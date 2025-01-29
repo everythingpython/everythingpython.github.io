@@ -1,18 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
     const checkboxes = {
-        twitter: document.getElementById("twitter"),
+        x: document.getElementById("x"),
         facebook: document.getElementById("facebook"),
         reddit: document.getElementById("reddit"),
         instagram: document.getElementById("instagram"),
         linkedin: document.getElementById("linkedin"),
+        youtube: document.getElementById("youtube")
+
     };
 
-    chrome.storage.sync.get("blockedSites", (data) => {
+    chrome.storage.sync.get(["blockedSites", "visitCounts"], (data) => {
         console.log("Loaded settings:", data);
         const blockedSites = data.blockedSites || {};
+        const visitCounts = data.visitCounts || {};
 
         Object.keys(checkboxes).forEach(site => {
             checkboxes[site].checked = blockedSites[site] ?? true;
+            
+            const countDisplay = document.createElement("span");
+            countDisplay.innerText = ` (Visited: ${visitCounts[site] || 0} times)`;
+            countDisplay.style.color = "#000b3b";
+            checkboxes[site].parentElement.appendChild(countDisplay);
         });
     });
 
