@@ -6,7 +6,6 @@ tags:
   - ollama
   - llms
 ---
-#### 1st Nov 2024
 
 
 I've been trying a lot of stuff with LLMs over the last 18 months or so. These trial posts have been a long time coming. 

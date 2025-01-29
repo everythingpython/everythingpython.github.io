@@ -3,7 +3,6 @@ title : About 3.10
 feed: show
 date : 23-09-2021
 ---
-#### 23rd Sep 2021
 
 Forget the intro posts.
 

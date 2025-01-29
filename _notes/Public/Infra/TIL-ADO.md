@@ -4,7 +4,6 @@ date: 22-01-2025
 feed: show
 ---
 
-#### 22nd Jan 2025
 
 TIL about the importance of buildContext in Azure Devops Pipelines for a Docker@2 task. 😵
 

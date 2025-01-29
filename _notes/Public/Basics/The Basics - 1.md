@@ -3,7 +3,6 @@ title: The Basics - 1
 date: 10-09-2024
 feed: show
 ---
-#### 10th Sep 2024
 
 #### What is a package in Python?
 

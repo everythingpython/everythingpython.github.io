@@ -3,7 +3,6 @@ title: GoogleNews using Python
 feed: show
 date: 2024-11-22
 ---
-#### 22nd Nov 2024
 
 *This article is part of something I'm building up to* 
 

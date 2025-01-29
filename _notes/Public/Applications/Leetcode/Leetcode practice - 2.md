@@ -6,7 +6,6 @@ tags:
   - leetcode
   - easy
 ---
-#### 15th Nov 2024
 
 I think I'm going to be more regular in trying out Leetcode problems going forward - or grinding Leetcode, as the kids call it these days. 
 I'm doing this mainly so my logical skills will stay sharp and I hope to find some nice Python concepts along the way that can then fuel my blog.

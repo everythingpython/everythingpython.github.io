@@ -3,7 +3,6 @@ title: FrozenLists
 feed: show
 date: 2025-01-07
 ---
-#### 7th Jan 2025
 
 ![Alt Text](/assets/img/intermediate/frozenlists.webp)
 

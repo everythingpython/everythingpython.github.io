@@ -6,7 +6,6 @@ tags:
   - blogs
   - application
 ---
-#### 16th Nov 2024
 
 ![Alt Text](/assets/img/blog/mkdocs/mkdocs-banner.webp)
 

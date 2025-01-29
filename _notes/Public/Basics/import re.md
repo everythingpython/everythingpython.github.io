@@ -3,7 +3,6 @@ title: import re
 feed: show
 date: 2025-01-11
 ---
-#### 11th Jan 2025
 
 I was writing some tests for work today and I accidentally ended up using the re.match() function instead of re.search() function and I thought I'd write that as today's mini-TIL.
 

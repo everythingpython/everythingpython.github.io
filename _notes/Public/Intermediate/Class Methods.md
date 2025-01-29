@@ -3,7 +3,6 @@ title: Class Methods
 feed: show
 date: 2024-11-17
 ---
-#### 17th Nov 2024
 
 > *I was today years old when I learnt about how to use the classmethod decorator in Python.*
  

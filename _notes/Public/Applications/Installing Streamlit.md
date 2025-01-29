@@ -3,7 +3,6 @@ title: Installing Streamlit
 feed: show
 date: 2024-10-30
 ---
-#### 30th Oct 2024
 
 
 This is a rather simplistic topic but one of my good friends has been trying to setup Streamlit and has been unsuccessful at it. So he asked if I could help him out.  If this helps him atleast, I will have done my job. 
