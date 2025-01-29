@@ -3919,3 +3919,10 @@ a.tag:hover {
   .announcement-banner a:hover {
     color: #0056b3; /* Darker blue on hover */
   }
+
+  .architects-daughter-regular {
+    font-family: "Architects Daughter", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
