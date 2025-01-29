@@ -1,6 +1,6 @@
 ---
 title: Focus mode - A "kutty" chrome extension
-feed: 
+feed: show
 date: 2025-01-29
 tags:
   - not-python
