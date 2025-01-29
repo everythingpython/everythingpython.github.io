@@ -85,7 +85,8 @@ All in all, a satisfying creation, even if simplistic :)
 
 Here's a quick video demonstrating it - 
 
-![](https://www.youtube.com/watch?v=1t9hAi6DUnc)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1t9hAi6DUnc?si=caJldMAgyZPZrkUP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 All the code mentioned above is available [here](https://github.com/everythingpython/everythingpython.github.io/tree/main/_notes/Public/Not_Python/src/serenity_now).
 
