@@ -6,7 +6,7 @@ tags:
   - not-python
   - llms
 ---
-### 29th Jan 2025
+#### 29th Jan 2025
 
 By now you've seen a lot of stuff being built using ChatGPT. A lot, Jerry. A LOT. 
 

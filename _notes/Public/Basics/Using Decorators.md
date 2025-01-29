@@ -3,7 +3,7 @@ title : Using Decorators
 feed: show
 date : 08-03-2023
 ---
-### 8th March 2024
+#### 8th March 2024
 
 In Python, a decorator is a way to modify or extend the behavior of a function or class without changing its source code. Decorators are a powerful tool for adding functionality to existing code, and they are especially useful when you want to apply the same behavior to multiple functions or classes.
 

@@ -6,7 +6,7 @@ tags:
   - ollama
   - llms
 ---
-### 3rd Jan 2025
+#### 3rd Jan 2025
 
 One of the most sought after things to learn right now is about how to set up your own local LLM server and how to use LLM models locally.
 With the arrival of some things like Ollama and LM Studio etc, it has become very easy.

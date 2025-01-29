@@ -3,7 +3,7 @@ title: I want to learn Python -2
 feed: show
 date: 2025-01-14
 ---
-### 14th Jan 2025
+#### 14th Jan 2025
 
 
 ### I've installed Python. Now what?
