@@ -3906,8 +3906,8 @@ a.tag:hover {
     background-color: #ffcc00; /* Yellow background */
     color: #000; /* Black text */
     text-align: center;
-    padding: 10px;
-    font-size: 1.1em;
+    padding: 8px;
+    font-size: 1em;
     border-bottom: 2px solid #000;
   }
   
