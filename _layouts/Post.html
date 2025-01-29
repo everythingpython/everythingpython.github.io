@@ -127,6 +127,8 @@
                     {%- include Feed.html -%}
             {%- endif -%}
 
+
+
             <!--- Notes Layout-->
             {%- if page.content-type == "notes" -%}
             <div class="column is-5-widescreen  is-6-desktop is-8-tablet is-12-mobile">
@@ -149,7 +151,20 @@
                     </style>                    
                     {%- endif -%}
                     <h1 class="architects-daughter-regular">{{page.title}}</h1>
-                    <h3>{{page.date}}</h3>
+                    {% assign day = page.date | date: "%-d" %}
+                    {% assign month_year = page.date | date: "%b %Y" %}
+        
+                    {% case day %}
+                    {% when '1' or '21' or '31' %}
+                        {% assign suffix = 'st' %}
+                    {% when '2' or '22' %}
+                        {% assign suffix = 'nd' %}
+                    {% when '3' or '23' %}
+                        {% assign suffix = 'rd' %}
+                    {% else %}
+                        {% assign suffix = 'th' %}
+                    {% endcase %}
+                    <p><i>{{ day }}{{ suffix }} {{ month_year }}</i></p>
                     {%- include Content.html -%}
                     {%- include Backlinks.html -%}
                     <script src="https://utteranc.es/client.js"
