@@ -1,0 +1,516 @@
+Python Tips
+"### 1. Use List Comprehensions for Concise Code
+```python
+squares = [x**2 for x in range(10)]
+```"
+"### 2. Use Enumerate Instead of Range(len())
+```python
+for i, value in enumerate(my_list):
+    print(i, value)
+```"
+"### 3. Use `zip()` to Iterate Over Multiple Lists
+```python
+for a, b in zip(list1, list2):
+    print(a, b)
+```"
+"### 4. Use `collections.Counter` for Counting Elements
+```python
+from collections import Counter
+count = Counter(my_list)
+```"
+"### 5. Use F-Strings for String Formatting
+```python
+name = 'Alice'
+print(f'Hello, {name}!')
+```"
+"### 6. Use `pathlib` for Path Operations
+```python
+from pathlib import Path
+print(Path.home())
+```"
+"### 7. Use `with` for File Handling
+```python
+with open('file.txt') as f:
+    data = f.read()
+```"
+"### 8. Use `try-except` for Exception Handling
+```python
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print('Cannot divide by zero!')
+```"
+"### 9. Use `itertools` for Efficient Iterations
+```python
+from itertools import permutations
+print(list(permutations([1, 2, 3])))
+```"
+"### 10. Use `dataclasses` for Simple Data Structures
+```python
+from dataclasses import dataclass
+@dataclass
+class Point:
+    x: int
+    y: int
+```"
+"### 11. Use `set()` for Unique Elements
+```python
+unique_values = set(my_list)
+```"
+"### 12. Use `sorted()` with a Key Function
+```python
+sorted_words = sorted(words, key=len)
+```"
+"### 13. Merge Dictionaries Using `|`
+```python
+d1 = {'a': 1}
+d2 = {'b': 2}
+d3 = d1 | d2
+```"
+"### 14. Use `defaultdict` for Missing Keys
+```python
+from collections import defaultdict
+d = defaultdict(int)
+d['missing'] += 1
+```"
+"### 15. Use `functools.lru_cache` for Memoization
+```python
+from functools import lru_cache
+@lru_cache
+def fib(n): return n if n < 2 else fib(n-1) + fib(n-2)
+```"
+"### 16. Use `map()` for Applying Functions
+```python
+squared = list(map(lambda x: x**2, range(10)))
+```"
+"### 17. Use `filter()` for Conditional Filtering
+```python
+odds = list(filter(lambda x: x % 2, range(10)))
+```"
+"### 18. Use `any()` and `all()` for Conditions
+```python
+if any(x > 10 for x in numbers):
+    print('At least one number is greater than 10')
+```"
+"### 19. Use `isinstance()` for Type Checking
+```python
+if isinstance(x, (int, float)):
+    print('x is a number')
+```"
+"### 20. Use `__name__ == '__main__'` for Scripts
+```python
+if __name__ == '__main__':
+    main()
+```"
+"### 1. Use List Comprehensions for Concise Code
+```python
+squares = [x**2 for x in range(10)]
+```"
+"### 2. Use Enumerate Instead of Range(len())
+```python
+for i, value in enumerate(my_list):
+    print(i, value)
+```"
+"### 3. Use `zip()` to Iterate Over Multiple Lists
+```python
+for a, b in zip(list1, list2):
+    print(a, b)
+```"
+"### 4. Use `collections.Counter` for Counting Elements
+```python
+from collections import Counter
+count = Counter(my_list)
+```"
+"### 5. Use F-Strings for String Formatting
+```python
+name = 'Alice'
+print(f'Hello, {name}!')
+```"
+"### 6. Use `pathlib` for Path Operations
+```python
+from pathlib import Path
+print(Path.home())
+```"
+"### 7. Use `with` for File Handling
+```python
+with open('file.txt') as f:
+    data = f.read()
+```"
+"### 8. Use `try-except` for Exception Handling
+```python
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print('Cannot divide by zero!')
+```"
+"### 9. Use `itertools` for Efficient Iterations
+```python
+from itertools import permutations
+print(list(permutations([1, 2, 3])))
+```"
+"### 10. Use `dataclasses` for Simple Data Structures
+```python
+from dataclasses import dataclass
+@dataclass
+class Point:
+    x: int
+    y: int
+```"
+"### 11. Use `set()` for Unique Elements
+```python
+unique_values = set(my_list)
+```"
+"### 12. Use `sorted()` with a Key Function
+```python
+sorted_words = sorted(words, key=len)
+```"
+"### 13. Merge Dictionaries Using `|`
+```python
+d1 = {'a': 1}
+d2 = {'b': 2}
+d3 = d1 | d2
+```"
+"### 14. Use `defaultdict` for Missing Keys
+```python
+from collections import defaultdict
+d = defaultdict(int)
+d['missing'] += 1
+```"
+"### 15. Use `functools.lru_cache` for Memoization
+```python
+from functools import lru_cache
+@lru_cache
+def fib(n): return n if n < 2 else fib(n-1) + fib(n-2)
+```"
+"### 16. Use `map()` for Applying Functions
+```python
+squared = list(map(lambda x: x**2, range(10)))
+```"
+"### 17. Use `filter()` for Conditional Filtering
+```python
+odds = list(filter(lambda x: x % 2, range(10)))
+```"
+"### 18. Use `any()` and `all()` for Conditions
+```python
+if any(x > 10 for x in numbers):
+    print('At least one number is greater than 10')
+```"
+"### 19. Use `isinstance()` for Type Checking
+```python
+if isinstance(x, (int, float)):
+    print('x is a number')
+```"
+"### 20. Use `__name__ == '__main__'` for Scripts
+```python
+if __name__ == '__main__':
+    main()
+```"
+"### 1. Use List Comprehensions for Concise Code
+```python
+squares = [x**2 for x in range(10)]
+```"
+"### 2. Use Enumerate Instead of Range(len())
+```python
+for i, value in enumerate(my_list):
+    print(i, value)
+```"
+"### 3. Use `zip()` to Iterate Over Multiple Lists
+```python
+for a, b in zip(list1, list2):
+    print(a, b)
+```"
+"### 4. Use `collections.Counter` for Counting Elements
+```python
+from collections import Counter
+count = Counter(my_list)
+```"
+"### 5. Use F-Strings for String Formatting
+```python
+name = 'Alice'
+print(f'Hello, {name}!')
+```"
+"### 6. Use `pathlib` for Path Operations
+```python
+from pathlib import Path
+print(Path.home())
+```"
+"### 7. Use `with` for File Handling
+```python
+with open('file.txt') as f:
+    data = f.read()
+```"
+"### 8. Use `try-except` for Exception Handling
+```python
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print('Cannot divide by zero!')
+```"
+"### 9. Use `itertools` for Efficient Iterations
+```python
+from itertools import permutations
+print(list(permutations([1, 2, 3])))
+```"
+"### 10. Use `dataclasses` for Simple Data Structures
+```python
+from dataclasses import dataclass
+@dataclass
+class Point:
+    x: int
+    y: int
+```"
+"### 11. Use `set()` for Unique Elements
+```python
+unique_values = set(my_list)
+```"
+"### 12. Use `sorted()` with a Key Function
+```python
+sorted_words = sorted(words, key=len)
+```"
+"### 13. Merge Dictionaries Using `|`
+```python
+d1 = {'a': 1}
+d2 = {'b': 2}
+d3 = d1 | d2
+```"
+"### 14. Use `defaultdict` for Missing Keys
+```python
+from collections import defaultdict
+d = defaultdict(int)
+d['missing'] += 1
+```"
+"### 15. Use `functools.lru_cache` for Memoization
+```python
+from functools import lru_cache
+@lru_cache
+def fib(n): return n if n < 2 else fib(n-1) + fib(n-2)
+```"
+"### 16. Use `map()` for Applying Functions
+```python
+squared = list(map(lambda x: x**2, range(10)))
+```"
+"### 17. Use `filter()` for Conditional Filtering
+```python
+odds = list(filter(lambda x: x % 2, range(10)))
+```"
+"### 18. Use `any()` and `all()` for Conditions
+```python
+if any(x > 10 for x in numbers):
+    print('At least one number is greater than 10')
+```"
+"### 19. Use `isinstance()` for Type Checking
+```python
+if isinstance(x, (int, float)):
+    print('x is a number')
+```"
+"### 20. Use `__name__ == '__main__'` for Scripts
+```python
+if __name__ == '__main__':
+    main()
+```"
+"### 1. Use List Comprehensions for Concise Code
+```python
+squares = [x**2 for x in range(10)]
+```"
+"### 2. Use Enumerate Instead of Range(len())
+```python
+for i, value in enumerate(my_list):
+    print(i, value)
+```"
+"### 3. Use `zip()` to Iterate Over Multiple Lists
+```python
+for a, b in zip(list1, list2):
+    print(a, b)
+```"
+"### 4. Use `collections.Counter` for Counting Elements
+```python
+from collections import Counter
+count = Counter(my_list)
+```"
+"### 5. Use F-Strings for String Formatting
+```python
+name = 'Alice'
+print(f'Hello, {name}!')
+```"
+"### 6. Use `pathlib` for Path Operations
+```python
+from pathlib import Path
+print(Path.home())
+```"
+"### 7. Use `with` for File Handling
+```python
+with open('file.txt') as f:
+    data = f.read()
+```"
+"### 8. Use `try-except` for Exception Handling
+```python
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print('Cannot divide by zero!')
+```"
+"### 9. Use `itertools` for Efficient Iterations
+```python
+from itertools import permutations
+print(list(permutations([1, 2, 3])))
+```"
+"### 10. Use `dataclasses` for Simple Data Structures
+```python
+from dataclasses import dataclass
+@dataclass
+class Point:
+    x: int
+    y: int
+```"
+"### 11. Use `set()` for Unique Elements
+```python
+unique_values = set(my_list)
+```"
+"### 12. Use `sorted()` with a Key Function
+```python
+sorted_words = sorted(words, key=len)
+```"
+"### 13. Merge Dictionaries Using `|`
+```python
+d1 = {'a': 1}
+d2 = {'b': 2}
+d3 = d1 | d2
+```"
+"### 14. Use `defaultdict` for Missing Keys
+```python
+from collections import defaultdict
+d = defaultdict(int)
+d['missing'] += 1
+```"
+"### 15. Use `functools.lru_cache` for Memoization
+```python
+from functools import lru_cache
+@lru_cache
+def fib(n): return n if n < 2 else fib(n-1) + fib(n-2)
+```"
+"### 16. Use `map()` for Applying Functions
+```python
+squared = list(map(lambda x: x**2, range(10)))
+```"
+"### 17. Use `filter()` for Conditional Filtering
+```python
+odds = list(filter(lambda x: x % 2, range(10)))
+```"
+"### 18. Use `any()` and `all()` for Conditions
+```python
+if any(x > 10 for x in numbers):
+    print('At least one number is greater than 10')
+```"
+"### 19. Use `isinstance()` for Type Checking
+```python
+if isinstance(x, (int, float)):
+    print('x is a number')
+```"
+"### 20. Use `__name__ == '__main__'` for Scripts
+```python
+if __name__ == '__main__':
+    main()
+```"
+"### 1. Use List Comprehensions for Concise Code
+```python
+squares = [x**2 for x in range(10)]
+```"
+"### 2. Use Enumerate Instead of Range(len())
+```python
+for i, value in enumerate(my_list):
+    print(i, value)
+```"
+"### 3. Use `zip()` to Iterate Over Multiple Lists
+```python
+for a, b in zip(list1, list2):
+    print(a, b)
+```"
+"### 4. Use `collections.Counter` for Counting Elements
+```python
+from collections import Counter
+count = Counter(my_list)
+```"
+"### 5. Use F-Strings for String Formatting
+```python
+name = 'Alice'
+print(f'Hello, {name}!')
+```"
+"### 6. Use `pathlib` for Path Operations
+```python
+from pathlib import Path
+print(Path.home())
+```"
+"### 7. Use `with` for File Handling
+```python
+with open('file.txt') as f:
+    data = f.read()
+```"
+"### 8. Use `try-except` for Exception Handling
+```python
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print('Cannot divide by zero!')
+```"
+"### 9. Use `itertools` for Efficient Iterations
+```python
+from itertools import permutations
+print(list(permutations([1, 2, 3])))
+```"
+"### 10. Use `dataclasses` for Simple Data Structures
+```python
+from dataclasses import dataclass
+@dataclass
+class Point:
+    x: int
+    y: int
+```"
+"### 11. Use `set()` for Unique Elements
+```python
+unique_values = set(my_list)
+```"
+"### 12. Use `sorted()` with a Key Function
+```python
+sorted_words = sorted(words, key=len)
+```"
+"### 13. Merge Dictionaries Using `|`
+```python
+d1 = {'a': 1}
+d2 = {'b': 2}
+d3 = d1 | d2
+```"
+"### 14. Use `defaultdict` for Missing Keys
+```python
+from collections import defaultdict
+d = defaultdict(int)
+d['missing'] += 1
+```"
+"### 15. Use `functools.lru_cache` for Memoization
+```python
+from functools import lru_cache
+@lru_cache
+def fib(n): return n if n < 2 else fib(n-1) + fib(n-2)
+```"
+"### 16. Use `map()` for Applying Functions
+```python
+squared = list(map(lambda x: x**2, range(10)))
+```"
+"### 17. Use `filter()` for Conditional Filtering
+```python
+odds = list(filter(lambda x: x % 2, range(10)))
+```"
+"### 18. Use `any()` and `all()` for Conditions
+```python
+if any(x > 10 for x in numbers):
+    print('At least one number is greater than 10')
+```"
+"### 19. Use `isinstance()` for Type Checking
+```python
+if isinstance(x, (int, float)):
+    print('x is a number')
+```"
+"### 20. Use `__name__ == '__main__'` for Scripts
+```python
+if __name__ == '__main__':
+    main()
+```"
