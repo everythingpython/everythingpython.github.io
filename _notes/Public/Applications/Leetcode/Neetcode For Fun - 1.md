@@ -1,7 +1,7 @@
 ---
 title: Neetcode For Fun - 1
 feed: show
-date: "{{date}}"
+date: 2025-02-19
 ---
 ### Solving https://neetcode.io/problems/is-anagram
 
