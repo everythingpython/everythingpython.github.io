@@ -3,11 +3,7 @@ title: Neetcode For Fun - 1
 feed: show
 date: 2025-02-19
 ---
-### Solving https://neetcode.io/problems/is-anagram
-
-# Valid Anagram
-
-Started at 1:29 AM.
+Solving https://neetcode.io/problems/is-anagram . Started at 1:29 AM.
 
 
 ![](/assets/img/lc/nc-1/nc-1-1.png)
