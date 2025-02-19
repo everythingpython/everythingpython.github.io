@@ -10,7 +10,7 @@ date: 2025-02-19
 Started at 1:29 AM.
 
 
-![[/assets/img/lc/nc-1/nc-1-1.png]]
+![](/assets/img/lc/nc-1/nc-1-1.png)
 
 ---
 
@@ -68,7 +68,7 @@ class Solution:
 
 Again, this Looks like it works but it fails when the first string is shorter than the second string. (Can you see why?)
 
-![[/assets/img/lc/nc-1/nc-1-2.png]]
+![](/assets/img/lc/nc-1/nc-1-2.png)
 
 Therefore, straight away rejecting the possibility of an anagram if the lengths of the strings don't match - 
 
@@ -93,12 +93,12 @@ class Solution:
 
 And that yielded the complete case - 
 
-![[/assets/img/lc/nc-1/nc-1-3.png]]
+![](/assets/img/lc/nc-1/nc-1-3.png)
 
 Atleast functionally....
 Let's see on Leetcode how slow our solution is. 
 
-![[/assets/img/lc/nc-1/nc-1-4.png]]
+![](/assets/img/lc/nc-1/nc-1-4.png)
 
 As expected, from a time complexity perspective, we're trailing towards the end, beating only 5% of all solutions. So let's examine this a little more. 
 
@@ -136,6 +136,6 @@ class Solution:
 
 This got a little better (down from 5800 ms to 900 ms). But still poor.
 
-![[/assets/img/lc/nc-1/nc-1-5.png]]
+![](nc-1-5.png)
 
 2.15 AM I will continue this in the morning. 
