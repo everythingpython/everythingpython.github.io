@@ -38,26 +38,27 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="category-card sports">
-                    Sports: <span id="sports_count">0</span>
+                    Sports: <span id="sports_count">{{ counts["Sports"] }}</span>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="category-card music">
-                    Music: <span id="music_count">0</span>
+                    Music: <span id="music_count">{{ counts["Music"] }}</span>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="category-card movies">
-                    Movies: <span id="movies_count">0</span>
+                    Movies: <span id="movies_count">{{ counts["Movies"] }}</span>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="category-card global-news">
-                    Global News: <span id="global_news_count">0</span>
+                    Global News: <span id="global_news_count">{{ counts["Global News"] }}</span>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script>
         var socket = io.connect('http://localhost:5001');

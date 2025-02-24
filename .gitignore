@@ -11,3 +11,6 @@ _notes/Public/.obsidian
 **_notes/200 Private**
 **\.DS_Store**
 \.DS_Store
+.obsidian/**
+.env
+.vscode/**
