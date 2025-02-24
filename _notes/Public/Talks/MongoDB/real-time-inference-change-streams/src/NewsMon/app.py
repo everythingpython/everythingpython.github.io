@@ -1,15 +1,17 @@
-from flask import Flask, render_template, request, jsonify
+from gevent import monkey
+monkey.patch_all()  # Ensure all modules are patched before importing anything else
+
+from flask import Flask, render_template
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
-import threading
-import json
-import requests
+from flask_socketio import SocketIO
+import time
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/newsDB"
 mongo = PyMongo(app)
+socketio = SocketIO(app, async_mode="gevent", cors_allowed_origins="*")
 
-# Dictionary to store category counts
 category_counts = {
     "Sports": 0,
     "Music": 0,
@@ -21,25 +23,34 @@ category_counts = {
 def index():
     return render_template('index.html', counts=category_counts)
 
-@app.route('/update', methods=['POST'])
-def update():
-    data = request.get_json()
-    category = data.get('category')
-    if category in category_counts:
-        category_counts[category] += 1
-    return '', 204
-
 def watch_changes():
-    client = MongoClient('mongodb://localhost:27017/')
-    db = client['newsDB']
-    collection = db['articles']
-    with collection.watch() as stream:
-        for change in stream:
-            if change['operationType'] == 'insert':
-                category = change['fullDocument']['category']
-                requests.post('http://localhost:5000/update', json={'category': category})
+    """ Watches MongoDB for real-time changes and emits updates via WebSockets. """
+    print("🔥 Starting MongoDB Change Stream Watcher...")  # Debugging
+    try:
+        client = MongoClient("mongodb://localhost:27017/")
+        db = client["newsDB"]
+        collection = db["articles"]
+
+        print("✅ Watching MongoDB for changes...")  # Debugging
+
+        with collection.watch() as stream:
+            for change in stream:
+                print("🔥 Detected change:", change)  # Debugging
+                if change["operationType"] == "insert":
+                    category = change["fullDocument"]["category"]
+                    if category in category_counts:
+                        category_counts[category] += 1
+                        print(f"📢 Updating count for {category}: {category_counts[category]}")  # Debugging
+                        socketio.emit("update_counts", category_counts)
+    except Exception as e:
+        print("❌ Error in watch_changes():", str(e))
 
 if __name__ == '__main__':
-    watcher_thread = threading.Thread(target=watch_changes, daemon=True)
-    watcher_thread.start()
-    app.run(debug=True)
+    print("🚀 Starting Flask app...")
+    time.sleep(1)  # Small delay to see print statements clearly
+
+    print("🛠️ Spawning MongoDB watcher thread...")
+    socketio.start_background_task(watch_changes)  # Run in background
+
+    print("🟢 Running Flask with WebSockets...")
+    socketio.run(app, debug=True, host="0.0.0.0", port=5001)

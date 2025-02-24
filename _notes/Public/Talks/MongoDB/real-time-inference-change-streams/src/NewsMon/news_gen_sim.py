@@ -60,4 +60,4 @@ def insert_article(article):
 while True:
     article = generate_article()
     insert_article(article)
-    time.sleep(5)
+    time.sleep(10)
