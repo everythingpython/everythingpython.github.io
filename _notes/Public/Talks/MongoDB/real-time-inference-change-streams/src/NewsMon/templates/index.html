@@ -22,6 +22,7 @@
             font-size: 1.5rem;
             font-weight: bold;
             transition: transform 0.2s ease-in-out;
+            position: relative;
         }
         .category-card:hover {
             transform: scale(1.05);
@@ -30,35 +31,45 @@
         .music { background-color: #6b5b95; }
         .movies { background-color: #4ecdc4; }
         .global-news { background-color: #ffb400; }
+
+        /* 🔥 Flame animation */
+        @keyframes flame {
+            0% { box-shadow: 0 0 10px rgba(255, 69, 0, 0.5); transform: scale(1); }
+            50% { box-shadow: 0 0 30px rgba(255, 69, 0, 0.9), 0 0 50px rgba(255, 140, 0, 0.8); transform: scale(1.1); }
+            100% { box-shadow: 0 0 10px rgba(255, 69, 0, 0.3); transform: scale(1); }
+        }
+
+        .flame {
+            animation: flame 0.7s ease-in-out;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mb-4">📢 Live News Category Counts</h1>
+        <h1 class="text-center mb-4">🔥 Live News Category Counts 🔥</h1>
         <div class="row">
             <div class="col-md-3">
-                <div class="category-card sports">
+                <div class="category-card sports" id="sports_card">
                     Sports: <span id="sports_count">{{ counts["Sports"] }}</span>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="category-card music">
+                <div class="category-card music" id="music_card">
                     Music: <span id="music_count">{{ counts["Music"] }}</span>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="category-card movies">
+                <div class="category-card movies" id="movies_card">
                     Movies: <span id="movies_count">{{ counts["Movies"] }}</span>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="category-card global-news">
+                <div class="category-card global-news" id="global_news_card">
                     Global News: <span id="global_news_count">{{ counts["Global News"] }}</span>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script>
         var socket = io.connect('http://localhost:5001');
@@ -69,10 +80,26 @@
 
         socket.on('update_counts', function(data) {
             console.log("Received update:", data);
-            document.getElementById('sports_count').innerText = data["Sports"];
-            document.getElementById('music_count').innerText = data["Music"];
-            document.getElementById('movies_count').innerText = data["Movies"];
-            document.getElementById('global_news_count').innerText = data["Global News"];
+
+            function updateCategory(category, newValue) {
+                let countElement = document.getElementById(`${category}_count`);
+                let cardElement = document.getElementById(`${category}_card`);
+
+                if (countElement.innerText != newValue) {
+                    countElement.innerText = newValue;
+
+                    // Apply flame effect
+                    cardElement.classList.add('flame');
+                    setTimeout(() => {
+                        cardElement.classList.remove('flame');
+                    }, 700);
+                }
+            }
+
+            updateCategory("sports", data["Sports"]);
+            updateCategory("music", data["Music"]);
+            updateCategory("movies", data["Movies"]);
+            updateCategory("global_news", data["Global News"]);
         });
 
         socket.on('disconnect', function() {
