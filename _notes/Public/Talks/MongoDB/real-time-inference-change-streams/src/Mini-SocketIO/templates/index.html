@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocketIO Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <h2>Flask-SocketIO Chat</h2>
+    <input type="text" id="messageInput" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <ul id="messages"></ul>
+
+    <script>
+        // Connect to the Flask-SocketIO server
+        var socket = io.connect("http://192.168.68.105:5002");
+
+        // Function to send a message
+        function sendMessage() {
+            var message = document.getElementById("messageInput").value;
+            socket.send(message);  // Send message to the server
+        }
+
+        // Listen for messages from the server
+        socket.on("message", function(msg) {
+            console.log("📩 Received:", msg);
+            
+            // Add message to the chat display
+            var li = document.createElement("li");
+            li.textContent = msg;
+            document.getElementById("messages").appendChild(li);
+        });
+    </script>
+</body>
+</html>
