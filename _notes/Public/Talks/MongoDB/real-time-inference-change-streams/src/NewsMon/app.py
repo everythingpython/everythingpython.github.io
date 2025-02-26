@@ -31,7 +31,7 @@ category_counts = get_initial_counts()
 
 @app.route('/')
 def index():
-    return render_template('index.html', counts=category_counts)
+    return render_template('frontpage.html', counts=category_counts)
 
 # ✅ MongoDB Change Stream Watcher
 def watch_changes():
