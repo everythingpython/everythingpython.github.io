@@ -1,8 +1,14 @@
 from pymongo import MongoClient
-
+import os 
 import time
 import random
+import sys
+from opik import track
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from common.llm_utils import invoke_llm
 
+
+os.environ["OPIK_URL_OVERRIDE"] = "http://localhost:5173/api"
 # Sample templates for each category
 templates = {
     "Sports": "Breaking: Local team wins championship game.",
@@ -25,28 +31,12 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client['newsDB']
 collection = db['articles']
 
-import openai
 
-import conf
-# OpenAI API key
-api_key = conf.api_key
-
+@track
 def classify_article(article):
-    from openai import OpenAI
-    client = OpenAI(api_key=api_key)
-    prompt="Classify the following article into one of the categories: Sports, Music, Movies, Global News."
-
-    completion = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[
-        {"role": "developer", "content":prompt},
-        {"role": "user", "content": str(article)}
-    ]
-    )
-
-    print(completion.choices[0].message)
-
-    category = completion.choices[0].message.content
+    sys_prompt="Classify the following article into one of the categories: Sports, Music, Movies, Global News."
+    user_prompt = str(article)
+    category = invoke_llm(sys_prompt, user_prompt)
     return category
 
 # Inside the article insertion function

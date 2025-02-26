@@ -33,5 +33,5 @@ def decode_objectid(object_id: str):
 
 # Example Usage
 if __name__ == "__main__":
-    object_id = "65d8e64f1a2d3a0b6fcd9e12"  # Replace with any ObjectId
+    object_id = "67bd3b23c4a560c402966ccd"  # Replace with any ObjectId
     decode_objectid(object_id)
