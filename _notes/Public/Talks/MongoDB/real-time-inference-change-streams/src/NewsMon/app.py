@@ -18,10 +18,11 @@ def get_initial_counts():
     collection = db["articles"]
 
     initial_counts = {
+        "Politics": collection.count_documents({"category": "Politics"}),
+        "Tech": collection.count_documents({"category": "Tech"}),
         "Sports": collection.count_documents({"category": "Sports"}),
-        "Music": collection.count_documents({"category": "Music"}),
-        "Movies": collection.count_documents({"category": "Movies"}),
-        "Global News": collection.count_documents({"category": "Global News"}),
+        "Entertainment": collection.count_documents({"category": "Entertainment"}),
+        "Misc": collection.count_documents({"category": "Misc"})
     }
     print("📊 Initial category counts:", initial_counts)  # Debugging print
     return initial_counts
@@ -46,10 +47,14 @@ def watch_changes():
         for change in stream:
             if change["operationType"] == "insert":
                 category = change["fullDocument"]["category"]
+                title = change["fullDocument"]["title"]
                 if category in category_counts:
                     category_counts[category] += 1
+                    latest_news = {"title": f"Breaking: {category} News - {title}", "category": category}
+
                     print(f"📢 Updating count for {category}: {category_counts[category]}")
-                    socketio.emit("update_counts", category_counts)
+                    socketio.emit('update_counts', {**category_counts, "latest_news": latest_news})
+
 
 if __name__ == '__main__':
     print("🚀 Starting Flask app...")

@@ -1,12 +1,17 @@
 from openai import AzureOpenAI
 import os
-from dotenv import load_dotenv
-load_dotenv()
+
+# Create a file named config.py in the same directory as this file
+# and add the following lines:
+# azure_endpoint = "<deployment>"
+# azureai_key="<azure key>"
+# azure_model="<model name>"
+from .config import azure_endpoint, azureai_key, azure_model
 
 class AzureClient():
     def __init__(self):
-        self.client = AzureOpenAI(azure_endpoint=os.getenv("azure_endpoint"),
-                                      api_key=os.getenv("azureai_key"),
-                                      api_version="2024-05-01-preview"
-                                      )
-        self.model = os.environ.get("azure_model")
+        self.client = AzureOpenAI(azure_endpoint=azure_endpoint,
+                                  api_key=azureai_key,
+                                  api_version="2024-02-15-preview"
+                                  )
+        self.model = azure_model

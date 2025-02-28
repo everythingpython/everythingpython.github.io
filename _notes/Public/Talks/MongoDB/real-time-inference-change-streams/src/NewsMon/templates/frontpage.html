@@ -27,10 +27,11 @@
         .category-card:hover {
             transform: scale(1.05);
         }
-        .sports { background-color: #ff6b6b; }
-        .music { background-color: #6b5b95; }
-        .movies { background-color: #4ecdc4; }
-        .global-news { background-color: #ffb400; }
+        .tech { background-color: #ff6b6b; }
+        .politics { background-color: #6b5b95; }
+        .sports { background-color: #4ecdc4; }
+        .entertainment { background-color: #ffb400; }
+        .misc { background-color: #00ff00; }
 
         /* 🔥 Flame animation */
         @keyframes flame {
@@ -48,27 +49,38 @@
     <div class="container">
         <h1 class="text-center mb-4">🔥 Live News Category Counts 🔥</h1>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
+                <div class="category-card tech" id="tech_card">
+                    Tech: <span id="tech_count">{{ counts["Tech"] }}</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="category-card politics" id="Politics_card">
+                    Politics: <span id="politics_count">{{ counts["Politics"] }}</span>
+                </div>
+            </div>
+            <div class="col-md-2">
                 <div class="category-card sports" id="sports_card">
                     Sports: <span id="sports_count">{{ counts["Sports"] }}</span>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="category-card music" id="music_card">
-                    Music: <span id="music_count">{{ counts["Music"] }}</span>
+                <div class="category-card entertainment" id="entertainment_card">
+                    Entertainment: <span id="entertainment_count">{{ counts["Entertainment"] }}</span>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="category-card movies" id="movies_card">
-                    Movies: <span id="movies_count">{{ counts["Movies"] }}</span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="category-card global-news" id="global_news_card">
-                    Global News: <span id="global_news_count">{{ counts["Global News"] }}</span>
+            <div class="col-md-2">
+                <div class="category-card misc" id="misc_card">
+                    Misc: <span id="misc_count">{{ counts["Misc"] }}</span>
                 </div>
             </div>
         </div>
+        <div class="container mt-5">
+    <h2 class="text-center mb-4">📰 Latest News Update </h2>
+    <div id="latest_news" class="alert alert-primary text-center">
+        No news updates yet.
+    </div>
+</div>
     </div>
 
     <script>
@@ -96,10 +108,21 @@
                 }
             }
 
+            updateCategory("tech", data["Tech"]);
+            updateCategory("politics", data["Politics"]);
             updateCategory("sports", data["Sports"]);
-            updateCategory("music", data["Music"]);
-            updateCategory("movies", data["Movies"]);
-            updateCategory("global_news", data["Global News"]);
+            updateCategory("entertainment", data["Entertainment"]);
+            updateCategory("misc", data["Misc"]);
+    // Update latest news article
+    if (data["latest_news"]) {
+        let latestNewsElement = document.getElementById("latest_news");
+        latestNewsElement.innerHTML = `<strong>${data["latest_news"]["title"]}</strong> `;
+        latestNewsElement.classList.add("alert-success");  // Highlight when new article arrives
+
+        setTimeout(() => {
+            latestNewsElement.classList.remove("alert-success");
+        }, 2000);
+    }
         });
 
         socket.on('disconnect', function() {
