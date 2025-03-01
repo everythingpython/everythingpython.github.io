@@ -143,3 +143,9 @@ Let's consider this piece by piece :
 This changes automatically every 20 seconds. 
 
 Hopefully this gave you an idea of how Change Streams can be used!
+
+---
+
+### Codebase - 
+
+All the code for this project can be found [here](https://github.com/everythingpython/everythingpython.github.io/tree/main/_notes/Public/Talks/MongoDB/real-time-inference-change-streams/src/NewsMon).
