@@ -10,7 +10,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")  # Enable WebSockets
 
 @app.route('/')
 def index():
-    return render_template('index.html')  # Serve the frontend
+    return render_template('socket-frontpage.html')  # Serve the frontend
 
 # Event listener for messages
 @socketio.on('message')
