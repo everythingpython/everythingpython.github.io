@@ -1,5 +1,5 @@
 ---
-title: Capturing Change Streams - Post 0
+title: Streaming Real-Time AI Inference Results into MongoDB
 feed: show
 date: 2025-02-28
 ---
