@@ -2,8 +2,11 @@
 title: Streaming Real-Time AI Inference Results into MongoDB
 feed: show
 date: 2025-02-28
+tags:
+  - talks
+  - mongodb
 ---
-#talks  #mongodb
+
 
 
 I'm going to be presenting a talk at a Mongo DB User group meetup later today and I thought I'd write about it so that it would - 
