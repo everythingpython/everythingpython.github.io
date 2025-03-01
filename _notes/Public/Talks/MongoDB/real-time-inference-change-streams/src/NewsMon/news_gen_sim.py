@@ -22,12 +22,7 @@ for i in range(len(news_articles_dict["Category"])):
         items_[cat] = [news_articles_dict["Title"][i]]
     else:
         items_[cat].append(news_articles_dict["Title"][i])
-templates = {
-    "Sports": "Breaking: Local team wins championship game.",
-    "Music": "New album release tops the charts this week.",
-    "Movies": "Upcoming blockbuster set to hit theaters soon.",
-    "Global News": "International summit addresses climate change."
-}
+
 
 
 def generate_article():
