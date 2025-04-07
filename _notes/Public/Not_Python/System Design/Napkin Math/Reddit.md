@@ -68,7 +68,7 @@ I asked this to Grok and it started with this -
 This was seemingly convincing, but what I still didn't understand was where do you pull these numbers out of for a social media site? Another question to Grok - 
 <p/>
 
-<img src="../../../../../assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-2.png" /></div>
+<img src="../../../../../assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-2.png" />
 <div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> <p></p><p> <p/>
 I tried verifying this claim and it Was apparently close to 450 MAU as of 2023. A few more sources give me 600 MAU in 2025. But Napkin math does allow for some roughness. So let's estimate 500 MAU.
 <p/>
