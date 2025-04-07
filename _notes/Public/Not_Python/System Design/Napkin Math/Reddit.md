@@ -3,9 +3,10 @@ title: Napkin Math-ing Reddit
 feed: show
 date: 2025-04-07
 ---
-I've done **some** Napkin Math in my different jobs in the last decade but it's been ad-hoc or purpose driven at that moment and I've not thought about it much . Today, I came across a [tweet](https://x.com/One2NC/status/1909209892801356125) and a rabbit hole of a [blog](https://sirupsen.com/napkin) recently and I thought I'd consciously think about it for a few usecases. I'm sure I will get a lot of things wrong but over time I hope to tune it to be right. 
+I've done **some** Napkin Math - an essential part of system design - in my different jobs in the last decade but it's been ad-hoc or purpose driven at that moment and I've not thought about it much . Today, I came across a [tweet](https://x.com/One2NC/status/1909209892801356125) and a rabbit hole of a [blog](https://sirupsen.com/napkin) after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions. 
+I'm sure I will get a lot of things wrong, but over time I hope to tune it to be right. 
 
-The first case I'm thinking about is Reddit - the self proclaimed newspaper of the Internet. It's more of a Consumer facing Online service, rather than a system level service but I think Napkin Math could apply here. 
+The first case I'm thinking about is [Reddit](https://reddit.com) - the self proclaimed newspaper of the Internet. It's more of a Consumer facing Online service, rather than a system level service but I think Napkin Math could apply here. 
 
 Let's look at the front page of Reddit for starters - 
 
