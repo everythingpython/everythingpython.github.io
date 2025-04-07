@@ -13,13 +13,13 @@ Manim is an opensource package created by them to help generate the animations t
 - Create a new virtual environment and install manim and manimgl
 	- `uv pip install manim manimgl`
 - Use Claude to generate a manim program for a formula or something you want to demonstrate - 
-	- E.g. : https://claude.ai/share/4e8601c7-c2b1-42b6-95e0-52059378902f
-- Create a program that you got out of claude - [[Manim Program for x-squared]] (https://claude.site/artifacts/fdfb2ed3-efcb-45df-b459-e0a32c5571a3)
+	- E.g. : [My Claude Example](https://claude.ai/share/4e8601c7-c2b1-42b6-95e0-52059378902f)
+- Create a program that you got out of claude - [Manim Program for x-squared](https://claude.site/artifacts/fdfb2ed3-efcb-45df-b459-e0a32c5571a3)
 	- Execute it - 
 	- `manim -pql xsquared.py ExplainXSquared`
 - This results in this beautiful 3 Blue 1 Brown like video!
-	-
-![[ExplainXSquared.mp4]]
-References : 
+
+![](https://www.youtube.com/watch?v=5Ql_vAj0ZVs)
+
 - https://github.com/HarleyCoops/Math-To-Manim
 - https://github.com/3b1b/manim
