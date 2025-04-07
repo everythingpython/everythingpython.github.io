@@ -38,8 +38,6 @@ I sat down and first thought of these and then I tried to ask Grok to critique m
 The initial consensus was that while my thought process was on the right track with respect to breaking up of Reddit into components, Napkin Math is all about answering a question wrt understanding a part of a system or a goal for a system - 
 For e.g. perhaps Reddit's scale or its system demand. 
 
----
-
 I was still a little fuzzy about what worked by way of Napkin Math for Reddit, so I Grokked a little more and it was actually helpful : 
 
 ---
@@ -70,9 +68,7 @@ I asked this to Grok and it started with this -
 This was seemingly convincing, but what I still didn't understand was where do you pull these numbers out of for a social media site? Another question to Grok - 
 <p/>
 
-<img src="assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-2.png" />
-
-</div>
+<img src="../../../../../assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-2.png" /></div>
 <div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> <p></p><p> <p/>
 I tried verifying this claim and it Was apparently close to 450 MAU as of 2023. A few more sources give me 600 MAU in 2025. But Napkin math does allow for some roughness. So let's estimate 500 MAU.
 <p/>
@@ -84,6 +80,7 @@ Then accounting for the fact that maybe around 20% of the DAU are simultaneously
 
 
 ---
+
 
 Here's the rest of what it said - 
 
@@ -100,7 +97,7 @@ Here I had one more "***trust but verify***" moment.
 
 <div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> <p></p><p> <b><u><i>Trust but verify</i></u><p/>
 
-<img src="assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-3.png" />
+<img src="../../../../../assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-3.png" />
 </div>
 <div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> 
 I learnt one more hindsight-is-20-20 thing from Grok in that - 
