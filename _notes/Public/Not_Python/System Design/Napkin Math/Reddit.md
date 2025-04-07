@@ -64,7 +64,11 @@ I asked this to Grok and it started with this -
 
 ---
 
-<div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> <p></p><p> <u><i>Trust but verify</i></u><p/>
+<div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black">
+<p/>
+<p/> 
+<u><i>Trust but verify</i></u>
+<p/>
 This was seemingly convincing, but what I still didn't understand was where do you pull these numbers out of for a social media site? Another question to Grok - 
 <p/>
 
@@ -74,8 +78,7 @@ I tried verifying this claim and it Was apparently close to 450 MAU as of 2023. 
 <p/>
 Then the DAU, estimated as a 10th of the MAU would be 50M DAU - Grok has already rounded up to that. 
 <p/>
-Then accounting for the fact that maybe around 20% of the DAU are simultaneously online - that's 10M users online. Very cool to have landed here. 
-</div>
+Then accounting for the fact that maybe around 20% of the DAU are simultaneously online - that's 10M users online. Very cool to have landed here.</div>
 
 
 ---
@@ -94,7 +97,11 @@ Grok estimates 2% of the 50M Daily active Users indulge in commenting every hour
 
 Here I had one more "***trust but verify***" moment.
 
-<div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> <p></p><p> <u><i>Trust but verify</i></u><p/>
+<div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> 
+<p/>
+<p/> 
+<u><i>Trust but verify</i></u>
+<p/>
 
 <img src="../../../../../assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-3.png" />
 
@@ -107,7 +114,7 @@ I learnt one more hindsight-is-20-20 thing from Grok in that -
 </ul>
 <p/>
 That was convincing enough for me to understand why comments were being captured at the DAU level.
-<p></p>
+<p/>
 </div>
 
 **So roughly, total number of activities per hour : 51M things/hour.**
