@@ -3,18 +3,18 @@ title: Napkin Math-ing Reddit
 feed: show
 date: 2025-04-07
 ---
-I've done **some** Napkin Math - an essential part of system design - in my different jobs in the last decade but it's been ad-hoc or purpose driven at that moment and I've not thought about it much . Today, I came across a [tweet](https://x.com/One2NC/status/1909209892801356125) and a rabbit hole of a [blog](https://sirupsen.com/napkin) after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions. 
+I've done **some** Napkin Math - an essential part of system design - in my different jobs in the last decade but it's been ad-hoc or purpose driven at that moment and I've not thought about it much . Today, I came across a [tweet from One2N](https://x.com/One2NC/status/1909209892801356125) and a rabbit hole of a [blog by Simon Eskildsen](https://sirupsen.com/napkin) after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions. 
 I'm sure I will get a lot of things wrong, but over time I hope to tune it to be right. 
 
-The first case I'm thinking about is [Reddit](https://reddit.com) - the self proclaimed newspaper of the Internet. It's more of a Consumer facing Online service, rather than a system level service but I think Napkin Math could apply here. 
+The first case I'm thinking about is [Reddit](https://reddit.com) - the self proclaimed newspaper of the Internet. It's more of a Consumer facing Online service, rather than a system level/infra service but I think Napkin Math will apply here. 
 
 Let's look at the front page of Reddit for starters - 
 
 ![alt-text](/assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-1.png)
 
 So there's a lot happening on this page. 
-If we wanted to do some Napkin Math for Reddit, what all would we consider?
-
+If we wanted to do some Napkin Math for Reddit, what all should I presumptively consider?
+Things that come to mind just surveying the website are - 
 <ol>
 <li> Number of users online at any given point of time (expecting a frontpage screen)</li>
 <li> Total number of users trying to log in at a single point in time (concurrent authentication)</li>
@@ -22,12 +22,12 @@ If we wanted to do some Napkin Math for Reddit, what all would we consider?
 <li>Number of trending results when you click on the Search bar</li>
 </ol>
 
-I sat down and first thought of these and then I tried to ask Grok to critique my thoughts - 
+After jotting these down, I tried to ask [Grok](https://x.com/i/grok) to critique my thoughts and see if these "metrics" qualify for Napkin Math  - 
 
 <b>Here's what I learnt :</b>
 
 <div><ol>
-	<li> On the right track, but <u>number of users online</u> is a very vague metric. It could mean total number of users online or just those hitting the front page. A better metric would be <u>peak concurrent users</u></li><p/>
+	<li> I'm on the right track, but <u>number of users online</u> is a very vague metric. It could mean total number of users online or just those hitting the front page. A better metric would be <u>peak concurrent users</u></li><p/>
 	<li> <u>Authentication load</u> is a bit too niche a usecase unless I'm focussing on backend infrastructure. Without login behaviour data, this might also be difficult to estimate. 
 	   A better metric would be <u>peak logins per second</u> apparently.</li><p/>
 	<li> <u>Response time</u> does not typically fall under the umbrella of "napkin math" since Napkin math is more for quantities (e.g. users, posts) rather than performance metrics that are dependent on the system design itself. In retrospect, this seems obvious (facepalm). This should not be on the list or should be reframed as <u>Number of subreddit page requests per second</u> which is estimable (estimatable?) from user activity. </li><p/>
@@ -39,7 +39,7 @@ I sat down and first thought of these and then I tried to ask Grok to critique m
 The initial consensus was that while my thought process was on the right track with respect to breaking up of Reddit into components, Napkin Math is all about answering a question wrt understanding a part of a system or a goal for a system - 
 For e.g. perhaps Reddit's scale or its system demand. 
 
-I was still a little fuzzy about what worked by way of Napkin Math for Reddit, so I Grokked a little more and it was actually helpful : 
+I was still a little fuzzy about what worked by way of Napkin Math for a use case like Reddit, so I "Grok"ked a little more and it was actually helpful : 
 
 ---
 
@@ -53,7 +53,7 @@ Think of Reddit as a giant beehive: you don’t count every bee, but you can gue
  
 ---
 
-This was excellent. Okay, now I was starting to understand what qualified for Napkin math.
+This was excellent. Okay, now I was starting to understand what qualified for Napkin math. **It is about what it takes for a system to work under conditions of peak-usage, scale or real-time demands.**
 
 So let's say I wanted to estimate :
 
