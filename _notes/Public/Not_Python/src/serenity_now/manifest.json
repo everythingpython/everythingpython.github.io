@@ -2,11 +2,11 @@
   "manifest_version": 3,
   "name": "Focus Mode",
   "version": "1.0",
-  "description": "Shows a stylish splash screen on social media sites and counts visits.",
-  "permissions": ["storage"],
+  "description": "Shows a stylish splash screen on social media sites and fetches a Python tip from a local CSV.",
+  "permissions": ["storage", "activeTab"],
   "host_permissions": [
     "*://*.x.com/*", "*://*.facebook.com/*", "*://*.reddit.com/*",
-    "*://*.instagram.com/*", "*://*.linkedin.com/*","*://*.youtube.com/*"
+    "*://*.instagram.com/*", "*://*.linkedin.com/*", "*://*.youtube.com/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -23,10 +23,16 @@
     {
       "matches": [
         "*://*.x.com/*", "*://*.facebook.com/*", "*://*.reddit.com/*",
-        "*://*.instagram.com/*", "*://*.linkedin.com/*","*://*.youtube.com/*"
+        "*://*.instagram.com/*", "*://*.linkedin.com/*", "*://*.youtube.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data/system_design_tips.csv"],
+      "matches": ["<all_urls>"]
     }
   ],
   "options_page": "settings.html"

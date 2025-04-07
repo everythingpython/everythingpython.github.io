@@ -4,52 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus Mode Settings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-         body {
+        body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #ff9aff, #50faff);
-            color: black;
+            background: linear-gradient(135deg, #89CFF0, #FFB6C1);
+            color: #1c1c1c;
             padding: 40px;
-            
         }
+
         h1 {
             font-weight: 600;
             font-size: 28px;
             margin-bottom: 20px;
         }
+
         .settings-container {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 20px;
-            border-radius: 36px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
             display: inline-block;
             text-align: left;
-            box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
-            width: 300px;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
+            width: 400px;
         }
+
         label {
-            display: block;
-            font-size: 14px;
-            margin: 10px 0;
-            padding: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            margin: 12px 0;
         }
-        input {
+
+        input[type="checkbox"] {
             margin-right: 10px;
-            transform: scale(1.2);
+            transform: scale(1.3);
         }
+
         button {
-            background: #50aa9f;
+            background: #1E88E5;
+            color: white;
             border: none;
-            padding: 10px 14px;
+            padding: 12px 24px;
             border-radius: 10px;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
             transition: background 0.3s;
         }
+
         button:hover {
-            background: #50facf;
+            background: #1565C0;
+        }
+
+        .download-btn {
+            background: #1E88E5;
+            margin-bottom: 10px;
+        }
+
+        .download-btn:hover {
+            background: #1565C0;
         }
     </style>
     <script src="settings.js" defer></script>
@@ -57,14 +72,15 @@
 <body>
     <h1>Focus Mode Settings</h1>
     <div class="settings-container">
-        <label><input type="checkbox" id="x"> Block X</label>
-        <label><input type="checkbox" id="facebook"> Block Facebook</label>
-        <label><input type="checkbox" id="reddit"> Block Reddit</label>
-        <label><input type="checkbox" id="instagram"> Block Instagram</label>
-        <label><input type="checkbox" id="linkedin"> Block LinkedIn</label>
-        <label><input type="checkbox" id="youtube"> Block Youtube</label>
-
-        <button id="save">Save</button>
+        <label><input type="checkbox" id="x"> Block X <span id="x-count"></span></label>
+        <label><input type="checkbox" id="facebook"> Block Facebook <span id="facebook-count"></span></label>
+        <label><input type="checkbox" id="reddit"> Block Reddit <span id="reddit-count"></span></label>
+        <label><input type="checkbox" id="instagram"> Block Instagram <span id="instagram-count"></span></label>
+        <label><input type="checkbox" id="linkedin"> Block LinkedIn <span id="linkedin-count"></span></label>
+        <label><input type="checkbox" id="youtube"> Block Youtube <span id="youtube-count"></span></label>
+        <button id="save">Save</button>    <button id="downloadLogs" class="download-btn">Download Visited Logs</button>
     </div>
+    
+
 </body>
 </html>
