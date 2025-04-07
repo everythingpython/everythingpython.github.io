@@ -23,14 +23,14 @@ If we wanted to do some Napkin Math for Reddit, what all would we consider?
 
 I sat down and first thought of these and then I tried to ask Grok to critique my thoughts - 
 
-<u>Here's what I learnt :</u>
+<b>Here's what I learnt :</b>
 
 <div><ol>
-	<li> On the right track, but <u>number of users online</u> is a very vague metric. It could mean total number of users online or just those hitting the front page. A better metric would be <u>peak concurrent users</u>
+	<li> On the right track, but <u>number of users online</u> is a very vague metric. It could mean total number of users online or just those hitting the front page. A better metric would be <u>peak concurrent users</u></li><p/>
 	<li> <u>Authentication load</u> is a bit too niche a usecase unless I'm focussing on backend infrastructure. Without login behaviour data, this might also be difficult to estimate. 
-	   A better metric would be <u>peak logins per second</u> apparently.
-	<li> <u>Response time</u> does not typically fall under the umbrella of "napkin math" since Napkin math is more for quantities (e.g. users, posts) rather than performance metrics that are dependent on the system design itself. In retrospect, this seems obvious (facepalm). This should not be on the list or should be reframed as "<u>Number of subreddit page requests per second</u>" which is estimable (estimatable?) from user activity. 
-	<li> <u>Number of Trending results</u> is more of a UI choice than a Napkin math metric. This could be replaced with "<u>Number of searches per second</u> - again estimable from user activity.
+	   A better metric would be <u>peak logins per second</u> apparently.</li><p/>
+	<li> <u>Response time</u> does not typically fall under the umbrella of "napkin math" since Napkin math is more for quantities (e.g. users, posts) rather than performance metrics that are dependent on the system design itself. In retrospect, this seems obvious (facepalm). This should not be on the list or should be reframed as <u>Number of subreddit page requests per second</u> which is estimable (estimatable?) from user activity. </li><p/>
+	<li> <u>Number of Trending results</u> is more of a UI choice than a Napkin math metric. This could be replaced with <u>Number of searches per second</u> - again estimable from user activity.</li>
 </ol></div>
 
 ---
