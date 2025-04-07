@@ -14,10 +14,12 @@ Let's look at the front page of Reddit for starters -
 So there's a lot happening on this page. 
 If we wanted to do some Napkin Math for Reddit, what all would we consider?
 
-1)  Number of users online at any given point of time (expecting a frontpage screen)
-2) Total number of users trying to log in at a single point in time (concurrent authentication)
-3) Response time when any subreddit is accessed
-4) Number of trending results when you click on the Search bar
+<ol>
+<li> Number of users online at any given point of time (expecting a frontpage screen)</li>
+<li> Total number of users trying to log in at a single point in time (concurrent authentication)</li>
+<li>Response time when any subreddit is accessed</li>
+<li>Number of trending results when you click on the Search bar</li>
+</ol>
 
 I sat down and first thought of these and then I tried to ask Grok to critique my thoughts - 
 
@@ -25,11 +27,12 @@ I sat down and first thought of these and then I tried to ask Grok to critique m
 
 <ol>
 	<li> On the right track, but <b>number of users online</b> is a very vague metric. It could mean total number of users online or just those hitting the front page. A better metric would be "<b>peak concurrent users</b>"
-	<li> <b>Authentication load<b> is a bit too niche a usecase unless I'm focussing on backend infrastructure. Without login behaviour data, this might also be difficult to estimate. 
-	   A better metric would be "<b>peak logins per second<b>" apparently.
-	<li> <b>Response time<b> does not typically fall under the umbrella of "napkin math" since Napkin math is more for quantities (e.g. users, posts) rather than performance metrics that are dependent on the system design itself. In retrospect, this seems obvious (facepalm). This should not be on the list or should be reframed as "<b>Number of subreddit page requests per second<b>" which is estimable (estimatable?) from user activity. 
-	<li> <b>Number of Trending results<b> is more of a UI choice than a Napkin math metric. This could be replaced with "<b>Number of searches per second<b>" - again estimable from user activity.
+	<li> <b>Authentication load</b> is a bit too niche a usecase unless I'm focussing on backend infrastructure. Without login behaviour data, this might also be difficult to estimate. 
+	   A better metric would be "<b>peak logins per second</b>" apparently.
+	<li> <b>Response time</b> does not typically fall under the umbrella of "napkin math" since Napkin math is more for quantities (e.g. users, posts) rather than performance metrics that are dependent on the system design itself. In retrospect, this seems obvious (facepalm). This should not be on the list or should be reframed as "<b>Number of subreddit page requests per second</b>" which is estimable (estimatable?) from user activity. 
+	<li> <b>Number of Trending results</b> is more of a UI choice than a Napkin math metric. This could be replaced with "<b>Number of searches per second</b>" - again estimable from user activity.
 </ol>
+
 ---
 
 The initial consensus was that while my thought process was on the right track with respect to breaking up of Reddit into components, Napkin Math is all about answering a question wrt understanding a part of a system or a goal for a system - 
