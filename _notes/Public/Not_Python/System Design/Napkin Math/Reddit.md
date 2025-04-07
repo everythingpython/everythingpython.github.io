@@ -9,7 +9,7 @@ The first case I'm thinking about is Reddit - the self proclaimed newspaper of t
 
 Let's look at the front page of Reddit for starters - 
 
-![[/assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-1.png]]
+![alt-text](/assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-1.png)
 
 So there's a lot happening on this page. 
 If we wanted to do some Napkin Math for Reddit, what all would we consider?
