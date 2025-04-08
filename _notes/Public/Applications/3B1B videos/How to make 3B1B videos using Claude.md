@@ -15,7 +15,8 @@ Manim is an opensource package created by them to help generate the animations t
 - Create a program that you got out of claude - [Manim Program for x-squared](https://claude.site/artifacts/fdfb2ed3-efcb-45df-b459-e0a32c5571a3)
 - Execute it -  `manim -pql xsquared.py ExplainXSquared`
 
-This results in this beautiful 3 Blue 1 Brown like video! - ![https://www.youtube.com/watch?v=5Ql_vAj0ZVs](https://www.youtube.com/watch?v=5Ql_vAj0ZVs)
+This results in this beautiful 3 Blue 1 Brown like video! - 
+[https://www.youtube.com/watch?v=5Ql_vAj0ZVs](https://www.youtube.com/watch?v=5Ql_vAj0ZVs)
 
 - https://github.com/HarleyCoops/Math-To-Manim
 - https://github.com/3b1b/manim
