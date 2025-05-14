@@ -1,0 +1,1 @@
+<div style="background-color:#ffcc00; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b> Placeholder </b> </p> <p></p> <p> <em>Placeholder </em></p> </div>
