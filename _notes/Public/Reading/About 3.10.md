@@ -17,11 +17,11 @@ Heh. This is not intended to be a typical Medium manual post. We’re going to h
 ## So, let’s look at the timeline of version 3.10 so far.
 The very first 3.10 alpha was released on Oct 5 2020, a little less than a year ago. And according to the official Python website, there were expected to be only 6 alpha releases - 3.10.0a1 to 3.10.0a6
 
-![Alt Text](/assets/img/article-1/1.png)
+![Alt Text](/assets/img/01_py310/1.png)
 
 This thought process seems to have continued till 3.10.a4 - Jan 2021.
 
-![Alt Text](/assets/img/article-1/2.webp)
+![Alt Text](/assets/img/01_py310/2.webp)
 
 
 So the final alpha version was released on Apr 5 2021.
@@ -51,7 +51,7 @@ While steps 1 and 3 are expected to install without incident, step 2 might throw
 
 Example -
 
-![Alt Text](/assets/img/article-1/3.webp)
+![Alt Text](/assets/img/01_py310/3.webp)
 
 If Steps 1 and 3 have completed successfully, congratulations, you’ve just installed python3.10 on your local WSL system and are now ready to try it out. I was ready to try it out.
 
@@ -134,11 +134,11 @@ Thirdly, if you use dataclasses, you can compare custom cases pertinent to your 
 
 Executing the above code snippet (full in Github repo), this is how it looks -
 
-![Alt Text](/assets/img/article-1/4.png)
+![Alt Text](/assets/img/01_py310/4.png)
 
-![Alt Text](/assets/img/article-1/5.png)
+![Alt Text](/assets/img/01_py310/5.png)
 
-![Alt Text](/assets/img/article-1/6.png)
+![Alt Text](/assets/img/01_py310/6.png)
 
 
 
@@ -161,7 +161,7 @@ It looks like if the argument to the code was a file with a “json” extension
 
 But the result was simply “Success” and the second case wasn’t even stepped into.
 
-![Alt Text](/assets/img/article-1/7.webp)
+![Alt Text](/assets/img/01_py310/7.webp)
 
 
 If you’d like to read more, the advised order of reading is PEP-636, followed by the other two.
@@ -174,18 +174,18 @@ What are Union Types and when can they be used?
 
 For example -
 
-![Alt Text](/assets/img/article-1/8.webp)
+![Alt Text](/assets/img/01_py310/8.webp)
 
 Here func1 is expected to accept two parameters of type ‘int’ or ‘float’ each and return either an ‘int’ or ‘float’ value.
 
 With Python3.10’s latest feature, you can replace the typing.Union type with the pipe (“|”) symbol, effectively making the previous snippet as follows -
 
-![Alt Text](/assets/img/article-1/9.webp)
+![Alt Text](/assets/img/01_py310/9.webp)
 
 
 Here’s a code snippet with both usages on Python 3.10 (i.e. typing.Union Is still supported) and also highlighting the expectations of a typechecker like Pyright when used with typehints in place -
 
-![Alt Text](/assets/img/article-1/10.webp)
+![Alt Text](/assets/img/01_py310/10.webp)
 
 
 The error highlight suggests exactly what is expected out of a typechecker. The point to note is that this checking will not be enforced by the Python interpreter directly. It will have to be by way of typecheckers like these (this is well known to veteran users of typehints since 3.5, but beginners might be flummoxed to not get any errors despite “flouting the rules”).
@@ -198,11 +198,11 @@ Error messages are what help us understand where our code needs fixing to functi
 To be fair, in all its previous versions, it has Tried.
 
 Consider this circuitous way of adding two numbers with a dictionary in the middle with no real purpose -
-![Alt Text](/assets/img/article-1/11.webp)
+![Alt Text](/assets/img/01_py310/11.webp)
 
 
 In Python 3.7 and up until Python 3.9, this is what you’d get if you tried executing this buggy code snippet.
-![Alt Text](/assets/img/article-1/12.webp)
+![Alt Text](/assets/img/01_py310/12.webp)
 
 
 
@@ -210,7 +210,7 @@ The problem is indicated to be at a line succeeding the real offender, the incom
 
 This has gotten better with Python 3.10 -
 
-![Alt Text](/assets/img/article-1/13.webp)
+![Alt Text](/assets/img/01_py310/13.webp)
 
 
 letting us know the Exact error for failure.
@@ -219,17 +219,17 @@ Then there’s the dreaded beginner-challenge : <span style="color:red">Indentat
 
 I’ve seen so many people starting with Python coming in from a braces-based language tripping on this with code snippets (exaggerated) like so -
 
-![Alt Text](/assets/img/article-1/14.webp)
+![Alt Text](/assets/img/01_py310/14.webp)
 
 
 Only to be greeted rudely on versions <=3.9 with -
 
-![Alt Text](/assets/img/article-1/15.webp)
+![Alt Text](/assets/img/01_py310/15.webp)
 
 Well…Maybe , this particular example’s error isn’t so much rude, as curt.
 
 But the equivalent Python 3.10 error Is warmer!
-![Alt Text](/assets/img/article-1/16.webp)
+![Alt Text](/assets/img/01_py310/16.webp)
 
 
 Now it is worth noting that the way this error message reads is mildly strange. It says “…after ‘if’ statement on line 2” and it is to be read as such - i.e. the if statement was on line 2 and the error is after that - on line 3 as hinted in the first line of the error. I wouldn’t be surprised if oversight made people look For the indentation error on line 2.
