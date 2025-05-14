@@ -22,15 +22,17 @@ So having gone through this time and time again, I thought I could do something 
 
 While it got the bare minimum accomplished, in that, I now had a ready reckoner of all the services that needed to be up each time, I had no way of tracking when something went Down during operations. Additionally, if any of the services were not started , either at startup or by me, the service would simply be neglected till such time as an error would alert me. 
 
-> *Rejected coz :* Tick-boxes fixed my **forgetfulness** but still left me blind to mid-session crashes.
+> **Rejected coz :** Tick-boxes fixed my **forgetfulness** but still left me blind to mid-session crashes.
 ---
 
 This was not working out. 
 
 Over time, I tried/considered a few more things - 
-a) **writing a script** to start them all at once at startup - this failed miserably more often than not since there were some interfering services running because of other ongoing experiments.
-b) **Creating batch scripts** since aliases were missing in Windows and this is predominantly a Windows based platform
-c) **Docker-izing** All the services. But the amount of RAM that was consumed when I ran all the services (except SQL Server and company-specific-services) was a bit more than I liked - speaks to my lack of knowledge in optimizing Docker, I'm sure.
+<ol>
+<li> **writing a script** to start them all at once at startup - this failed miserably more often than not since there were some interfering services running because of other ongoing experiments.</li>
+<li> **Creating batch scripts** since aliases were missing in Windows and this is predominantly a Windows based platform</li>
+<li> **Docker-izing** All the services. But the amount of RAM that was consumed when I ran all the services (except SQL Server and company-specific-services) was a bit more than I liked - speaks to my lack of knowledge in optimizing Docker, I'm sure.</li>
+</ol>
 
 ---
 So after months of this sort of juggling, a few weeks ago, I thought - 
@@ -38,6 +40,8 @@ So after months of this sort of juggling, a few weeks ago, I thought -
 > I've enjoyed using Textual for other projects. 
 > Many of these services can be polled for their status from their ports / Win process running status
 > Why not write a Textual app combining these two facts?
+
+---
 
 #### Actually let's back up - Iteration 2. 
 
@@ -50,6 +54,8 @@ So the first iteration of the program resulted in something like this -
 
 I was also suggested a Prometheus dashboard that I summarily rejected because of the unnecessary level of complexity I was inviting for myself for a personal setup. (Although, I Will set something up with Prometheus eventually - just for masochism's sake.)
 
+---
+
 ####  Iteration 3
 
 The improvement on the above was a CLI based table with ASCII ✔ and ✖ . Like so - 
@@ -57,6 +63,8 @@ The improvement on the above was a CLI based table with ASCII ✔ and ✖ . Like
 ![Alt Text](/assets/img/applications/textual/status/t3.png)
 
 > *Rejected coz :* A CLI table with ✔/✖ cut my scan-time, yet couldn’t _alert_ me when a cell flipped.
+
+---
 ####  Iteration 4
 
 This is where I thought of Textual. And I asked for a service monitoring dashboard which did not look as plain as the JSON response above . The result was a little error-ridden but this is where Knowing programming while 'vibe-coding' helps. 
@@ -66,6 +74,8 @@ After the  manual fixes, which admittedly took lesser time than if I'd had to ha
 ![Alt Text](/assets/img/applications/textual/status/t4.png)
 
 > *NOT REJECTED!! PROGRESS :* Now for the final lap
+
+---
 #### Final set of iterations and the end result!
 
 From here on, it was mostly smooth sailing. 
