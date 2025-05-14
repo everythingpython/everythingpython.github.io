@@ -56,7 +56,7 @@
                   {% when '3' or '23' %}{% assign suffix = 'rd' %}
                   {% else %}{% assign suffix = 'th' %}
                 {% endcase %}
-                    <i>{{ day }}{{ suffix }} {{ month_year }}</i> : <a href="{{ site.baseurl }}{{note_items.url}}">
+                    <i> {{ day }}{{ suffix }} {{ month_year }} </i> : <a href="{{ site.baseurl }}{{note_items.url}}">
                         <h6>{{ note_items.title }}</h6>
                         <p class="excerpt">
                             {{ note_items.content | strip_html | strip | remove: "[[" | remove: "]]" | remove: "-" | escape | truncate: 200 }}
