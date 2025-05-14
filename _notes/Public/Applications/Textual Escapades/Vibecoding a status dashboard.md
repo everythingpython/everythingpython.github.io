@@ -22,16 +22,18 @@ So having gone through this time and time again, I thought I could do something 
 
 While it got the bare minimum accomplished, in that, I now had a ready reckoner of all the services that needed to be up each time, I had no way of tracking when something went Down during operations. Additionally, if any of the services were not started , either at startup or by me, the service would simply be neglected till such time as an error would alert me. 
 
-> **Rejected coz :** Tick-boxes fixed my **forgetfulness** but still left me blind to mid-session crashes.
+<div style="background-color:#FFFF33; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:white"> <p></p><p> <b>
+<b>Rejected coz :<b> Tick-boxes fixed my **forgetfulness** but still left me blind to mid-session crashes.
+</b></p></div>
 ---
 
 This was not working out. 
 
 Over time, I tried/considered a few more things - 
 <ol>
-<li> **writing a script** to start them all at once at startup - this failed miserably more often than not since there were some interfering services running because of other ongoing experiments.</li>
-<li> **Creating batch scripts** since aliases were missing in Windows and this is predominantly a Windows based platform</li>
-<li> **Docker-izing** All the services. But the amount of RAM that was consumed when I ran all the services (except SQL Server and company-specific-services) was a bit more than I liked - speaks to my lack of knowledge in optimizing Docker, I'm sure.</li>
+<li> <b>writing a script</b> to start them all at once at startup - this failed miserably more often than not since there were some interfering services running because of other ongoing experiments.</li>
+<li> <b>Creating batch scripts</b> since aliases were missing in Windows and this is predominantly a Windows based platform</li>
+<li> <b>Docker-izing</b> All the services. But the amount of RAM that was consumed when I ran all the services (except SQL Server and company-specific-services) was a bit more than I liked - speaks to my lack of knowledge in optimizing Docker, I'm sure.</li>
 </ol>
 
 ---
