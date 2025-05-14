@@ -48,7 +48,15 @@
     {% for note_items in note_items %}
         {%- if note_items.feed == "show" -%}
                 <div class="notelist-feed">
-                    <a href="{{ site.baseurl }}{{note_items.url}}">
+                    {% assign day = page.date | date: "%-d" %}
+                {% assign month_year = page.date | date: "%b %Y" %}
+                {% case day %}
+                  {% when '1' or '21' or '31' %}{% assign suffix = 'st' %}
+                  {% when '2' or '22' %}{% assign suffix = 'nd' %}
+                  {% when '3' or '23' %}{% assign suffix = 'rd' %}
+                  {% else %}{% assign suffix = 'th' %}
+                {% endcase %}
+                    <i>{{ day }}{{ suffix }} {{ month_year }}</i> : <a href="{{ site.baseurl }}{{note_items.url}}">
                         <h6>{{ note_items.title }}</h6>
                         <p class="excerpt">
                             {{ note_items.content | strip_html | strip | remove: "[[" | remove: "]]" | remove: "-" | escape | truncate: 200 }}

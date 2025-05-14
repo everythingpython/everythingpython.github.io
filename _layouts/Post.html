@@ -180,7 +180,7 @@ Copyright (c) 2020 Raghuveer S, Hiran Venugopalan, Asim K T
               {% include Content.html %}
               {% for post in site.posts %}
                 <div class="list-feed">
-                  <i>{{ day }}{{ suffix }} {{ month_year }}</i> : <a href="{{ site.baseurl }}{{ post.url }}" class="writinglist-title">
+                  <a href="{{ site.baseurl }}{{ post.url }}" class="writinglist-title">
                     {{ post.title }}
                   </a>
                 </div>
