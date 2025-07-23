@@ -1673,10 +1673,10 @@ a[href^="http"] {
 }
 
 .hero-logo {
-    width: 120px;
-    height: 120px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1843,8 +1843,8 @@ a[href^="http"] {
     }
     
     .hero-logo {
-        width: 100px;
-        height: 100px;
+        width: 160px;
+        height: 160px;
     }
     
     .hero-section {
