@@ -49,7 +49,30 @@
         {%- if note_items.feed == "show" -%}
                 <div class="notelist-feed">
                     <a href="{{ site.baseurl }}{{note_items.url}}">
-                        <h6>{{ note_items.title }}</h6>
+                        <div class="note-header">
+                            {% if note_items.date %}
+                                {% assign date_parts = note_items.date | split: "-" %}
+                                {% assign day = date_parts[0] %}
+                                {% assign month = date_parts[1] %}
+                                {% assign year = date_parts[2] %}
+                                {% case month %}
+                                    {% when '01' %}{% assign month_name = 'Jan' %}
+                                    {% when '02' %}{% assign month_name = 'Feb' %}
+                                    {% when '03' %}{% assign month_name = 'Mar' %}
+                                    {% when '04' %}{% assign month_name = 'Apr' %}
+                                    {% when '05' %}{% assign month_name = 'May' %}
+                                    {% when '06' %}{% assign month_name = 'Jun' %}
+                                    {% when '07' %}{% assign month_name = 'Jul' %}
+                                    {% when '08' %}{% assign month_name = 'Aug' %}
+                                    {% when '09' %}{% assign month_name = 'Sep' %}
+                                    {% when '10' %}{% assign month_name = 'Oct' %}
+                                    {% when '11' %}{% assign month_name = 'Nov' %}
+                                    {% when '12' %}{% assign month_name = 'Dec' %}
+                                {% endcase %}
+                                <time class="note-date" datetime="{{ note_items.date }}">{{ day }} {{ month_name }} {{ year }}</time>
+                            {% endif %}
+                            <h6>{{ note_items.title }}</h6>
+                        </div>
                         <p class="excerpt">
                             {{ note_items.content | strip_html | strip | remove: "[[" | remove: "]]" | remove: "-" | escape | truncate: 200 }}
                         </p>
@@ -73,6 +96,27 @@
                         <div class="writinglist-title">
                             {{note_items.title }}
                         </div>
+                        {% if note_items.date %}
+                            {% assign date_parts = note_items.date | split: "-" %}
+                            {% assign day = date_parts[0] %}
+                            {% assign month = date_parts[1] %}
+                            {% assign year = date_parts[2] %}
+                            {% case month %}
+                                {% when '01' %}{% assign month_name = 'Jan' %}
+                                {% when '02' %}{% assign month_name = 'Feb' %}
+                                {% when '03' %}{% assign month_name = 'Mar' %}
+                                {% when '04' %}{% assign month_name = 'Apr' %}
+                                {% when '05' %}{% assign month_name = 'May' %}
+                                {% when '06' %}{% assign month_name = 'Jun' %}
+                                {% when '07' %}{% assign month_name = 'Jul' %}
+                                {% when '08' %}{% assign month_name = 'Aug' %}
+                                {% when '09' %}{% assign month_name = 'Sep' %}
+                                {% when '10' %}{% assign month_name = 'Oct' %}
+                                {% when '11' %}{% assign month_name = 'Nov' %}
+                                {% when '12' %}{% assign month_name = 'Dec' %}
+                            {% endcase %}
+                            <time class="list-date" datetime="{{ note_items.date }}">{{ day }} {{ month_name }} {{ year }}</time>
+                        {% endif %}
                     </a>
             </div>
         {%-endif -%}

@@ -385,10 +385,35 @@ ul ul {
     color: var(--color-text-link);
 }
 
-.related-group h6, .notelist-feed h6 {
-    padding: 0.4rem 0 !important;
-    font-weight: 600;
+/* Note header with date styling */
+.note-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     margin-bottom: 0.5rem;
+}
+
+.note-date {
+    font-size: var(--text-xs);
+    color: var(--color-text-sub);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', monospace;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.notelist-feed:hover .note-date {
+    color: var(--color-text-link);
+    opacity: 1;
+}
+
+.related-group h6, .notelist-feed h6 {
+    padding: 0 !important;
+    font-weight: 600;
+    margin: 0;
+    font-size: var(--text-m);
 }
 
 /* List Feed - Clean Modern Style */
@@ -443,6 +468,23 @@ ul ul {
 .writinglist-title {
     font-weight: 500;
     font-size: var(--text-m);
+}
+
+/* List date styling */
+.list-date {
+    font-size: var(--text-xs);
+    color: var(--color-text-sub);
+    font-weight: 500;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', monospace;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.list-feed:hover .list-date {
+    color: var(--color-text-link);
+    opacity: 1;
 }
 
 /* 08. Figures, Images, Code, Blockquotes, Tables */
@@ -2214,6 +2256,20 @@ html {
     
     .content {
         padding: 0 0.25rem;
+    }
+    
+    /* Mobile date styling */
+    .list-date {
+        font-size: var(--text-xs);
+        margin-left: 0.5rem;
+    }
+    
+    .note-date {
+        font-size: var(--text-xs);
+    }
+    
+    .note-header {
+        gap: 0.15rem;
     }
 }
 
