@@ -1629,19 +1629,19 @@ a[href^="http"] {
 }
 
 .home-intro {
-    padding: 2rem 0;
-    max-width: 1200px;
+    padding: 2rem 1rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 /* Hero Section */
 .hero-section {
-    padding: 4rem 2rem 6rem;
+    padding: 3rem 1.5rem 4rem;
     background: linear-gradient(135deg, 
         var(--color-bg-main) 0%, 
         var(--color-bg-sub) 100%);
-    border-radius: 20px;
-    margin-bottom: 4rem;
+    border-radius: 16px;
+    margin-bottom: 3rem;
     position: relative;
     overflow: hidden;
 }
@@ -1661,8 +1661,8 @@ a[href^="http"] {
 .hero-content {
     display: flex;
     align-items: center;
-    gap: 3rem;
-    max-width: 1000px;
+    gap: 2.5rem;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -1673,10 +1673,10 @@ a[href^="http"] {
 }
 
 .hero-logo {
-    width: 180px;
-    height: 180px;
-    border-radius: 25px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1764,7 +1764,7 @@ a[href^="http"] {
 
 /* Featured Topics Section */
 .featured-topics {
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .featured-topics h2 {
@@ -1777,9 +1777,9 @@ a[href^="http"] {
 
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -1843,16 +1843,16 @@ a[href^="http"] {
     }
     
     .hero-logo {
-        width: 140px;
-        height: 140px;
+        width: 100px;
+        height: 100px;
     }
     
     .hero-section {
-        padding: 3rem 1.5rem 4rem;
+        padding: 2.5rem 1rem 3rem;
     }
     
     .featured-topics {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
     
     .topics-grid {
@@ -1867,12 +1867,12 @@ a[href^="http"] {
 
 @media screen and (max-width: 480px) {
     .home-intro {
-        padding: 1rem 0;
+        padding: 1rem 0.5rem;
     }
     
     .hero-section {
-        padding: 2rem 1rem 3rem;
-        margin-bottom: 2rem;
+        padding: 2rem 0.75rem 2.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .btn-primary, .btn-secondary {
@@ -2039,6 +2039,45 @@ a[href^="http"] {
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+}
+
+/* Enhanced layout spacing for all pages */
+.section {
+    padding: 2rem 1rem;
+}
+
+.columns {
+    margin: 0;
+}
+
+.column {
+    padding: 0.5rem;
+}
+
+.note-page-section {
+    padding: 0 1rem;
+    max-width: none;
+}
+
+/* Better content width and spacing */
+.content {
+    max-width: none;
+    margin: 0;
+}
+
+/* Improved mobile responsiveness for spacing */
+@media screen and (max-width: 768px) {
+    .section {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .column {
+        padding: 0.25rem;
+    }
+    
+    .note-page-section {
+        padding: 0 0.5rem;
+    }
 }
 
 
