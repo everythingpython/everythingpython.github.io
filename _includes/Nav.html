@@ -35,18 +35,7 @@
           <span class="brand-text">{{site.heading}}</span>
           <span class="brand-accent">🐍</span>
       </a>
-      <script src="{{ site.baseurl }}/assets/js/modeswitcher.js"></script>
       <script src="{{ site.baseurl }}/assets/js/Hamburger.js"></script>
-      
-      <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
-        <div class="buttons">
-          <a class="button is-text theme-toggle-btn">
-            <span class="icon is-small">
-              <img src="{{ '/assets/img/sun.svg' | relative_url }}" id="theme-toggle-img--mobile">
-            </span>
-          </a>
-        </div>
-      </div>
       
       <a role="button" class="navbar-burger modern-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -69,17 +58,6 @@
             </svg>
           </span>
         </a>
-      </div>
-      <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-text theme-toggle-btn">
-              <span class="icon is-small">
-                <img src="{{ '/assets/img/sun.svg' | relative_url }}" id="theme-toggle-img">
-              </span>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </nav>

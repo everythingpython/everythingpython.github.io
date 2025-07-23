@@ -4,8 +4,7 @@ layout: Stylesheet
 @import "fruity.css";
 
 
-html,
-html[data-theme="light"] {
+html {
     --color-bg-main: #FFFFFF;
     --color-bg-sub: #FAFAFC;
     --color-text-main: #282832;
@@ -14,43 +13,6 @@ html[data-theme="light"] {
     --color-border-dark: #363636;
     --color-border: #BABCBD;
     --color-border-light: #E5E5E5;
-}
-
-html[data-theme="dark"] {
-    --color-bg-main: #262626;
-    --color-bg-sub: #18181C;
-    --color-text-main: #FAFAFC;
-    --color-text-sub: #FFFEFF;
-    --color-text-link: #6D9EFF;
-    --color-border-dark: #E6E6E6;
-    --color-border: #696969;
-    --color-border-light: #353535;
-}
-
-@media (prefers-color-scheme: dark) {
-
-    html,
-    html[data-theme="dark"] {
-        --color-bg-main: #262626;
-        --color-bg-sub: #18181C;
-        --color-text-main: #FAFAFC;
-        --color-text-sub: #FFFEFF;
-        --color-text-link: #6D9EFF;
-        --color-border-dark: #E6E6E6;
-        --color-border: #696969;
-        --color-border-light: #353535;
-    }
-
-    html[data-theme="light"] {
-        --color-bg-main: #FFFFFF;
-        --color-bg-sub: #FAFAFC;
-        --color-text-main: #282832;
-        --color-text-sub: #5D5D67;
-        --color-text-link: #2380ED;
-        --color-border-dark: #363636;
-        --color-border: #BABCBD;
-        --color-border-light: #E5E5E5;
-    }
 }
 
 :root {
@@ -1930,10 +1892,6 @@ a[href^="http"] {
     transition: all 0.3s ease;
 }
 
-html[data-theme="dark"] .modern-nav {
-    background: rgba(38, 38, 38, 0.9);
-}
-
 .brand-link {
     display: flex;
     align-items: center;
@@ -2019,31 +1977,6 @@ html[data-theme="dark"] .modern-nav {
     transform: scale(1.1);
 }
 
-.theme-toggle-btn {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    background: var(--color-bg-sub);
-    border: 1px solid var(--color-border-light);
-}
-
-.theme-toggle-btn:hover {
-    background: var(--color-text-link);
-    transform: rotate(180deg) scale(1.1);
-    border-color: var(--color-text-link);
-}
-
-.theme-toggle-btn img {
-    transition: filter 0.3s ease;
-}
-
-.theme-toggle-btn:hover img {
-    filter: brightness(0) invert(1);
-}
 
 .modern-burger {
     border: none;
