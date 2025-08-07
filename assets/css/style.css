@@ -15,6 +15,17 @@ html {
     --color-border-light: #E5E5E5;
 }
 
+html[data-theme="dark"] {
+    --color-bg-main: #1a1a1a;
+    --color-bg-sub: #252525;
+    --color-text-main: #e4e4e4;
+    --color-text-sub: #a0a0a0;
+    --color-text-link: #4a90e2;
+    --color-border-dark: #363636;
+    --color-border: #404040;
+    --color-border-light: #333333;
+}
+
 :root {
     --text-xs: clamp(0.70rem, calc(0.79rem + -0.06vw), 0.78rem);
     --text-s: clamp(0.94rem, calc(0.94rem + 0.00vw), 0.94rem);
@@ -113,10 +124,16 @@ code {
 pre {
     background: var(--color-bg-sub);
     border: 1px solid var(--color-border-light);
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 1.5rem;
     overflow-x: auto;
     position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+pre:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 pre code {
@@ -126,6 +143,65 @@ pre code {
     border-radius: 0;
     font-size: 0.9em;
     line-height: 1.5;
+}
+
+/* Code block with language label */
+pre[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    color: var(--color-text-sub);
+    background: var(--color-bg-main);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+/* Copy code button */
+.code-block-wrapper {
+    position: relative;
+}
+
+.copy-code-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--color-bg-main);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    color: var(--color-text-sub);
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.code-block-wrapper:hover .copy-code-btn {
+    opacity: 1;
+}
+
+.copy-code-btn:hover {
+    background: var(--color-text-link);
+    color: white;
+    border-color: var(--color-text-link);
+}
+
+/* Highlight.js theme adjustments for dark mode */
+html[data-theme="dark"] pre {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+html[data-theme="dark"] code {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e4e4e4;
 }
 
 h1,
@@ -1892,6 +1968,39 @@ a[href^="http"] {
     transition: all 0.3s ease;
 }
 
+html[data-theme="dark"] .modern-nav {
+    background: rgba(26, 26, 26, 0.9);
+}
+
+/* Dark mode toggle button */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--color-border);
+    border-radius: 50px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    border-color: var(--color-text-link);
+    transform: scale(1.05);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-text-main);
+    fill: none;
+    transition: all 0.3s ease;
+}
+
 .brand-link {
     display: flex;
     align-items: center;
@@ -2041,6 +2150,127 @@ html {
     scroll-padding-top: 80px;
 }
 
+/* Enhanced animations and transitions */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations to page elements */
+.hero-section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.featured-topics {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.topic-card {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.topic-card:nth-child(1) { animation-delay: 0.1s; }
+.topic-card:nth-child(2) { animation-delay: 0.2s; }
+.topic-card:nth-child(3) { animation-delay: 0.3s; }
+.topic-card:nth-child(4) { animation-delay: 0.4s; }
+
+.notelist-feed {
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+.notelist-feed:nth-child(odd) { animation-delay: 0.1s; }
+.notelist-feed:nth-child(even) { animation-delay: 0.2s; }
+
+/* Enhanced hover effects */
+.hero-logo {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-primary,
+.btn-secondary {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-link {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Smooth loading animation for images */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img:not([src]) {
+    opacity: 0;
+}
+
+/* Enhanced focus states for accessibility */
+button:focus,
+a:focus,
+input:focus {
+    outline: 2px solid var(--color-text-link);
+    outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Subtle page transitions */
+body {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Enhanced scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-sub);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-link);
+}
+
 /* Enhanced layout spacing for all pages */
 .section {
     padding: 2rem 1rem;
@@ -2077,6 +2307,105 @@ html {
     
     .note-page-section {
         padding: 0 0.5rem;
+    }
+    
+    /* Mobile navigation improvements */
+    .navbar-menu {
+        background: var(--color-bg-main);
+        border: 1px solid var(--color-border-light);
+        border-radius: 12px;
+        margin: 0.5rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-item {
+        border-radius: 8px;
+        margin: 0.25rem 0.5rem;
+    }
+    
+    .theme-toggle {
+        margin: 0.5rem auto;
+        margin-left: 0.5rem;
+    }
+    
+    /* Mobile typography improvements */
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        text-align: center;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--text-l);
+        text-align: center;
+    }
+    
+    .hero-description p {
+        font-size: var(--text-m);
+        text-align: center;
+    }
+    
+    /* Mobile code blocks */
+    pre {
+        font-size: 0.8rem;
+        padding: 1rem;
+        margin: 0 -0.5rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    /* Mobile cards and feeds */
+    .notelist-feed,
+    .related-group,
+    .topic-card {
+        margin: 0 -0.5rem 1rem;
+        border-radius: 8px;
+        padding: 1.25rem;
+    }
+    
+    /* Mobile table responsiveness */
+    table {
+        font-size: 0.8rem;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+    
+    /* Touch-friendly buttons */
+    .btn-primary,
+    .btn-secondary {
+        min-height: 44px;
+        font-size: var(--text-m);
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Extra small screens */
+    .hero-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .featured-topics h2 {
+        font-size: var(--text-xl);
+    }
+    
+    .topic-card {
+        padding: 1.5rem;
+    }
+    
+    pre {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+    }
+    
+    /* Compact navigation on very small screens */
+    .navbar-brand .brand-text {
+        font-size: var(--text-m);
+    }
+    
+    .nav-text {
+        font-size: var(--text-s);
     }
 }
 
