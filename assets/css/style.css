@@ -177,6 +177,14 @@ html {
     scroll-behavior: smooth;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
 body {
     counter-reset: sidenote-counter;
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -184,6 +192,8 @@ body {
     line-height: 1.6;
     background-color: var(--color-bg-main);
     color: var(--color-text-main);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .section {
@@ -280,6 +290,7 @@ main {
     margin-top: 2rem;
     max-width: none;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .related-group {
@@ -1633,7 +1644,7 @@ label.srs-toggle {
 
 @media screen and (max-width: 900px) and (min-width: 771px) {
     .related-wrapper {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 }
@@ -1972,6 +1983,10 @@ a[href^="http"] {
     .notelist-feed {
         min-height: 150px;
         padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     .topic-card {
@@ -2010,12 +2025,16 @@ a[href^="http"] {
     .notelist-feed {
         min-height: 120px;
         padding: 0.875rem;
+        width: 100%;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
 
 @media screen and (max-width: 1024px) {
     .related-wrapper {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.25rem;
     }
 }
@@ -2275,10 +2294,15 @@ html {
 @media screen and (max-width: 768px) {
     .section {
         padding: 2rem 1rem;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
     
     .column {
         padding: 0.5rem;
+        width: 100%;
+        max-width: 100%;
     }
     
     .note-page-section {
