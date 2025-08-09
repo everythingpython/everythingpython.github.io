@@ -240,9 +240,14 @@ main {
 }
 
 .excerpt {
-    color: var(--color-text-main) !important;
+    color: var(--color-text-sub) !important;
     margin: 0;
     font-size: var(--text-s) !important;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* 06. Related Notes - Clean List Style */
@@ -269,11 +274,12 @@ main {
 
 .related-wrapper {
     column-count: 1 !important;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1rem;
-    max-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: none;
+    width: 100%;
 }
 
 .related-group {
@@ -347,38 +353,24 @@ ul ul {
 
 .notelist-feed {
     color: var(--color-text-main);
-    display: flex;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background: transparent;
-    border: none;
-    border-left: 3px solid transparent;
+    display: block;
+    padding: 1.5rem;
+    background: var(--color-bg-main);
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
     transition: all 0.3s ease;
     position: relative;
-    border-radius: 0;
-    margin-bottom: 0.25rem;
-}
-
-.notelist-feed::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--color-text-link);
-    transform: scaleY(0);
-    transition: transform 0.3s ease;
-}
-
-.notelist-feed:hover::before {
-    transform: scaleY(1);
+    min-height: 200px;
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--color-text-link);
+    margin-bottom: 0;
 }
 
 .notelist-feed:hover {
-    transform: translateX(8px);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-left-color: var(--color-accent-primary);
     background: var(--color-bg-sub);
-    border-left-color: var(--color-text-link);
 }
 
 .notelist-feed a {
@@ -397,8 +389,8 @@ ul ul {
 .note-header {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .note-date {
@@ -1737,32 +1729,38 @@ a[href^="http"] {
 
 .hero-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    text-align: center;
 }
 
-.logo-container {
-    flex-shrink: 0;
+.logo-banner-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1rem;
 }
 
-.hero-logo {
-    width: 180px;
-    height: 180px;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+.hero-banner {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-large);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.1);
+    object-fit: contain;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.02);
 }
 
-.hero-logo:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    border: 3px solid rgba(255, 255, 255, 0.2);
+.hero-banner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero-text {
@@ -1935,15 +1933,16 @@ a[href^="http"] {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .hero-content {
-        flex-direction: column;
-        text-align: center;
         gap: 2rem;
     }
     
-    .hero-logo {
-        width: 140px;
-        height: 140px;
-        border-radius: 25px;
+    .logo-banner-container {
+        max-width: 90%;
+    }
+    
+    .hero-banner {
+        max-height: 120px;
+        border-radius: 12px;
     }
     
     .hero-section {
@@ -1960,6 +1959,17 @@ a[href^="http"] {
     
     .hero-actions {
         justify-content: center;
+    }
+    
+    .related-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .notelist-feed {
+        min-height: 150px;
+        padding: 1rem;
     }
     
     .topic-card {
