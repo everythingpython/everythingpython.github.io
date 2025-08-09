@@ -93,7 +93,6 @@ Copyright (c) 2020 Raghuveer S, Hiran Venugopalan, Asim K T
   <body>
     <main>
       {% include Nav.html %}
-      {% include announcement-banner.html %}
 
       {% if page.url contains '/note/' %}
         {% assign total_seconds = page.content | number_of_words | times: 60 | divided_by: 180 %}
