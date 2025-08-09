@@ -2078,8 +2078,20 @@ a[href^="http"] {
 
 @media screen and (max-width: 640px) {
     .related-wrapper {
-        grid-template-columns: 1fr !important;
-        gap: 1rem;
+        display: block !important;
+        grid-template-columns: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .notelist-feed {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 1rem !important;
+        box-sizing: border-box !important;
     }
 }
 
@@ -2327,6 +2339,18 @@ html {
     border-bottom: 3px solid var(--color-border-light);
 }
 
+/* Force no grid minmax on mobile to prevent overflow */
+@media screen and (max-width: 768px) {
+    .related-wrapper {
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+}
+
 /* Improved mobile responsiveness for spacing */
 @media screen and (max-width: 768px) {
     .section {
@@ -2367,6 +2391,30 @@ html {
         word-wrap: break-word;
         overflow-wrap: break-word;
         max-width: 100%;
+    }
+}
+
+/* Ultra-mobile: Complete block layout to prevent any grid overflow */
+@media screen and (max-width: 480px) {
+    * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .related-wrapper {
+        display: block !important;
+        grid-template-columns: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .notelist-feed {
+        display: block !important;
+        width: calc(100% - 1rem) !important;
+        margin: 0 0.5rem 1rem 0.5rem !important;
+        padding: 0.875rem !important;
+        box-sizing: border-box !important;
     }
 }
 
