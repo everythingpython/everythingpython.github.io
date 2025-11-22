@@ -1,5 +1,8 @@
-_site
-.jekyll-cache
+# Hugo
+/public/
+/resources/_gen/
+.hugo_build.lock
+
 pages/.DS_Store
 pages/tags.md
 _notes/.obsidian
