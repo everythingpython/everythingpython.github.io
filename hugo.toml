@@ -1,0 +1,55 @@
+# Base URL used when generating links to your pages
+baseURL = "https://everythingpython.github.io"
+
+# The name of this wonderful theme
+theme = 'hugo-bearblog'
+
+# Basic metadata configuration for your blog
+title = "EverythingPython"
+author = "EverythingPython"
+copyright = "Contents under CC-BY-NC"
+languageCode = "en-US"
+
+# Generate a nice robots.txt for SEO
+enableRobotsTXT = true
+
+# Generate "Bearblog"-like URLs
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+
+[permalinks]
+  blog = "/blog/:slug/"
+  tags = "/blog/:slug"
+
+[params]
+  # The "description" of your website
+  description = "Everything you need to know about Python"
+
+  # The path to your "favicon"
+  # favicon = "images/favicon.png"
+
+  # These "images" are used for the structured data templates
+  # images = ["images/share.png"]
+
+  # Another "title" for opengraph structured data
+  title = "EverythingPython"
+
+  # This theme will inject a made-with-line at the bottom of the page
+  # hideMadeWithLine = true
+
+  # Enable post navigator to navigate between blog posts
+  # enablePostNavigator = true
+
+  # Date format
+  # dateFormat = "2006-01-02"
+
+# Configure markup highlighter
+[markup]
+  [markup.highlight]
+    style = 'friendly'
+    lineNos = true
+    lineNumbersInTable = false
+    codeFences = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

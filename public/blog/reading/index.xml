@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading on EverythingPython</title>
+    <link>http://localhost:56649/blog/reading/</link>
+    <description>Recent content in Reading on EverythingPython</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Contents under CC-BY-NC</copyright>
+    <lastBuildDate>Wed, 25 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:56649/blog/reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading DDIA - Part 2</title>
+      <link>http://localhost:56649/blog/reading-ddia-part-2/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:56649/blog/reading-ddia-part-2/</guid>
+      <description>&lt;h2 id=&#34;chapter-1---reliable-scalable-and-maintainable-applications&#34;&gt;Chapter 1 - Reliable, Scalable and Maintainable Applications&lt;/h2&gt;&#xA;&lt;p&gt;In [[Reading DDIA - Part 1]] , I read about Reliability. The next section is Scalability .&#xA;First let me talk about the assumptions I made about the term Scalability, what I understand from it prior to reading Martin Kleppman&amp;rsquo;s thoughts on the topic -&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-is-a-scalable-system&#34;&gt;&lt;u&gt;What is a scalable system?&lt;/u&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;my--thoughts-prior-to-reading-the-section--&#34;&gt;My  thoughts prior to reading the section -&lt;/h3&gt;&#xA;&lt;p&gt;Scale refers to how does a system grow. Growth can be needed for multiple reasons -&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reading DDIA - Part 1</title>
+      <link>http://localhost:56649/blog/reading-ddia-part-1/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:56649/blog/reading-ddia-part-1/</guid>
+      <description>&lt;p&gt;&lt;em&gt;(Here&amp;rsquo;s the preface in case you missed it - [[Reading DDIA - Preface]])&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;chapter-1---reliable-scalable-and-maintainable-applications&#34;&gt;Chapter 1 - Reliable, Scalable and Maintainable Applications&lt;/h2&gt;&#xA;&lt;p&gt;This chapter&amp;rsquo;s goal is to effectively give us a high level overview of what this book is fundamentally about -&lt;/p&gt;&#xA;&lt;p&gt;Thinking about data systems along the axes of :&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Reliability&lt;/li&gt;&#xA;&lt;li&gt;Scalability&lt;/li&gt;&#xA;&lt;li&gt;Maintainability&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;what-is-a-reliable-system&#34;&gt;&lt;u&gt;What is a reliable system?&lt;/u&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;my-thoughts-before-reading-the-section-&#34;&gt;My thoughts before reading the section :&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A system that is available to return results/outputs that are expected of it when it is employed.&lt;/li&gt;&#xA;&lt;li&gt;If I&amp;rsquo;m accessing an API, if the API is available 99 out of 100 times, then its reliability is 99%&lt;/li&gt;&#xA;&lt;li&gt;If a server is available for 23 hrs 45 minutes per day then its availability is 23.75/24 = 98.9%&lt;/li&gt;&#xA;&lt;li&gt;But is availability == reliability? Let&amp;rsquo;s see.&lt;/li&gt;&#xA;&lt;li&gt;A reliable human is someone who does something that he says he will do or is expected to do every time. Similarly a reliable system is one that returns the expected results every time that they are used.&lt;/li&gt;&#xA;&lt;li&gt;An ATM is reliable if I can withdraw money from it in the denominations that I want, when I want it. For example, the ATM in Puttenahalli , JP Nagar is perpetually unavailable. Everytime I go there, the system is under maintenance. It is 0% reliable.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s read the chapter.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reading DDIA - Preface</title>
+      <link>http://localhost:56649/blog/reading-ddia-preface/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:56649/blog/reading-ddia-preface/</guid>
+      <description>&lt;p&gt;Over the next few weeks, I want to read a book that has been long-pending - &lt;a href=&#34;https://www.amazon.in/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/9352135245&#34;&gt;&amp;ldquo;Designing Data Intensive Applications&amp;rdquo;&lt;/a&gt; by Martin Kleppman. I&amp;rsquo;ve been building data applications for a while now but most, if not all the learnings, have been through trial and error after error after error. I&amp;rsquo;ve learnt a decent bit from observing more senior engineers, architects, design documents and building architectures little by little on my own, but not yet I think, in a structured, deliberate manner. I&amp;rsquo;m hoping to learn that in this book along with the other books I will likely have to refer along the way.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

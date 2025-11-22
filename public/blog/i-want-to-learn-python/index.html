@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56649&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>I want to learn Python | EverythingPython</title>
+<meta name="title" content="I want to learn Python" />
+<meta name="description" content="This is one of the most common questions I get asked by people who are just starting out with Python.
+If you have no prior programming experience, how Do you start? Valid question.
+
+Let&rsquo;s take it step by step.
+Most guides start with understanding the syntax of Python, the basic data types, control structures etc. Which is all well and good but I think the first thing you should do is to install Python on your system." />
+<meta name="keywords" content="" />
+
+
+<meta property="og:url" content="http://localhost:56649/blog/i-want-to-learn-python/">
+  <meta property="og:site_name" content="EverythingPython">
+  <meta property="og:title" content="I want to learn Python">
+  <meta property="og:description" content="This is one of the most common questions I get asked by people who are just starting out with Python.
+If you have no prior programming experience, how Do you start? Valid question.
+Let’s take it step by step.
+Most guides start with understanding the syntax of Python, the basic data types, control structures etc. Which is all well and good but I think the first thing you should do is to install Python on your system.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-01-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-11T00:00:00+00:00">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="I want to learn Python">
+  <meta name="twitter:description" content="This is one of the most common questions I get asked by people who are just starting out with Python.
+If you have no prior programming experience, how Do you start? Valid question.
+Let’s take it step by step.
+Most guides start with understanding the syntax of Python, the basic data types, control structures etc. Which is all well and good but I think the first thing you should do is to install Python on your system.">
+
+
+
+
+  <meta itemprop="name" content="I want to learn Python">
+  <meta itemprop="description" content="This is one of the most common questions I get asked by people who are just starting out with Python.
+If you have no prior programming experience, how Do you start? Valid question.
+Let’s take it step by step.
+Most guides start with understanding the syntax of Python, the basic data types, control structures etc. Which is all well and good but I think the first thing you should do is to install Python on your system.">
+  <meta itemprop="datePublished" content="2025-01-11T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-11T00:00:00+00:00">
+  <meta itemprop="wordCount" content="198">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+<style>
+   
+  blockquote {
+    background: #f5f5f5;
+    border-left: 4px solid #666;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  blockquote p {
+    margin: 0.5rem 0;
+  }
+
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    blockquote {
+      background: #2a2a2a;
+      border-left-color: #888;
+      color: #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    blockquote code {
+      background: rgba(31, 41, 55, 0.7);
+      color: #f3f4f6;
+    }
+  }
+
+   
+  html.dark-mode blockquote {
+    background: #2a2a2a;
+    border-left-color: #888;
+    color: #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  html.dark-mode blockquote code {
+    background: rgba(31, 41, 55, 0.7);
+    color: #f3f4f6;
+  }
+
+  html.dark-mode {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode body {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode h1,
+  html.dark-mode h2,
+  html.dark-mode h3,
+  html.dark-mode h4,
+  html.dark-mode h5,
+  html.dark-mode h6 {
+    color: #e6edf3;
+  }
+
+  html.dark-mode a {
+    color: #539bf5;
+  }
+
+   
+  html:not(.dark-mode) {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) h1,
+  html:not(.dark-mode) h2,
+  html:not(.dark-mode) h3,
+  html:not(.dark-mode) h4,
+  html:not(.dark-mode) h5,
+  html:not(.dark-mode) h6 {
+    color: #000000;
+  }
+
+  html:not(.dark-mode) a {
+    color: #0066cc;
+  }
+
+  html:not(.dark-mode) blockquote {
+    background: #f5f5f5;
+    border-left-color: #666;
+    color: #000000;
+  }
+
+   
+  blockquote:has(p:first-child:first-letter) {
+    border-left-color: #10b981;
+  }
+
+   
+  .callout-info {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left-color: #3b82f6;
+  }
+
+  .callout-warning {
+    background: linear-gradient(135deg, #fff4e6 0%, #ffe4cc 100%);
+    border-left-color: #ff8c42;
+  }
+
+  .callout-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left-color: #10b981;
+  }
+
+  .callout-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left-color: #ef4444;
+  }
+
+   
+  [style*="background-color:#f0f4ff"] {
+    background-color: #f0f4ff !important;
+  }
+
+  [style*="background-color:#1b2738"] {
+    background-color: #1b2738 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-info {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-left-color: #60a5fa;
+    }
+
+    .callout-warning {
+      background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+      border-left-color: #ff8c42;
+    }
+
+    .callout-success {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      border-left-color: #34d399;
+    }
+
+    .callout-danger {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+      border-left-color: #f87171;
+    }
+
+     
+    [style*="background-color:#f0f4ff"] {
+      background-color: #1e2a4a !important;
+      color: #e0e7ff !important;
+    }
+
+    [style*="background-color:#1b2738"] {
+      background-color: #2a3f5f !important;
+      color: #d1d5db !important;
+    }
+  }
+
+   
+  html.dark-mode .callout-info {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-left-color: #60a5fa;
+  }
+
+  html.dark-mode .callout-warning {
+    background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+    border-left-color: #ff8c42;
+  }
+
+  html.dark-mode .callout-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-left-color: #34d399;
+  }
+
+  html.dark-mode .callout-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-left-color: #f87171;
+  }
+
+  html.dark-mode [style*="background-color:#f0f4ff"] {
+    background-color: #1e2a4a !important;
+    color: #e0e7ff !important;
+  }
+
+  html.dark-mode [style*="background-color:#1b2738"] {
+    background-color: #2a3f5f !important;
+    color: #d1d5db !important;
+  }
+</style>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>EverythingPython</h2>
+</a>
+<nav>
+<button id="theme-toggle" aria-label="Toggle light mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.5rem;">
+    <span id="theme-icon">☀️</span>
+  </button>
+</nav>
+
+<script>
+  
+  const savedTheme = localStorage.getItem('theme');
+  const currentTheme = savedTheme || 'dark';
+
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+      document.getElementById('theme-icon').textContent = '☀️';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle light mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.getElementById('theme-icon').textContent = '🌙';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle dark mode');
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  
+  setTheme(currentTheme);
+
+  
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    setTheme(isDark ? 'light' : 'dark');
+  });
+</script>
+</header>
+  <main>
+
+<h1>I want to learn Python</h1>
+<p>
+  <i>
+    <time datetime='2025-01-11'>
+      11 Jan, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>This is one of the most common questions I get asked by people who are just starting out with Python.</p>
+<p>If you have no prior programming experience, how Do you start? Valid question.</p>
+<p><img src="/assets/img/basics/how-to-start-1/how-to-start.jpg" alt="alt text"></p>
+<p>Let&rsquo;s take it step by step.</p>
+<p>Most guides start with understanding the syntax of Python, the basic data types, control structures etc. Which is all well and good but I think the first thing you should do is to install Python on your system.</p>
+<p>That will be the end state of this Post i.e you will have Python installed on your system.</p>
+<h3 id="install-python">Install Python</h3>
+<ol>
+<li>Go to the <a href="https://www.python.org/downloads/">Python website</a> and download the latest version of Python.</li>
+</ol>
+<p><img src="/assets/img/basics/how-to-start-1/download.png" alt="alt text"></p>
+<ol start="2">
+<li>Run the installer and make sure to check the box that says &ldquo;Add Python to PATH&rdquo;.</li>
+</ol>
+<p><img src="/assets/img/basics/how-to-start-1/pyinstallation-0.png" alt="alt text"></p>
+<p><img src="/assets/img/basics/how-to-start-1/pyinstallation-1.png" alt="alt text"></p>
+<p>If your setup was successful, you should see this screen -</p>
+<p><img src="/assets/img/basics/how-to-start-1/pyinstallation-2.png" alt="alt text"></p>
+<hr>
+<h3 id="verify-the-installation">Verify the installation</h3>
+<ol>
+<li>Open a command prompt and type <code>python --version</code>. You should see the version of Python you just installed.</li>
+</ol>
+<p><img src="/assets/img/basics/how-to-start-1/pyinstallation-3.png" alt="alt text"></p>
+<p>If you have reached this stage, congratulations! You have successfully installed Python on your system.</p>
+<p>If you have any questions, login to Github and comment on this post. I will try to help you out! Alternatively you can also <a href="mailto:everythingpython0@gmail.com">mail me.</a></p>
+
+</content>
+
+
+
+<p>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

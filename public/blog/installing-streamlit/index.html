@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56649&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Installing Streamlit | EverythingPython</title>
+<meta name="title" content="Installing Streamlit" />
+<meta name="description" content="This is a rather simplistic topic but one of my good friends has been trying to setup Streamlit and has been unsuccessful at it. So he asked if I could help him out.  If this helps him atleast, I will have done my job.
+Hence this topic for today&rsquo;s mini essay.
+Going forward, pretty much every local package I install will use uv.
+(How to install uv? https://everythingpython.substack.com/p/uv-python-packager-written-in-rust)
+Operating system under use - Windows (but this will work on Ubuntu as well)
+So let&rsquo;s create a folder for our Streamlit apps -" />
+<meta name="keywords" content="" />
+
+
+<meta property="og:url" content="http://localhost:56649/blog/installing-streamlit/">
+  <meta property="og:site_name" content="EverythingPython">
+  <meta property="og:title" content="Installing Streamlit">
+  <meta property="og:description" content="This is a rather simplistic topic but one of my good friends has been trying to setup Streamlit and has been unsuccessful at it. So he asked if I could help him out. If this helps him atleast, I will have done my job.
+Hence this topic for today’s mini essay.
+Going forward, pretty much every local package I install will use uv. (How to install uv? https://everythingpython.substack.com/p/uv-python-packager-written-in-rust) Operating system under use - Windows (but this will work on Ubuntu as well) So let’s create a folder for our Streamlit apps -">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-10-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-30T00:00:00+00:00">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Installing Streamlit">
+  <meta name="twitter:description" content="This is a rather simplistic topic but one of my good friends has been trying to setup Streamlit and has been unsuccessful at it. So he asked if I could help him out. If this helps him atleast, I will have done my job.
+Hence this topic for today’s mini essay.
+Going forward, pretty much every local package I install will use uv. (How to install uv? https://everythingpython.substack.com/p/uv-python-packager-written-in-rust) Operating system under use - Windows (but this will work on Ubuntu as well) So let’s create a folder for our Streamlit apps -">
+
+
+
+
+  <meta itemprop="name" content="Installing Streamlit">
+  <meta itemprop="description" content="This is a rather simplistic topic but one of my good friends has been trying to setup Streamlit and has been unsuccessful at it. So he asked if I could help him out. If this helps him atleast, I will have done my job.
+Hence this topic for today’s mini essay.
+Going forward, pretty much every local package I install will use uv. (How to install uv? https://everythingpython.substack.com/p/uv-python-packager-written-in-rust) Operating system under use - Windows (but this will work on Ubuntu as well) So let’s create a folder for our Streamlit apps -">
+  <meta itemprop="datePublished" content="2024-10-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-10-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="387">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+<style>
+   
+  blockquote {
+    background: #f5f5f5;
+    border-left: 4px solid #666;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  blockquote p {
+    margin: 0.5rem 0;
+  }
+
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    blockquote {
+      background: #2a2a2a;
+      border-left-color: #888;
+      color: #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    blockquote code {
+      background: rgba(31, 41, 55, 0.7);
+      color: #f3f4f6;
+    }
+  }
+
+   
+  html.dark-mode blockquote {
+    background: #2a2a2a;
+    border-left-color: #888;
+    color: #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  html.dark-mode blockquote code {
+    background: rgba(31, 41, 55, 0.7);
+    color: #f3f4f6;
+  }
+
+  html.dark-mode {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode body {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode h1,
+  html.dark-mode h2,
+  html.dark-mode h3,
+  html.dark-mode h4,
+  html.dark-mode h5,
+  html.dark-mode h6 {
+    color: #e6edf3;
+  }
+
+  html.dark-mode a {
+    color: #539bf5;
+  }
+
+   
+  html:not(.dark-mode) {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) h1,
+  html:not(.dark-mode) h2,
+  html:not(.dark-mode) h3,
+  html:not(.dark-mode) h4,
+  html:not(.dark-mode) h5,
+  html:not(.dark-mode) h6 {
+    color: #000000;
+  }
+
+  html:not(.dark-mode) a {
+    color: #0066cc;
+  }
+
+  html:not(.dark-mode) blockquote {
+    background: #f5f5f5;
+    border-left-color: #666;
+    color: #000000;
+  }
+
+   
+  blockquote:has(p:first-child:first-letter) {
+    border-left-color: #10b981;
+  }
+
+   
+  .callout-info {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left-color: #3b82f6;
+  }
+
+  .callout-warning {
+    background: linear-gradient(135deg, #fff4e6 0%, #ffe4cc 100%);
+    border-left-color: #ff8c42;
+  }
+
+  .callout-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left-color: #10b981;
+  }
+
+  .callout-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left-color: #ef4444;
+  }
+
+   
+  [style*="background-color:#f0f4ff"] {
+    background-color: #f0f4ff !important;
+  }
+
+  [style*="background-color:#1b2738"] {
+    background-color: #1b2738 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-info {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-left-color: #60a5fa;
+    }
+
+    .callout-warning {
+      background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+      border-left-color: #ff8c42;
+    }
+
+    .callout-success {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      border-left-color: #34d399;
+    }
+
+    .callout-danger {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+      border-left-color: #f87171;
+    }
+
+     
+    [style*="background-color:#f0f4ff"] {
+      background-color: #1e2a4a !important;
+      color: #e0e7ff !important;
+    }
+
+    [style*="background-color:#1b2738"] {
+      background-color: #2a3f5f !important;
+      color: #d1d5db !important;
+    }
+  }
+
+   
+  html.dark-mode .callout-info {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-left-color: #60a5fa;
+  }
+
+  html.dark-mode .callout-warning {
+    background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+    border-left-color: #ff8c42;
+  }
+
+  html.dark-mode .callout-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-left-color: #34d399;
+  }
+
+  html.dark-mode .callout-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-left-color: #f87171;
+  }
+
+  html.dark-mode [style*="background-color:#f0f4ff"] {
+    background-color: #1e2a4a !important;
+    color: #e0e7ff !important;
+  }
+
+  html.dark-mode [style*="background-color:#1b2738"] {
+    background-color: #2a3f5f !important;
+    color: #d1d5db !important;
+  }
+</style>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>EverythingPython</h2>
+</a>
+<nav>
+<button id="theme-toggle" aria-label="Toggle light mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.5rem;">
+    <span id="theme-icon">☀️</span>
+  </button>
+</nav>
+
+<script>
+  
+  const savedTheme = localStorage.getItem('theme');
+  const currentTheme = savedTheme || 'dark';
+
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+      document.getElementById('theme-icon').textContent = '☀️';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle light mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.getElementById('theme-icon').textContent = '🌙';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle dark mode');
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  
+  setTheme(currentTheme);
+
+  
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    setTheme(isDark ? 'light' : 'dark');
+  });
+</script>
+</header>
+  <main>
+
+<h1>Installing Streamlit</h1>
+<p>
+  <i>
+    <time datetime='2024-10-30'>
+      30 Oct, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>This is a rather simplistic topic but one of my good friends has been trying to setup Streamlit and has been unsuccessful at it. So he asked if I could help him out.  If this helps him atleast, I will have done my job.</p>
+<p>Hence this topic for today&rsquo;s mini essay.</p>
+<p>Going forward, pretty much every local package I install will use <code>uv</code>.
+(How to install uv? <a href="https://everythingpython.substack.com/p/uv-python-packager-written-in-rust">https://everythingpython.substack.com/p/uv-python-packager-written-in-rust</a>)
+Operating system under use - Windows (but this will work on Ubuntu as well)
+So let&rsquo;s create a folder for our Streamlit apps -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>D:&gt; mkdir streamlit_apps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>D:&gt; <span style="color:#007020">cd</span> streamlit_apps
+</span></span></code></pre></div><p>Creating a virtual environment in this folder , activating it and installing streamlit -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>D:<span style="color:#4070a0;font-weight:bold">\s</span>treamlit_apps&gt; uv venv
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>D:<span style="color:#4070a0;font-weight:bold">\s</span>treamlit_apps&gt; .venv<span style="color:#4070a0;font-weight:bold">\S</span>cripts<span style="color:#4070a0;font-weight:bold">\a</span>ctivate
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#666">(</span>streamlit_apps<span style="color:#666">)</span>D:<span style="color:#4070a0;font-weight:bold">\s</span>treamlit_apps&gt; uv pip install streamlit
+</span></span></code></pre></div><p>And voila!</p>
+<hr>
+<p>Now let&rsquo;s create a quick app and run it.</p>
+<p>Here&rsquo;s the code to create a simple app, that accepts a user input, does a quick Github search to find the top 3 repos corresponding to that term and outputs it. Assume the filename is <code>streamlit_app.py</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">streamlit</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">st</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">requests</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#60a0b0;font-style:italic"># Function to fetch top 3 repositories from GitHub based on user query</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">fetch_top_repositories</span>(query):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    url <span style="color:#666">=</span> <span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;https://api.github.com/search/repositories?q=</span><span style="color:#70a0d0">{</span>query<span style="color:#70a0d0">}</span><span style="color:#4070a0">&amp;sort=stars&amp;order=desc&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    response <span style="color:#666">=</span> requests<span style="color:#666">.</span>get(url)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#007020;font-weight:bold">if</span> response<span style="color:#666">.</span>status_code <span style="color:#666">==</span> <span style="color:#40a070">200</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        repos <span style="color:#666">=</span> response<span style="color:#666">.</span>json()<span style="color:#666">.</span>get(<span style="color:#4070a0">&#34;items&#34;</span>, [])[:<span style="color:#40a070">3</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        <span style="color:#007020;font-weight:bold">return</span> [
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>            {<span style="color:#4070a0">&#34;name&#34;</span>: repo[<span style="color:#4070a0">&#34;name&#34;</span>], <span style="color:#4070a0">&#34;stars&#34;</span>: repo[<span style="color:#4070a0">&#34;stargazers_count&#34;</span>], <span style="color:#4070a0">&#34;url&#34;</span>: repo[<span style="color:#4070a0">&#34;html_url&#34;</span>]}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>            <span style="color:#007020;font-weight:bold">for</span> repo <span style="color:#007020;font-weight:bold">in</span> repos
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        ]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#007020;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        st<span style="color:#666">.</span>error(<span style="color:#4070a0">&#34;Failed to fetch data from GitHub.&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        <span style="color:#007020;font-weight:bold">return</span> []
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#60a0b0;font-style:italic"># Streamlit app UI</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>st<span style="color:#666">.</span>title(<span style="color:#4070a0">&#34;GitHub Repository Finder&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>st<span style="color:#666">.</span>write(<span style="color:#4070a0">&#34;Enter a search term to find the top 3 repositories on GitHub.&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#60a0b0;font-style:italic"># Input field for user query</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>query <span style="color:#666">=</span> st<span style="color:#666">.</span>text_input(<span style="color:#4070a0">&#34;Search GitHub Repositories&#34;</span>, <span style="color:#4070a0">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="color:#60a0b0;font-style:italic"># Button to trigger the search</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="color:#007020;font-weight:bold">if</span> st<span style="color:#666">.</span>button(<span style="color:#4070a0">&#34;Search&#34;</span>) <span style="color:#007020;font-weight:bold">and</span> query:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    <span style="color:#007020;font-weight:bold">with</span> st<span style="color:#666">.</span>spinner(<span style="color:#4070a0">&#34;Fetching top repositories...&#34;</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>        results <span style="color:#666">=</span> fetch_top_repositories(query)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>        
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>        <span style="color:#007020;font-weight:bold">if</span> results:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>            st<span style="color:#666">.</span>write(<span style="color:#4070a0">&#34;### Top 3 Repositories:&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>            <span style="color:#007020;font-weight:bold">for</span> repo <span style="color:#007020;font-weight:bold">in</span> results:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>                st<span style="color:#666">.</span>write(<span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;**</span><span style="color:#70a0d0">{</span>repo[<span style="color:#4070a0">&#39;name&#39;</span>]<span style="color:#70a0d0">}</span><span style="color:#4070a0">**&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>                st<span style="color:#666">.</span>write(<span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;⭐ Stars: </span><span style="color:#70a0d0">{</span>repo[<span style="color:#4070a0">&#39;stars&#39;</span>]<span style="color:#70a0d0">}</span><span style="color:#4070a0">&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>                st<span style="color:#666">.</span>write(<span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;[Repository Link](</span><span style="color:#70a0d0">{</span>repo[<span style="color:#4070a0">&#39;url&#39;</span>]<span style="color:#70a0d0">}</span><span style="color:#4070a0">)&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>        <span style="color:#007020;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>            st<span style="color:#666">.</span>write(<span style="color:#4070a0">&#34;No repositories found.&#34;</span>)
+</span></span></code></pre></div><p>So once we&rsquo;ve activated our environment like above, the way to run it is -</p>
+<pre tabindex="0"><code>(streamlit_apps)D:\streamlit_apps&gt; streamlit run streamlit_app.py
+</code></pre><p>This results in the browser being launched and a window opening up like so -</p>
+<p><img src="/assets/img/install-streamlit/1.png" alt="Alt Text"></p>
+<p>And any search results in the top repos by stars as expected -</p>
+<p><img src="/assets/img/install-streamlit/2.png" alt="Alt Text"></p>
+<p>Hope this gives you the push to create your own fun little apps!
+Let me know what you create!</p>
+
+</content>
+
+
+
+<p>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

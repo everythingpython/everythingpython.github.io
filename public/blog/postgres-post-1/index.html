@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56649&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Postgres (post 1) | EverythingPython</title>
+<meta name="title" content="Postgres (post 1)" />
+<meta name="description" content="Installing Postgres locally and connecting to it from Python
+First of all, what is Postgres and why do I care?
+Over the course of our working with data, we come across a lot of ways of storing data - cache, in-mem, files, file based databases, SQL databases, NoSQL databases etc. Each option has a specific set of usecases that are best satisfied by said storage mechanism.
+Postgres DB is one such storage mechanism - specifically an Open Source, Relational Database." />
+<meta name="keywords" content="databases," />
+
+
+<meta property="og:url" content="http://localhost:56649/blog/postgres-post-1/">
+  <meta property="og:site_name" content="EverythingPython">
+  <meta property="og:title" content="Postgres (post 1)">
+  <meta property="og:description" content="Installing Postgres locally and connecting to it from Python First of all, what is Postgres and why do I care?
+Over the course of our working with data, we come across a lot of ways of storing data - cache, in-mem, files, file based databases, SQL databases, NoSQL databases etc. Each option has a specific set of usecases that are best satisfied by said storage mechanism.
+Postgres DB is one such storage mechanism - specifically an Open Source, Relational Database.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-08-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-01T00:00:00+00:00">
+    <meta property="article:tag" content="Databases">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Postgres (post 1)">
+  <meta name="twitter:description" content="Installing Postgres locally and connecting to it from Python First of all, what is Postgres and why do I care?
+Over the course of our working with data, we come across a lot of ways of storing data - cache, in-mem, files, file based databases, SQL databases, NoSQL databases etc. Each option has a specific set of usecases that are best satisfied by said storage mechanism.
+Postgres DB is one such storage mechanism - specifically an Open Source, Relational Database.">
+
+
+
+
+  <meta itemprop="name" content="Postgres (post 1)">
+  <meta itemprop="description" content="Installing Postgres locally and connecting to it from Python First of all, what is Postgres and why do I care?
+Over the course of our working with data, we come across a lot of ways of storing data - cache, in-mem, files, file based databases, SQL databases, NoSQL databases etc. Each option has a specific set of usecases that are best satisfied by said storage mechanism.
+Postgres DB is one such storage mechanism - specifically an Open Source, Relational Database.">
+  <meta itemprop="datePublished" content="2024-08-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-08-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="693">
+  <meta itemprop="keywords" content="Databases">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+<style>
+   
+  blockquote {
+    background: #f5f5f5;
+    border-left: 4px solid #666;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  blockquote p {
+    margin: 0.5rem 0;
+  }
+
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    blockquote {
+      background: #2a2a2a;
+      border-left-color: #888;
+      color: #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    blockquote code {
+      background: rgba(31, 41, 55, 0.7);
+      color: #f3f4f6;
+    }
+  }
+
+   
+  html.dark-mode blockquote {
+    background: #2a2a2a;
+    border-left-color: #888;
+    color: #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  html.dark-mode blockquote code {
+    background: rgba(31, 41, 55, 0.7);
+    color: #f3f4f6;
+  }
+
+  html.dark-mode {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode body {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode h1,
+  html.dark-mode h2,
+  html.dark-mode h3,
+  html.dark-mode h4,
+  html.dark-mode h5,
+  html.dark-mode h6 {
+    color: #e6edf3;
+  }
+
+  html.dark-mode a {
+    color: #539bf5;
+  }
+
+   
+  html:not(.dark-mode) {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) h1,
+  html:not(.dark-mode) h2,
+  html:not(.dark-mode) h3,
+  html:not(.dark-mode) h4,
+  html:not(.dark-mode) h5,
+  html:not(.dark-mode) h6 {
+    color: #000000;
+  }
+
+  html:not(.dark-mode) a {
+    color: #0066cc;
+  }
+
+  html:not(.dark-mode) blockquote {
+    background: #f5f5f5;
+    border-left-color: #666;
+    color: #000000;
+  }
+
+   
+  blockquote:has(p:first-child:first-letter) {
+    border-left-color: #10b981;
+  }
+
+   
+  .callout-info {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left-color: #3b82f6;
+  }
+
+  .callout-warning {
+    background: linear-gradient(135deg, #fff4e6 0%, #ffe4cc 100%);
+    border-left-color: #ff8c42;
+  }
+
+  .callout-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left-color: #10b981;
+  }
+
+  .callout-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left-color: #ef4444;
+  }
+
+   
+  [style*="background-color:#f0f4ff"] {
+    background-color: #f0f4ff !important;
+  }
+
+  [style*="background-color:#1b2738"] {
+    background-color: #1b2738 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-info {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-left-color: #60a5fa;
+    }
+
+    .callout-warning {
+      background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+      border-left-color: #ff8c42;
+    }
+
+    .callout-success {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      border-left-color: #34d399;
+    }
+
+    .callout-danger {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+      border-left-color: #f87171;
+    }
+
+     
+    [style*="background-color:#f0f4ff"] {
+      background-color: #1e2a4a !important;
+      color: #e0e7ff !important;
+    }
+
+    [style*="background-color:#1b2738"] {
+      background-color: #2a3f5f !important;
+      color: #d1d5db !important;
+    }
+  }
+
+   
+  html.dark-mode .callout-info {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-left-color: #60a5fa;
+  }
+
+  html.dark-mode .callout-warning {
+    background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+    border-left-color: #ff8c42;
+  }
+
+  html.dark-mode .callout-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-left-color: #34d399;
+  }
+
+  html.dark-mode .callout-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-left-color: #f87171;
+  }
+
+  html.dark-mode [style*="background-color:#f0f4ff"] {
+    background-color: #1e2a4a !important;
+    color: #e0e7ff !important;
+  }
+
+  html.dark-mode [style*="background-color:#1b2738"] {
+    background-color: #2a3f5f !important;
+    color: #d1d5db !important;
+  }
+</style>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>EverythingPython</h2>
+</a>
+<nav>
+<button id="theme-toggle" aria-label="Toggle light mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.5rem;">
+    <span id="theme-icon">☀️</span>
+  </button>
+</nav>
+
+<script>
+  
+  const savedTheme = localStorage.getItem('theme');
+  const currentTheme = savedTheme || 'dark';
+
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+      document.getElementById('theme-icon').textContent = '☀️';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle light mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.getElementById('theme-icon').textContent = '🌙';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle dark mode');
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  
+  setTheme(currentTheme);
+
+  
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    setTheme(isDark ? 'light' : 'dark');
+  });
+</script>
+</header>
+  <main>
+
+<h1>Postgres (post 1)</h1>
+<p>
+  <i>
+    <time datetime='2024-08-01'>
+      01 Aug, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <h2 id="installing-postgres-locally-and-connecting-to-it-from-python">Installing Postgres locally and connecting to it from Python</h2>
+<p>First of all, what is Postgres and why do I care?</p>
+<p>Over the course of our working with data, we come across a lot of ways of storing data - cache, in-mem, files, file based databases, SQL databases, NoSQL databases etc. Each option has a specific set of usecases that are best satisfied by said storage mechanism.</p>
+<p>Postgres DB is one such storage mechanism - specifically an Open Source, Relational Database.</p>
+<h3 id="installation--"><em>Installation</em> -</h3>
+<p>There are two ways to set up a Postgres instance locally and use it -</p>
+<p>a) As a standalone server on your Windows/Linux machine<br>
+b) As a docker container that can be spun up on demand</p>
+<h5 id="a-as-a-standalone-server-on-your-windowslinux-machine">a) As a standalone server on your Windows/Linux machine</h5>
+<p>The setup process is fairly simple on Windows. You just have to download the EXE installer and walk through the executable’s steps - <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a></p>
+<p>Note the password you enter for the <code>postgres</code> superuser.</p>
+<p>One step that is missing from the installer is adding the path to the psql.exe executable in your PATH environment variable .</p>
+<p>Now to access the postgres server , fire up a CMD terminal and use -</p>
+<p><code>psql.exe -U postgres -d postgres -p 5433</code></p>
+<p>The port flag can be set depending on where your postgres server starts.</p>
+<h5 id="b-as-a-docker-container-that-can-be-spun-up-on-demand">b) As a docker container that can be spun up on demand</h5>
+<p>Put the following contents in a file called <code>docker-compose.yml</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#062873;font-weight:bold">services</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">thanos</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">image</span>:<span style="color:#bbb"> </span>postgres<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">restart</span>:<span style="color:#bbb"> </span>always<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">shm_size</span>:<span style="color:#bbb"> </span>128mb<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">environment</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#bbb">      </span><span style="color:#062873;font-weight:bold">POSTGRES_USER</span>:<span style="color:#bbb"> </span>abhi<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#bbb">      </span><span style="color:#062873;font-weight:bold">POSTGRES_DB</span>:<span style="color:#bbb"> </span>postgres<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#bbb">      </span><span style="color:#062873;font-weight:bold">POSTGRES_PASSWORD</span>:<span style="color:#bbb"> </span>abhi<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">ports</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#bbb">      </span>- <span style="color:#4070a0">&#34;6543:5432&#34;</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>Breaking this file down,</p>
+<ul>
+<li>The first line - Based on what service we want to start, we can specify that particular service in this section that is called, well, &ldquo;service&rdquo;.
+<ul>
+<li><code>thanos</code> is the name of the container we want to start. While I used a quirky name just so it would stand out, in production, typically this is more relevant to the type of container that we&rsquo;d want to start . In this case, the container would be better off being called something like <code>db</code>.</li>
+<li>The image we&rsquo;re using is that of <code>postgres</code> . We can get a whole host of what images are valid from <a href="https://hub.docker.com/">https://hub.docker.com/</a></li>
+</ul>
+</li>
+</ul>
+<p>Assuming docker has been installed, start the docker container using :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:<span style="color:#002070;font-weight:bold">\Users\Abhiram\Desktop</span><span style="color:#60a0b0;font-style:italic">&gt;docker-compose up -d</span>
+</span></span></code></pre></div><p><strong>Resulting in -</strong></p>
+<p><img src="/assets/img/postgres-1/docker-compose.png" alt="Alt Text"></p>
+<p><strong>If Docker desktop has been installed, you might even be able to see its creation there -</strong></p>
+<p><img src="/assets/img/postgres-1/docker-desktop.png" alt="Alt Text"></p>
+<h3 id="connecting-to-postgres-from-python--"><em>Connecting to Postgres from Python</em> -</h3>
+<ul>
+<li>First, create a virtual environment using <code>virtualenv</code> (or <code>conda</code> or <code>uv</code> etc.) because we never pollute the global python environment with additional, specific-use packages</li>
+<li>Activate this virtual environment</li>
+<li>Install the psycopg2-binary package using <code>pip install psycopg2-binary</code></li>
+<li>Test the postgres connection and the creation of the postgres container using this <a href="https://github.com/everythingpython/experiments/blob/main/llms/litellm_tracking/util_testers/postgres_connection_tester.py">code snippet</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">psycopg2</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">logging</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">argparse</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#60a0b0;font-style:italic"># Set up logging</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>logging<span style="color:#666">.</span>basicConfig(level<span style="color:#666">=</span>logging<span style="color:#666">.</span>INFO)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>logger <span style="color:#666">=</span> logging<span style="color:#666">.</span>getLogger(<span style="color:#bb60d5">__name__</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#60a0b0;font-style:italic"># Set up argument parsing</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>parser <span style="color:#666">=</span> argparse<span style="color:#666">.</span>ArgumentParser(description<span style="color:#666">=</span><span style="color:#4070a0">&#39;Connect to PostgreSQL database and get version.&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>parser<span style="color:#666">.</span>add_argument(<span style="color:#4070a0">&#39;--dbname&#39;</span>, <span style="color:#007020">type</span><span style="color:#666">=</span><span style="color:#007020">str</span>, required<span style="color:#666">=</span><span style="color:#007020;font-weight:bold">True</span>, help<span style="color:#666">=</span><span style="color:#4070a0">&#39;Name of the database&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>parser<span style="color:#666">.</span>add_argument(<span style="color:#4070a0">&#39;--user&#39;</span>, <span style="color:#007020">type</span><span style="color:#666">=</span><span style="color:#007020">str</span>, required<span style="color:#666">=</span><span style="color:#007020;font-weight:bold">True</span>, help<span style="color:#666">=</span><span style="color:#4070a0">&#39;Username for the database&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>parser<span style="color:#666">.</span>add_argument(<span style="color:#4070a0">&#39;--password&#39;</span>, <span style="color:#007020">type</span><span style="color:#666">=</span><span style="color:#007020">str</span>, required<span style="color:#666">=</span><span style="color:#007020;font-weight:bold">True</span>, help<span style="color:#666">=</span><span style="color:#4070a0">&#39;Password for the database user&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>parser<span style="color:#666">.</span>add_argument(<span style="color:#4070a0">&#39;--host&#39;</span>, <span style="color:#007020">type</span><span style="color:#666">=</span><span style="color:#007020">str</span>, default<span style="color:#666">=</span><span style="color:#4070a0">&#39;localhost&#39;</span>, help<span style="color:#666">=</span><span style="color:#4070a0">&#39;Database host (default: localhost)&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>parser<span style="color:#666">.</span>add_argument(<span style="color:#4070a0">&#39;--port&#39;</span>, <span style="color:#007020">type</span><span style="color:#666">=</span><span style="color:#007020">str</span>, default<span style="color:#666">=</span><span style="color:#4070a0">&#39;6543&#39;</span>, help<span style="color:#666">=</span><span style="color:#4070a0">&#39;Database port (default: 6543)&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>args <span style="color:#666">=</span> parser<span style="color:#666">.</span>parse_args()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#007020;font-weight:bold">try</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    conn <span style="color:#666">=</span> psycopg2<span style="color:#666">.</span>connect(
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        dbname<span style="color:#666">=</span>args<span style="color:#666">.</span>dbname,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        user<span style="color:#666">=</span>args<span style="color:#666">.</span>user,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        password<span style="color:#666">=</span>args<span style="color:#666">.</span>password,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>        host<span style="color:#666">=</span>args<span style="color:#666">.</span>host,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>        port<span style="color:#666">=</span>args<span style="color:#666">.</span>port
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    )     <span style="color:#60a0b0;font-style:italic"># Define the connection string</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>    cursor <span style="color:#666">=</span> conn<span style="color:#666">.</span>cursor()  <span style="color:#60a0b0;font-style:italic"># Create a cursor object</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    cursor<span style="color:#666">.</span>execute(<span style="color:#4070a0">&#34;SELECT version();&#34;</span>)  <span style="color:#60a0b0;font-style:italic"># Execute a sample query</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    db_version <span style="color:#666">=</span> cursor<span style="color:#666">.</span>fetchone()  <span style="color:#60a0b0;font-style:italic"># Fetch and display the result</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    logger<span style="color:#666">.</span>info(<span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;Database version: </span><span style="color:#70a0d0">{</span>db_version<span style="color:#70a0d0">}</span><span style="color:#4070a0">&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    cursor<span style="color:#666">.</span>close()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    conn<span style="color:#666">.</span>close()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span><span style="color:#007020;font-weight:bold">except</span> <span style="color:#007020">Exception</span> <span style="color:#007020;font-weight:bold">as</span> error:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>    logger<span style="color:#666">.</span>error(<span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;Error connecting to PostgreSQL database: </span><span style="color:#70a0d0">{</span>error<span style="color:#70a0d0">}</span><span style="color:#4070a0">&#34;</span>)
+</span></span></code></pre></div><p>Upon execution of this script that is intended to
+a) connect to a postgres instance running on port <code>6543</code> with user <code>abhi</code>
+b) Get the version of postgres running,</p>
+<p>This is the response -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>(pgdbenv) C:\Users\Admin\Desktop\postgres&gt;python postgres_connect.py  --dbname postgres --user abhi --password abhi --port 6543
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>INFO:__main__:Database version: (&#39;PostgreSQL 16.3 (Debian 16.3-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit&#39;,)
+</span></span></code></pre></div><p>In summary, in this article we&rsquo;ve seen how to install postgres locally and connect to it from Python.
+In the next article, we will explore more about Postgres.</p>
+
+</content>
+
+
+
+<p>
+  
+  <a href="http://localhost:56649/blog/databases/">#Databases</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

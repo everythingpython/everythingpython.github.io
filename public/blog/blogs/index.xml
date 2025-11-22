@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on EverythingPython</title>
+    <link>http://localhost:56649/blog/blogs/</link>
+    <description>Recent content in Blogs on EverythingPython</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Contents under CC-BY-NC</copyright>
+    <lastBuildDate>Sat, 16 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:56649/blog/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making your first blog with mkdocs</title>
+      <link>http://localhost:56649/blog/making-your-first-blog-with-mkdocs/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:56649/blog/making-your-first-blog-with-mkdocs/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:56649/assets/img/blog/mkdocs/mkdocs-banner.webp&#34; alt=&#34;Alt Text&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Now, why do this?&lt;/p&gt;&#xA;&lt;p&gt;What&amp;rsquo;s wrong with &lt;a href=&#34;medium.com&#34;&gt;Medium&lt;/a&gt; and &lt;a href=&#34;https://substack.com&#34;&gt;Substack&lt;/a&gt; and &lt;a href=&#34;blogger.com&#34;&gt;Blogger&lt;/a&gt;  and &lt;a href=&#34;wordpress.com&#34;&gt;Wordpress&lt;/a&gt; and all the tens of websites out there?&#xA;Nothing. You could totally just create a blog there and publish. That&amp;rsquo;s why Content Management Systems exist - so you could focus on the &lt;em&gt;content&lt;/em&gt; and not on the &lt;em&gt;management&lt;/em&gt; .&lt;/p&gt;&#xA;&lt;p&gt;But if you&amp;rsquo;re like me and want some more control over how you publish your blogs, customize them etc. , you will find this and the other upcoming articles in this category interesting.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56649&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dataclasses | EverythingPython</title>
+<meta name="title" content="Dataclasses" />
+<meta name="description" content="19th Nov 2024
+I was trying to write an article on Dataclasses1 and I looked up an example on the official website2
+Easy enough on the face of it, but it led me into quite a rabbit hole.
+A dataclass allows for the creation of &ldquo;special methods&rdquo; for a class when the annotation @dataclass is sighted.
+So if I have a class &ldquo;Superhero&rdquo; with the annotation :
+ 1
+ 2@dataclass
+ 3class Superhero:
+ 4    &#34;&#34;&#34;
+ 5    A class of superheroes and properties about their appearance 
+ 6    in Marvel movies
+ 7    &#34;&#34;&#34;
+ 8    name: str
+ 9    superpower: str
+10    appearances: int = 0
+11
+12    def beckon(self):
+13	    print(f&#34;{self.name} with the super power - {self.superpower} has appeared in Marvel movies {self.appearances} times&#34;)
+14         
+15
+16superhero = Superhero(&#34;Aquaman&#34;,&#34;Underwater breathing&#34;,2)
+17superhero.beckon()
+It effectively means that :" />
+<meta name="keywords" content="TIL," />
+
+
+<meta property="og:url" content="http://localhost:56649/blog/dataclasses/">
+  <meta property="og:site_name" content="EverythingPython">
+  <meta property="og:title" content="Dataclasses">
+  <meta property="og:description" content="19th Nov 2024 I was trying to write an article on Dataclasses1 and I looked up an example on the official website2
+Easy enough on the face of it, but it led me into quite a rabbit hole. A dataclass allows for the creation of “special methods” for a class when the annotation @dataclass is sighted.
+So if I have a class “Superhero” with the annotation :
+1 2@dataclass 3class Superhero: 4 &#34;&#34;&#34; 5 A class of superheroes and properties about their appearance 6 in Marvel movies 7 &#34;&#34;&#34; 8 name: str 9 superpower: str 10 appearances: int = 0 11 12 def beckon(self): 13	print(f&#34;{self.name} with the super power - {self.superpower} has appeared in Marvel movies {self.appearances} times&#34;) 14 15 16superhero = Superhero(&#34;Aquaman&#34;,&#34;Underwater breathing&#34;,2) 17superhero.beckon() It effectively means that :">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-11-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-19T00:00:00+00:00">
+    <meta property="article:tag" content="TIL">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dataclasses">
+  <meta name="twitter:description" content="19th Nov 2024 I was trying to write an article on Dataclasses1 and I looked up an example on the official website2
+Easy enough on the face of it, but it led me into quite a rabbit hole. A dataclass allows for the creation of “special methods” for a class when the annotation @dataclass is sighted.
+So if I have a class “Superhero” with the annotation :
+1 2@dataclass 3class Superhero: 4 &#34;&#34;&#34; 5 A class of superheroes and properties about their appearance 6 in Marvel movies 7 &#34;&#34;&#34; 8 name: str 9 superpower: str 10 appearances: int = 0 11 12 def beckon(self): 13	print(f&#34;{self.name} with the super power - {self.superpower} has appeared in Marvel movies {self.appearances} times&#34;) 14 15 16superhero = Superhero(&#34;Aquaman&#34;,&#34;Underwater breathing&#34;,2) 17superhero.beckon() It effectively means that :">
+
+
+
+
+  <meta itemprop="name" content="Dataclasses">
+  <meta itemprop="description" content="19th Nov 2024 I was trying to write an article on Dataclasses1 and I looked up an example on the official website2
+Easy enough on the face of it, but it led me into quite a rabbit hole. A dataclass allows for the creation of “special methods” for a class when the annotation @dataclass is sighted.
+So if I have a class “Superhero” with the annotation :
+1 2@dataclass 3class Superhero: 4 &#34;&#34;&#34; 5 A class of superheroes and properties about their appearance 6 in Marvel movies 7 &#34;&#34;&#34; 8 name: str 9 superpower: str 10 appearances: int = 0 11 12 def beckon(self): 13	print(f&#34;{self.name} with the super power - {self.superpower} has appeared in Marvel movies {self.appearances} times&#34;) 14 15 16superhero = Superhero(&#34;Aquaman&#34;,&#34;Underwater breathing&#34;,2) 17superhero.beckon() It effectively means that :">
+  <meta itemprop="datePublished" content="2024-11-19T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-11-19T00:00:00+00:00">
+  <meta itemprop="wordCount" content="463">
+  <meta itemprop="keywords" content="TIL">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+<style>
+   
+  blockquote {
+    background: #f5f5f5;
+    border-left: 4px solid #666;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  blockquote p {
+    margin: 0.5rem 0;
+  }
+
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    blockquote {
+      background: #2a2a2a;
+      border-left-color: #888;
+      color: #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    blockquote code {
+      background: rgba(31, 41, 55, 0.7);
+      color: #f3f4f6;
+    }
+  }
+
+   
+  html.dark-mode blockquote {
+    background: #2a2a2a;
+    border-left-color: #888;
+    color: #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  html.dark-mode blockquote code {
+    background: rgba(31, 41, 55, 0.7);
+    color: #f3f4f6;
+  }
+
+  html.dark-mode {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode body {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode h1,
+  html.dark-mode h2,
+  html.dark-mode h3,
+  html.dark-mode h4,
+  html.dark-mode h5,
+  html.dark-mode h6 {
+    color: #e6edf3;
+  }
+
+  html.dark-mode a {
+    color: #539bf5;
+  }
+
+   
+  html:not(.dark-mode) {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) h1,
+  html:not(.dark-mode) h2,
+  html:not(.dark-mode) h3,
+  html:not(.dark-mode) h4,
+  html:not(.dark-mode) h5,
+  html:not(.dark-mode) h6 {
+    color: #000000;
+  }
+
+  html:not(.dark-mode) a {
+    color: #0066cc;
+  }
+
+  html:not(.dark-mode) blockquote {
+    background: #f5f5f5;
+    border-left-color: #666;
+    color: #000000;
+  }
+
+   
+  blockquote:has(p:first-child:first-letter) {
+    border-left-color: #10b981;
+  }
+
+   
+  .callout-info {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left-color: #3b82f6;
+  }
+
+  .callout-warning {
+    background: linear-gradient(135deg, #fff4e6 0%, #ffe4cc 100%);
+    border-left-color: #ff8c42;
+  }
+
+  .callout-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left-color: #10b981;
+  }
+
+  .callout-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left-color: #ef4444;
+  }
+
+   
+  [style*="background-color:#f0f4ff"] {
+    background-color: #f0f4ff !important;
+  }
+
+  [style*="background-color:#1b2738"] {
+    background-color: #1b2738 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-info {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-left-color: #60a5fa;
+    }
+
+    .callout-warning {
+      background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+      border-left-color: #ff8c42;
+    }
+
+    .callout-success {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      border-left-color: #34d399;
+    }
+
+    .callout-danger {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+      border-left-color: #f87171;
+    }
+
+     
+    [style*="background-color:#f0f4ff"] {
+      background-color: #1e2a4a !important;
+      color: #e0e7ff !important;
+    }
+
+    [style*="background-color:#1b2738"] {
+      background-color: #2a3f5f !important;
+      color: #d1d5db !important;
+    }
+  }
+
+   
+  html.dark-mode .callout-info {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-left-color: #60a5fa;
+  }
+
+  html.dark-mode .callout-warning {
+    background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+    border-left-color: #ff8c42;
+  }
+
+  html.dark-mode .callout-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-left-color: #34d399;
+  }
+
+  html.dark-mode .callout-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-left-color: #f87171;
+  }
+
+  html.dark-mode [style*="background-color:#f0f4ff"] {
+    background-color: #1e2a4a !important;
+    color: #e0e7ff !important;
+  }
+
+  html.dark-mode [style*="background-color:#1b2738"] {
+    background-color: #2a3f5f !important;
+    color: #d1d5db !important;
+  }
+</style>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>EverythingPython</h2>
+</a>
+<nav>
+<button id="theme-toggle" aria-label="Toggle light mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.5rem;">
+    <span id="theme-icon">☀️</span>
+  </button>
+</nav>
+
+<script>
+  
+  const savedTheme = localStorage.getItem('theme');
+  const currentTheme = savedTheme || 'dark';
+
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+      document.getElementById('theme-icon').textContent = '☀️';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle light mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.getElementById('theme-icon').textContent = '🌙';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle dark mode');
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  
+  setTheme(currentTheme);
+
+  
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    setTheme(isDark ? 'light' : 'dark');
+  });
+</script>
+</header>
+  <main>
+
+<h1>Dataclasses</h1>
+<p>
+  <i>
+    <time datetime='2024-11-19'>
+      19 Nov, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <h3 id="19th-nov-2024">19th Nov 2024</h3>
+<p>I was trying to write an article on Dataclasses<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and I looked up an example on the official website<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Easy enough on the face of it, but it led me into quite a rabbit hole.
+A dataclass allows for the creation of &ldquo;special methods&rdquo; for a class when the annotation @dataclass is sighted.</p>
+<p>So if I have a class &ldquo;Superhero&rdquo; with the annotation :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#555;font-weight:bold">@dataclass</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">Superhero</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    <span style="color:#4070a0">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#4070a0">    A class of superheroes and properties about their appearance 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#4070a0">    in Marvel movies
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#4070a0">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    name: <span style="color:#007020">str</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    superpower: <span style="color:#007020">str</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    appearances: <span style="color:#007020">int</span> <span style="color:#666">=</span> <span style="color:#40a070">0</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">beckon</span>(<span style="color:#007020">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	    <span style="color:#007020">print</span>(<span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;</span><span style="color:#70a0d0">{</span><span style="color:#007020">self</span><span style="color:#666">.</span>name<span style="color:#70a0d0">}</span><span style="color:#4070a0"> with the super power - </span><span style="color:#70a0d0">{</span><span style="color:#007020">self</span><span style="color:#666">.</span>superpower<span style="color:#70a0d0">}</span><span style="color:#4070a0"> has appeared in Marvel movies </span><span style="color:#70a0d0">{</span><span style="color:#007020">self</span><span style="color:#666">.</span>appearances<span style="color:#70a0d0">}</span><span style="color:#4070a0"> times&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>         
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>superhero <span style="color:#666">=</span> Superhero(<span style="color:#4070a0">&#34;Aquaman&#34;</span>,<span style="color:#4070a0">&#34;Underwater breathing&#34;</span>,<span style="color:#40a070">2</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>superhero<span style="color:#666">.</span>beckon()
+</span></span></code></pre></div><p>It effectively means that :</p>
+<p>The <code>__init__ </code> function, <code>__repr__</code> function and many more are created for it automatically.</p>
+<hr>
+<p>Here&rsquo;s something cool though.</p>
+<p>I created one more function without dataclasses -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#007020;font-weight:bold">class</span> <span style="color:#0e84b5;font-weight:bold">Superhero_nodc</span>():
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    <span style="color:#4070a0">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#4070a0">    A class of superheroes and properties about their appearance 
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#4070a0">    in Marvel movies
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#4070a0">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">__init__</span>(<span style="color:#007020">self</span>, name, superpower,appearances<span style="color:#666">=</span><span style="color:#40a070">0</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>         
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        <span style="color:#007020">self</span><span style="color:#666">.</span>name <span style="color:#666">=</span> name
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        <span style="color:#007020">self</span><span style="color:#666">.</span>superpower <span style="color:#666">=</span> superpower
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#007020">self</span><span style="color:#666">.</span>appearances <span style="color:#666">=</span> appearances
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">beckon</span>(<span style="color:#007020">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	    <span style="color:#007020">print</span>(<span style="color:#4070a0">f</span><span style="color:#4070a0">&#34;</span><span style="color:#70a0d0">{</span><span style="color:#007020">self</span><span style="color:#666">.</span>name<span style="color:#70a0d0">}</span><span style="color:#4070a0"> with the super power - </span><span style="color:#70a0d0">{</span><span style="color:#007020">self</span><span style="color:#666">.</span>superpower<span style="color:#70a0d0">}</span><span style="color:#4070a0"> has appeared in Marvel movies </span><span style="color:#70a0d0">{</span><span style="color:#007020">self</span><span style="color:#666">.</span>appearances<span style="color:#70a0d0">}</span><span style="color:#4070a0"> times&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>         
+</span></span></code></pre></div><hr>
+<p>Now when I check the attributes of each of these classes using -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>attributes_dc <span style="color:#666">=</span> <span style="color:#007020">dir</span>(Superhero)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>attributes_nodc <span style="color:#666">=</span> <span style="color:#007020">dir</span>(Superhero_nodc)
+</span></span></code></pre></div><p>As a result of understanding what dataclasses do, seeing that the following were the attributes for Superhero wasn&rsquo;t surprising -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>[&#39;__add__&#39;, &#39;__class__&#39;, &#39;__class_getitem__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__delitem__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__getstate__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__iadd__&#39;, &#39;__imul__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__iter__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__reversed__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__setitem__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;append&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;count&#39;, &#39;extend&#39;, &#39;index&#39;, &#39;insert&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;reverse&#39;, &#39;sort&#39;]
+</span></span></code></pre></div><p>But when we try to see what the attributes of the vanilla class <strong>Superhero_nodc</strong> are versus <strong>Superhero</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#666">&gt;&gt;&gt;</span> <span style="color:#007020;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">pprint</span> <span style="color:#007020;font-weight:bold">import</span> pprint <span style="color:#60a0b0;font-style:italic"># For pretty printing</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#666">&gt;&gt;&gt;</span> pprint([i <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#007020;font-weight:bold">in</span> attr_dc <span style="color:#007020;font-weight:bold">if</span> i <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">in</span> attr_nodc])
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>[<span style="color:#4070a0">&#39;__annotations__&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span> <span style="color:#4070a0">&#39;__dataclass_fields__&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span> <span style="color:#4070a0">&#39;__dataclass_params__&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span> <span style="color:#4070a0">&#39;__match_args__&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span> <span style="color:#4070a0">&#39;__replace__&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span> <span style="color:#4070a0">&#39;appearances&#39;</span>]
+</span></span></code></pre></div><p>The dataclass fields and params are understandable and I will look into why annotations and <code>__replace__</code> show up, but the thing that caught my attention was the presence of <strong>appearances</strong> .</p>
+<p>Turns out that the default values set during definition of a dataclass end up manifesting as class attributes and thereby populate the <code>__dict__</code> of the class.
+Hence it shows up when <code>dir</code> is called.</p>
+<hr>
+<p>I also learnt about the interactive Help that the Python REPL offers along the way -
+<img src="/assets/img/basics/help_repl.png" alt="Alt Text"></p>
+<p>Also here&rsquo;s a neat little experiment I ended up doing - Comparing the attributes for a dataclass and a regular class using tabs in Textual<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> !
+<img src="/assets/img/basics/tabs_textual.gif" alt="Alt Text"></p>
+<hr>
+<h3 id="references">References</h3>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://peps.python.org/pep-0557/">PEP 0557</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://docs.python.org/3/library/dataclasses.html#mutable-default-values">Dataclasses</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://textual.textualize.io/widgets/tabbed_content/#__tabbed_1_2">Textual - Widgets</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</content>
+
+
+
+<p>
+  
+  <a href="http://localhost:56649/blog/til/">#TIL</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

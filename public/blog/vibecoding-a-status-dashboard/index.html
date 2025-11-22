@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56649&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vibecoding a status dashboard | EverythingPython</title>
+<meta name="title" content="Vibecoding a status dashboard" />
+<meta name="description" content="I work in the engineering division of  a supply chain company and our development process, as most companies do, involves the setting up of our SaaS platform locally.
+This means that there are a lot of dependent services that need to be run first that support the overall execution of the platform.
+For e.g. -
+Our platform&rsquo;s stack requires SQL Server, Solr, Redis, Postgres, RabbitMQ, MongoDB as core services to be running first.
+Once these are all running and available, a service called WebAPI can be run that makes use of some of the above to run as well.
+Following this, there are a few more microservices that need to run, but that need not be part of this article since the underlying concept will already come through with the above being demonstrated." />
+<meta name="keywords" content="" />
+
+
+<meta property="og:url" content="http://localhost:56649/blog/vibecoding-a-status-dashboard/">
+  <meta property="og:site_name" content="EverythingPython">
+  <meta property="og:title" content="Vibecoding a status dashboard">
+  <meta property="og:description" content="I work in the engineering division of a supply chain company and our development process, as most companies do, involves the setting up of our SaaS platform locally. This means that there are a lot of dependent services that need to be run first that support the overall execution of the platform.
+For e.g. - Our platform’s stack requires SQL Server, Solr, Redis, Postgres, RabbitMQ, MongoDB as core services to be running first. Once these are all running and available, a service called WebAPI can be run that makes use of some of the above to run as well. Following this, there are a few more microservices that need to run, but that need not be part of this article since the underlying concept will already come through with the above being demonstrated.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-05-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-08T00:00:00+00:00">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vibecoding a status dashboard">
+  <meta name="twitter:description" content="I work in the engineering division of a supply chain company and our development process, as most companies do, involves the setting up of our SaaS platform locally. This means that there are a lot of dependent services that need to be run first that support the overall execution of the platform.
+For e.g. - Our platform’s stack requires SQL Server, Solr, Redis, Postgres, RabbitMQ, MongoDB as core services to be running first. Once these are all running and available, a service called WebAPI can be run that makes use of some of the above to run as well. Following this, there are a few more microservices that need to run, but that need not be part of this article since the underlying concept will already come through with the above being demonstrated.">
+
+
+
+
+  <meta itemprop="name" content="Vibecoding a status dashboard">
+  <meta itemprop="description" content="I work in the engineering division of a supply chain company and our development process, as most companies do, involves the setting up of our SaaS platform locally. This means that there are a lot of dependent services that need to be run first that support the overall execution of the platform.
+For e.g. - Our platform’s stack requires SQL Server, Solr, Redis, Postgres, RabbitMQ, MongoDB as core services to be running first. Once these are all running and available, a service called WebAPI can be run that makes use of some of the above to run as well. Following this, there are a few more microservices that need to run, but that need not be part of this article since the underlying concept will already come through with the above being demonstrated.">
+  <meta itemprop="datePublished" content="2025-05-08T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-05-08T00:00:00+00:00">
+  <meta itemprop="wordCount" content="850">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+<style>
+   
+  blockquote {
+    background: #f5f5f5;
+    border-left: 4px solid #666;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  blockquote p {
+    margin: 0.5rem 0;
+  }
+
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    blockquote {
+      background: #2a2a2a;
+      border-left-color: #888;
+      color: #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    blockquote code {
+      background: rgba(31, 41, 55, 0.7);
+      color: #f3f4f6;
+    }
+  }
+
+   
+  html.dark-mode blockquote {
+    background: #2a2a2a;
+    border-left-color: #888;
+    color: #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  html.dark-mode blockquote code {
+    background: rgba(31, 41, 55, 0.7);
+    color: #f3f4f6;
+  }
+
+  html.dark-mode {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode body {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode h1,
+  html.dark-mode h2,
+  html.dark-mode h3,
+  html.dark-mode h4,
+  html.dark-mode h5,
+  html.dark-mode h6 {
+    color: #e6edf3;
+  }
+
+  html.dark-mode a {
+    color: #539bf5;
+  }
+
+   
+  html:not(.dark-mode) {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) h1,
+  html:not(.dark-mode) h2,
+  html:not(.dark-mode) h3,
+  html:not(.dark-mode) h4,
+  html:not(.dark-mode) h5,
+  html:not(.dark-mode) h6 {
+    color: #000000;
+  }
+
+  html:not(.dark-mode) a {
+    color: #0066cc;
+  }
+
+  html:not(.dark-mode) blockquote {
+    background: #f5f5f5;
+    border-left-color: #666;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) b,
+  html:not(.dark-mode) strong {
+    color: #000000;
+    font-weight: 700;
+  }
+
+   
+  blockquote:has(p:first-child:first-letter) {
+    border-left-color: #10b981;
+  }
+
+   
+  .callout-info {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left-color: #3b82f6;
+  }
+
+  .callout-warning {
+    background: linear-gradient(135deg, #fff4e6 0%, #ffe4cc 100%);
+    border-left-color: #ff8c42;
+  }
+
+  .callout-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left-color: #10b981;
+  }
+
+  .callout-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left-color: #ef4444;
+  }
+
+   
+  [style*="background-color:#f0f4ff"] {
+    background-color: #f0f4ff !important;
+  }
+
+   
+  html:not(.dark-mode) [style*="background-color:#f0f4ff"] {
+    background-color: #e8eef5 !important;
+    border-color: #b8c5d6 !important;
+    color: #000000 !important;
+  }
+
+  html:not(.dark-mode) [style*="background-color:#f0f4ff"] p,
+  html:not(.dark-mode) [style*="background-color:#f0f4ff"] b,
+  html:not(.dark-mode) [style*="background-color:#f0f4ff"] em,
+  html:not(.dark-mode) [style*="background-color:#f0f4ff"] strong {
+    color: #000000 !important;
+  }
+
+  [style*="background-color:#1b2738"] {
+    background-color: #1b2738 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-info {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-left-color: #60a5fa;
+    }
+
+    .callout-warning {
+      background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+      border-left-color: #ff8c42;
+    }
+
+    .callout-success {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      border-left-color: #34d399;
+    }
+
+    .callout-danger {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+      border-left-color: #f87171;
+    }
+
+     
+    [style*="background-color:#f0f4ff"] {
+      background-color: #1e2a4a !important;
+      color: #e0e7ff !important;
+    }
+
+    [style*="background-color:#1b2738"] {
+      background-color: #2a3f5f !important;
+      color: #d1d5db !important;
+    }
+  }
+
+   
+  html.dark-mode .callout-info {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-left-color: #60a5fa;
+  }
+
+  html.dark-mode .callout-warning {
+    background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+    border-left-color: #ff8c42;
+  }
+
+  html.dark-mode .callout-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-left-color: #34d399;
+  }
+
+  html.dark-mode .callout-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-left-color: #f87171;
+  }
+
+  html.dark-mode [style*="background-color:#f0f4ff"] {
+    background-color: #1e2a4a !important;
+    color: #e0e7ff !important;
+  }
+
+  html.dark-mode [style*="background-color:#1b2738"] {
+    background-color: #2a3f5f !important;
+    color: #d1d5db !important;
+  }
+</style>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>EverythingPython</h2>
+</a>
+<nav>
+<button id="theme-toggle" aria-label="Toggle light mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.5rem;">
+    <span id="theme-icon">☀️</span>
+  </button>
+</nav>
+
+<script>
+  
+  const savedTheme = localStorage.getItem('theme');
+  const currentTheme = savedTheme || 'dark';
+
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+      document.getElementById('theme-icon').textContent = '☀️';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle light mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.getElementById('theme-icon').textContent = '🌙';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle dark mode');
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  
+  setTheme(currentTheme);
+
+  
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    setTheme(isDark ? 'light' : 'dark');
+  });
+</script>
+</header>
+  <main>
+
+<h1>Vibecoding a status dashboard</h1>
+<p>
+  <i>
+    <time datetime='2025-05-08'>
+      08 May, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>I work in the engineering division of  a supply chain company and our development process, as most companies do, involves the setting up of our SaaS platform locally.
+This means that there are a lot of dependent services that need to be run first that support the overall execution of the platform.</p>
+<p>For e.g. -
+Our platform&rsquo;s stack requires SQL Server, Solr, Redis, Postgres, RabbitMQ, MongoDB as core services to be running first.
+Once these are all running and available, a service called WebAPI can be run that makes use of some of the above to run as well.
+Following this, there are a few more microservices that need to run, but that need not be part of this article since the underlying concept will already come through with the above being demonstrated.</p>
+<p>It all started when in practice on a day-to-day basis, whenever I spun up these services, every now and then, at least ONE of them would go down and at best, the error trace was clear enough from the dependent services as to what the issue was.
+But at worst, it&rsquo;s a rabbit hole of errors to wade through before I would land on the root cause and if one of the service&rsquo;s unavailability was the cause, I would feel really sad about having lost all that time.</p>
+<p>So having gone through this time and time again, I thought I could do something about this.</p>
+<p><strong>The first iteration of this thought was simply - a checklist.</strong></p>
+<p><img src="/assets/img/applications/textual/status/t1.png" alt="Alt Text"></p>
+<p>While it got the bare minimum accomplished, in that, I now had a ready reckoner of all the services that needed to be up each time, I had no way of tracking when something went Down during operations. Additionally, if any of the services were not started , either at startup or by me, the service would simply be neglected till such time as an error would alert me.</p>
+<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b>🚨 Rejected coz :</b> </p> <p></p> <p> <em>Tick-boxes fixed my <b> forgetfulness</b>  but still left me blind to mid-session crashes.</em></p> </div>
+<hr>
+<p>This was not working out.</p>
+<p>Over time, I tried/considered a few more things -</p>
+<ol>
+<li> <b>writing a script</b> to start them all at once at startup - this failed miserably more often than not since there were some interfering services running because of other ongoing experiments.</li>
+<li> <b>Creating batch scripts</b> since aliases were missing in Windows and this is predominantly a Windows based platform</li>
+<li> <b>Docker-izing</b> All the services. But the amount of RAM that was consumed when I ran all the services (except SQL Server and company-specific-services) was a bit more than I liked - speaks to my lack of knowledge in optimizing Docker, I'm sure.</li>
+</ol>
+<hr>
+<p>So after months of this sort of juggling, a few weeks ago, I thought -</p>
+<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> </p> <p></p> <p> <em>I've enjoyed using Textual for other projects. 
+Many of these services can be polled for their status from their ports / Win process running status
+Why not write a Textual app combining these two facts?</em></p> </div>
+<hr>
+<h4 id="actually-lets-back-up---iteration-2">Actually let&rsquo;s back up - Iteration 2.</h4>
+<p>I did not think of Textual right from the start. Because initially all I knew was, I wanted a dashboard that would monitor all the services I have running and I could look at for when something went down.</p>
+<p>So the first iteration of the program resulted in something like this -
+<img src="/assets/img/applications/textual/status/t2.png" alt="Alt Text"></p>
+<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b> 🚨 Rejected coz :</b> </p> <p></p> <p> <em>Curling ports gave me machine-readable truth, but staring at raw JSONs is still annoying. </em></p> </div>
+<p>I was also suggested a Prometheus dashboard that I summarily rejected because of the unnecessary level of complexity I was inviting for myself for a personal setup. (Although, I Will set something up with Prometheus eventually - just for masochism&rsquo;s sake.)</p>
+<hr>
+<h4 id="iteration-3">Iteration 3</h4>
+<p>The improvement on the above was a CLI based table with ASCII ✔ and ✖ . Like so -</p>
+<p><img src="/assets/img/applications/textual/status/t3.png" alt="Alt Text"></p>
+<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b> 🚨 Rejected coz :</b> </p> <p></p> <p> <em>A CLI table with ✔/✖ cut my scan-time, yet couldn’t _alert_ me when a cell flipped.</em></p> </div>
+<hr>
+<h4 id="iteration-4">Iteration 4</h4>
+<p>This is where I thought of Textual. And I asked for a service monitoring dashboard which did not look as plain as the JSON response above . The result was a little error-ridden but this is where Knowing programming while &lsquo;vibe-coding&rsquo; helps.
+The changes I had to make were around providing the right command to obtain the statuses of different services, modifying the ports, fixing the styles etc.
+After the  manual fixes, which admittedly took lesser time than if I&rsquo;d had to hand-code the whole script, the result was something like this -</p>
+<p><img src="/assets/img/applications/textual/status/t4.png" alt="Alt Text"></p>
+<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b> 🎉 NOT REJECTED!! PROGRESS  :</b> </p> <p></p> <p> <em>Now for the final lap. </em></p> </div>
+<hr>
+<h4 id="final-set-of-iterations-and-the-end-result">Final set of iterations and the end result!</h4>
+<p>From here on, it was mostly smooth sailing.
+I got ChatGPT to fix the universal status symbols to be indicators of Success and Failure - green and red dots, tweak the borders etc.</p>
+<p><img src="/assets/img/applications/textual/status/t5.png" alt="Alt Text"></p>
+<p>All in all, the exercise took me less than an hour and I was very happy with it!</p>
+<h4 id="next-steps">Next steps</h4>
+<ul>
+<li>I&rsquo;d like to make this an installer so that it can be easily installed without the dependency installation hassle.</li>
+<li>Want to implement an exponential retry and backoff when a service goes down</li>
+<li>ON/OFF controls for the services</li>
+</ul>
+
+</content>
+
+
+
+<p>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

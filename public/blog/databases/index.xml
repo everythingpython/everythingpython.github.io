@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Databases on EverythingPython</title>
+    <link>http://localhost:56649/blog/databases/</link>
+    <description>Recent content in Databases on EverythingPython</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Contents under CC-BY-NC</copyright>
+    <lastBuildDate>Thu, 01 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:56649/blog/databases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgres (post 1)</title>
+      <link>http://localhost:56649/blog/postgres-post-1/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:56649/blog/postgres-post-1/</guid>
+      <description>&lt;h2 id=&#34;installing-postgres-locally-and-connecting-to-it-from-python&#34;&gt;Installing Postgres locally and connecting to it from Python&lt;/h2&gt;&#xA;&lt;p&gt;First of all, what is Postgres and why do I care?&lt;/p&gt;&#xA;&lt;p&gt;Over the course of our working with data, we come across a lot of ways of storing data - cache, in-mem, files, file based databases, SQL databases, NoSQL databases etc. Each option has a specific set of usecases that are best satisfied by said storage mechanism.&lt;/p&gt;&#xA;&lt;p&gt;Postgres DB is one such storage mechanism - specifically an Open Source, Relational Database.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

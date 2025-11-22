@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56649&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Napkin Math-ing Reddit | EverythingPython</title>
+<meta name="title" content="Napkin Math-ing Reddit" />
+<meta name="description" content="I&rsquo;ve done some Napkin Math - an essential part of system design - in my different jobs in the last decade but it&rsquo;s been ad-hoc or purpose driven at that moment and I&rsquo;ve not thought about it much . Today, I came across a tweet from One2N and a rabbit hole of a blog by Simon Eskildsen after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions.
+I&rsquo;m sure I will get a lot of things wrong, but over time I hope to tune it to be right." />
+<meta name="keywords" content="" />
+
+
+<meta property="og:url" content="http://localhost:56649/blog/napkin-math-ing-reddit/">
+  <meta property="og:site_name" content="EverythingPython">
+  <meta property="og:title" content="Napkin Math-ing Reddit">
+  <meta property="og:description" content="I’ve done some Napkin Math - an essential part of system design - in my different jobs in the last decade but it’s been ad-hoc or purpose driven at that moment and I’ve not thought about it much . Today, I came across a tweet from One2N and a rabbit hole of a blog by Simon Eskildsen after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions. I’m sure I will get a lot of things wrong, but over time I hope to tune it to be right.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-04-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-07T00:00:00+00:00">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Napkin Math-ing Reddit">
+  <meta name="twitter:description" content="I’ve done some Napkin Math - an essential part of system design - in my different jobs in the last decade but it’s been ad-hoc or purpose driven at that moment and I’ve not thought about it much . Today, I came across a tweet from One2N and a rabbit hole of a blog by Simon Eskildsen after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions. I’m sure I will get a lot of things wrong, but over time I hope to tune it to be right.">
+
+
+
+
+  <meta itemprop="name" content="Napkin Math-ing Reddit">
+  <meta itemprop="description" content="I’ve done some Napkin Math - an essential part of system design - in my different jobs in the last decade but it’s been ad-hoc or purpose driven at that moment and I’ve not thought about it much . Today, I came across a tweet from One2N and a rabbit hole of a blog by Simon Eskildsen after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions. I’m sure I will get a lot of things wrong, but over time I hope to tune it to be right.">
+  <meta itemprop="datePublished" content="2025-04-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-07T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1018">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+<style>
+   
+  blockquote {
+    background: #f5f5f5;
+    border-left: 4px solid #666;
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  blockquote p {
+    margin: 0.5rem 0;
+  }
+
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+   
+  @media (prefers-color-scheme: dark) {
+    blockquote {
+      background: #2a2a2a;
+      border-left-color: #888;
+      color: #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    blockquote code {
+      background: rgba(31, 41, 55, 0.7);
+      color: #f3f4f6;
+    }
+  }
+
+   
+  html.dark-mode blockquote {
+    background: #2a2a2a;
+    border-left-color: #888;
+    color: #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  html.dark-mode blockquote code {
+    background: rgba(31, 41, 55, 0.7);
+    color: #f3f4f6;
+  }
+
+  html.dark-mode {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode body {
+    background: #15202b;
+    color: #c9d1d9;
+  }
+
+  html.dark-mode h1,
+  html.dark-mode h2,
+  html.dark-mode h3,
+  html.dark-mode h4,
+  html.dark-mode h5,
+  html.dark-mode h6 {
+    color: #e6edf3;
+  }
+
+  html.dark-mode a {
+    color: #539bf5;
+  }
+
+   
+  html:not(.dark-mode) {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  html:not(.dark-mode) h1,
+  html:not(.dark-mode) h2,
+  html:not(.dark-mode) h3,
+  html:not(.dark-mode) h4,
+  html:not(.dark-mode) h5,
+  html:not(.dark-mode) h6 {
+    color: #000000;
+  }
+
+  html:not(.dark-mode) a {
+    color: #0066cc;
+  }
+
+  html:not(.dark-mode) blockquote {
+    background: #f5f5f5;
+    border-left-color: #666;
+    color: #000000;
+  }
+
+   
+  blockquote:has(p:first-child:first-letter) {
+    border-left-color: #10b981;
+  }
+
+   
+  .callout-info {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left-color: #3b82f6;
+  }
+
+  .callout-warning {
+    background: linear-gradient(135deg, #fff4e6 0%, #ffe4cc 100%);
+    border-left-color: #ff8c42;
+  }
+
+  .callout-success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left-color: #10b981;
+  }
+
+  .callout-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left-color: #ef4444;
+  }
+
+   
+  [style*="background-color:#f0f4ff"] {
+    background-color: #f0f4ff !important;
+  }
+
+  [style*="background-color:#1b2738"] {
+    background-color: #1b2738 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-info {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-left-color: #60a5fa;
+    }
+
+    .callout-warning {
+      background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+      border-left-color: #ff8c42;
+    }
+
+    .callout-success {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      border-left-color: #34d399;
+    }
+
+    .callout-danger {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+      border-left-color: #f87171;
+    }
+
+     
+    [style*="background-color:#f0f4ff"] {
+      background-color: #1e2a4a !important;
+      color: #e0e7ff !important;
+    }
+
+    [style*="background-color:#1b2738"] {
+      background-color: #2a3f5f !important;
+      color: #d1d5db !important;
+    }
+  }
+
+   
+  html.dark-mode .callout-info {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-left-color: #60a5fa;
+  }
+
+  html.dark-mode .callout-warning {
+    background: linear-gradient(135deg, #2d2420 0%, #3d2f27 100%);
+    border-left-color: #ff8c42;
+  }
+
+  html.dark-mode .callout-success {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    border-left-color: #34d399;
+  }
+
+  html.dark-mode .callout-danger {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-left-color: #f87171;
+  }
+
+  html.dark-mode [style*="background-color:#f0f4ff"] {
+    background-color: #1e2a4a !important;
+    color: #e0e7ff !important;
+  }
+
+  html.dark-mode [style*="background-color:#1b2738"] {
+    background-color: #2a3f5f !important;
+    color: #d1d5db !important;
+  }
+</style>
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>EverythingPython</h2>
+</a>
+<nav>
+<button id="theme-toggle" aria-label="Toggle light mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.5rem;">
+    <span id="theme-icon">☀️</span>
+  </button>
+</nav>
+
+<script>
+  
+  const savedTheme = localStorage.getItem('theme');
+  const currentTheme = savedTheme || 'dark';
+
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+      document.getElementById('theme-icon').textContent = '☀️';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle light mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.getElementById('theme-icon').textContent = '🌙';
+      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle dark mode');
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  
+  setTheme(currentTheme);
+
+  
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    setTheme(isDark ? 'light' : 'dark');
+  });
+</script>
+</header>
+  <main>
+
+<h1>Napkin Math-ing Reddit</h1>
+<p>
+  <i>
+    <time datetime='2025-04-07'>
+      07 Apr, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>I&rsquo;ve done <strong>some</strong> Napkin Math - an essential part of system design - in my different jobs in the last decade but it&rsquo;s been ad-hoc or purpose driven at that moment and I&rsquo;ve not thought about it much . Today, I came across a <a href="https://x.com/One2NC/status/1909209892801356125">tweet from One2N</a> and a rabbit hole of a <a href="https://sirupsen.com/napkin">blog by Simon Eskildsen</a> after that and it made me want to consciously think about it for a few use cases if only to improve my engineering decisions.
+I&rsquo;m sure I will get a lot of things wrong, but over time I hope to tune it to be right.</p>
+<p>The first case I&rsquo;m thinking about is <a href="https://reddit.com">Reddit</a> - the self proclaimed newspaper of the Internet. It&rsquo;s more of a Consumer facing Online service, rather than a system level/infra service but I think Napkin Math will apply here.</p>
+<p>Let&rsquo;s look at the front page of Reddit for starters -</p>
+<p><img src="/assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-1.png" alt="alt-text"></p>
+<p>So there&rsquo;s a lot happening on this page.
+If we wanted to do some Napkin Math for Reddit, what all should I presumptively consider?
+Things that come to mind just surveying the website are -</p>
+<ol>
+<li> Number of users online at any given point of time (expecting a frontpage screen)</li>
+<li> Total number of users trying to log in at a single point in time (concurrent authentication)</li>
+<li>Response time when any subreddit is accessed</li>
+<li>Number of trending results when you click on the Search bar</li>
+</ol>
+<p>After jotting these down, I tried to ask <a href="https://x.com/i/grok">Grok</a> to critique my thoughts and see if these &ldquo;metrics&rdquo; qualify for Napkin Math  -</p>
+<p><b>Here&rsquo;s what I learnt :</b></p>
+<div><ol>
+	<li> I'm on the right track, but <u>number of users online</u> is a very vague metric. It could mean total number of users online or just those hitting the front page. A better metric would be <u>peak concurrent users</u></li><p/>
+	<li> <u>Authentication load</u> is a bit too niche a usecase unless I'm focussing on backend infrastructure. Without login behaviour data, this might also be difficult to estimate. 
+	   A better metric would be <u>peak logins per second</u> apparently.</li><p/>
+	<li> <u>Response time</u> does not typically fall under the umbrella of "napkin math" since Napkin math is more for quantities (e.g. users, posts) rather than performance metrics that are dependent on the system design itself. In retrospect, this seems obvious (facepalm). This should not be on the list or should be reframed as <u>Number of subreddit page requests per second</u> which is estimable (estimatable?) from user activity. </li><p/>
+	<li> <u>Number of Trending results</u> is more of a UI choice than a Napkin math metric. This could be replaced with <u>Number of searches per second</u> - again estimable from user activity.</li>
+</ol></div>
+<hr>
+<p>The initial consensus was that while my thought process was on the right track with respect to breaking up of Reddit into components, Napkin Math is all about answering a question wrt understanding a part of a system or a goal for a system -
+For e.g. perhaps Reddit&rsquo;s scale or its system demand.</p>
+<p>I was still a little fuzzy about what worked by way of Napkin Math for a use case like Reddit, so I &ldquo;Grok&quot;ked a little more and it was actually helpful :</p>
+<hr>
+<p><strong>Making It Less Fuzzy</strong></p>
+<p>Think of Reddit as a giant beehive: you don’t count every bee, but you can guess the swarm size, honey output, or buzzing intensity. Napkin math factors should:</p>
+<ul>
+<li>Be countable (users, posts, requests—not response times or UI elements).</li>
+<li>Be big-picture (platform-wide, not subreddit-specific or feature-specific).</li>
+<li>Answer a “how much” or “how many” question you’d scribble down in a chat.</li>
+</ul>
+<hr>
+<p>This was excellent. Okay, now I was starting to understand what qualified for Napkin math. <strong>It is about what it takes for a system to work under conditions of peak-usage, scale or real-time demands.</strong></p>
+<p>So let&rsquo;s say I wanted to estimate :</p>
+<h3 id="how-much-activity-happens-on-reddit-in-an-hour">How much activity happens on Reddit in an hour?</h3>
+<p>I asked this to Grok and it started with this -</p>
+<ul>
+<li>Assuming 10M users online.</li>
+</ul>
+<hr>
+<div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black">
+<p/>
+<p/> 
+<u><i>Trust but verify</i></u>
+<p/>
+This was seemingly convincing, but what I still didn't understand was where do you pull these numbers out of for a social media site? Another question to Grok - 
+<p/>
+<img src="../../../../../assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-2.png" />
+<p/>
+I tried verifying this claim and it Was apparently close to 450 MAU as of 2023. A few more sources give me 600 MAU in 2025. But Napkin math does allow for some roughness. So let's estimate 500 MAU.
+<p/>
+Then the DAU, estimated as a 10th of the MAU would be 50M DAU - Grok has already rounded up to that. 
+<p/>
+Then accounting for the fact that maybe around 20% of the DAU are simultaneously online - that's 10M users online. Very cool to have landed here.</div>
+<hr>
+<p>Here&rsquo;s the rest of what it said -</p>
+<blockquote>
+<ul>
+<li>Each does 5 things (views, votes) → 50M actions/hour.</li>
+<li>Let me add approx 1M comments (50M DAUs × 2% commenting ÷ 24).</li>
+</ul>
+</blockquote>
+<p>So if there are 5 actions done per user per hour that includes viewing posts, upvoting them etc. and there are 10M online users, that&rsquo;s 50M actions per hour.</p>
+<p>Grok estimates 2% of the 50M Daily active Users indulge in commenting every hour.</p>
+<hr>
+<p>Here I had one more &ldquo;<em><strong>trust but verify</strong></em>&rdquo; moment.</p>
+<div style="background-color:lightblue; border: 0.5px solid #5078f0; padding: 6px; border-radius: 5px; color:black"> 
+<p/>
+<p/> 
+<u><i>Trust but verify</i></u>
+<p/>
+<img src="../../../../../assets/img/non-python/napkin-math/reddit/Napkin-Math-Reddit-3.png" />
+<p>I learnt one more hindsight-is-20-20 thing from Grok in that -</p>
+<p/>
+<ul>
+<li>While it's tempting to conclude the number of comments occurring based on the number of users online, it's not reflective of the overall load over the course of the day for Napkin Math.</li>
+<p/>
+<li>If I concluded that 2% of the 10M users were commenting, that could be peak online behavior activity captured. - Good for realtime capture/ AMA-type situations but not "big-picture" enough.</li>
+</ul>
+<p/>
+That was convincing enough for me to understand why comments were being captured at the DAU level.
+<p/>
+</div>
+<p><strong>So roughly, total number of activities per hour : 51M things/hour.</strong></p>
+<p>Great learning for a first use-case.</p>
+<p>I need to stretch my guesstimating muscles a little more over time to align better with the AI overlords and hopefully outthink them at some point.</p>
+<p>But for today , high five Grok!</p>
+<hr>
+<p>PS - This, like all following posts has been a lot of discovery-during-writing type process. Hope it wasn&rsquo;t too jarring to read. Comments/feedback most welcome!</p>
+
+</content>
+
+
+
+<p>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>
