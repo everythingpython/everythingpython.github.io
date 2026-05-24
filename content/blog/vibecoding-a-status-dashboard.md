@@ -23,7 +23,9 @@ So having gone through this time and time again, I thought I could do something 
 
 While it got the bare minimum accomplished, in that, I now had a ready reckoner of all the services that needed to be up each time, I had no way of tracking when something went Down during operations. Additionally, if any of the services were not started , either at startup or by me, the service would simply be neglected till such time as an error would alert me. 
 
-<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b>🚨 Rejected coz :</b> </p> <p></p> <p> <em>Tick-boxes fixed my <b> forgetfulness</b>  but still left me blind to mid-session crashes.</em></p> </div>
+{{< callout type="warning" >}}
+Tick-boxes fixed my **forgetfulness** but still left me blind to mid-session crashes.
+{{< /callout >}}
 
 ---
 
@@ -39,9 +41,9 @@ Over time, I tried/considered a few more things -
 ---
 So after months of this sort of juggling, a few weeks ago, I thought - 
 
-<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> </p> <p></p> <p> <em>I've enjoyed using Textual for other projects. 
-Many of these services can be polled for their status from their ports / Win process running status
-Why not write a Textual app combining these two facts?</em></p> </div>
+{{< callout type="thought" >}}
+I've enjoyed using Textual for other projects. Many of these services can be polled for their status from their ports / Win process running status — why not write a Textual app combining these two facts?
+{{< /callout >}}
 
 ---
 
@@ -52,7 +54,9 @@ I did not think of Textual right from the start. Because initially all I knew wa
 So the first iteration of the program resulted in something like this - 
 ![Alt Text](/assets/img/applications/textual/status/t2.png)
 
-<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b> 🚨 Rejected coz :</b> </p> <p></p> <p> <em>Curling ports gave me machine-readable truth, but staring at raw JSONs is still annoying. </em></p> </div>
+{{< callout type="warning" >}}
+Curling ports gave me machine-readable truth, but staring at raw JSONs is still annoying.
+{{< /callout >}}
 
 
 I was also suggested a Prometheus dashboard that I summarily rejected because of the unnecessary level of complexity I was inviting for myself for a personal setup. (Although, I Will set something up with Prometheus eventually - just for masochism's sake.)
@@ -65,7 +69,9 @@ The improvement on the above was a CLI based table with ASCII ✔ and ✖ . Like
 
 ![Alt Text](/assets/img/applications/textual/status/t3.png)
 
-<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b> 🚨 Rejected coz :</b> </p> <p></p> <p> <em>A CLI table with ✔/✖ cut my scan-time, yet couldn’t _alert_ me when a cell flipped.</em></p> </div>
+{{< callout type="warning" >}}
+A CLI table with ✔/✖ cut my scan-time, yet couldn’t _alert_ me when a cell flipped.
+{{< /callout >}}
 
 
 ---
@@ -77,7 +83,9 @@ After the  manual fixes, which admittedly took lesser time than if I'd had to ha
 
 ![Alt Text](/assets/img/applications/textual/status/t4.png)
 
-<div style="background-color:#f0f4ff; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:black"> <p> <b> 🎉 NOT REJECTED!! PROGRESS  :</b> </p> <p></p> <p> <em>Now for the final lap. </em></p> </div>
+{{< callout type="success" title="🎉 Not Rejected — Progress!" >}}
+Now for the final lap.
+{{< /callout >}}
 
 ---
 #### Final set of iterations and the end result!

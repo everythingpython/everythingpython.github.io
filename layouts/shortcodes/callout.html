@@ -1,0 +1,15 @@
+{{ $type := .Get "type" | default "note" }}
+{{ $titles := dict
+  "question"    "✏️ Question Time"
+  "explanation" "💡 Explanation"
+  "note"        "📝 Note"
+  "sidebar"     "📌 Sidebar"
+  "warning"     "🚨 Rejected"
+  "success"     "🎉 Progress"
+  "thought"     "💭 Thought"
+}}
+{{ $title := .Get "title" | default (index $titles $type) }}
+<div class="callout callout-{{ $type }}">
+  {{ if $title }}<p class="callout-title">{{ $title }}</p>{{ end }}
+  <div class="callout-body">{{ .Inner | markdownify }}</div>
+</div>

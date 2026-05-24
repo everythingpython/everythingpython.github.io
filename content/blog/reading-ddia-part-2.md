@@ -36,7 +36,9 @@ Now let's read the section .
 *Reading section*
 
 ---
-<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:white"> <p> <b> ✏️ Question Time</b> </p> <p></p> <p>❓ <em>What is the throughput of a system that receives and handled 3 requests per minute, each request of size 2 GB?</em></p> </div>
+{{< callout type="question" >}}
+What is the throughput of a system that receives and handles 3 requests per minute, each request of size 2 GB?
+{{< /callout >}}
 
 ### Thoughts after reading the section
 
@@ -51,9 +53,11 @@ Some of what I've mentioned from my learnings is echoed in the book as well -
 	- Response time is the amount of time for a system between when the request is made by a client and when it receives a response
 	- Response times are best thought of in terms of percentile - typically the 95th, the 99th and 99.9th percentiles, abbreviated p95, p99 and p999. 
 		
-<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:white"> <p> <b>✏️ Explanation </b></p> <p></p> <p>❓ 💻 For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. (Used in SLOs and SLAs.) 
- I didn't completely understand this right away, so I decided to write a small program to see how this would be computed -
- </p> </div>
+{{< callout type="explanation" >}}
+For example, if the 95th percentile response time is 1.5 seconds, it means that 95 out of 100 requests take less than 1.5 seconds. (Used in SLOs and SLAs.)
+
+I didn't completely understand this right away, so I decided to write a small program to see how this would be computed —
+{{< /callout >}}
 
   
 ```python
@@ -89,12 +93,9 @@ But what is practically followed is a hybrid approach since there is no one-size
 
 ---
 
-<div style="background-color:#1b2738; border: 0.5px solid #5078f0; padding: 8px; border-radius: 5px; color:white"> 
-<p> </p><p></p>
-<b>✏️ Sidebar </b>
-<p>❓ 📝 This actually reminds me of my <a href="https://ieeexplore.ieee.org/abstract/document/7015482">M.Tech thesis paper</a> - Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O , we tried to predict what a future workload might consume along these axes. 
-</p> 
-<p></p></div>
+{{< callout type="sidebar" >}}
+This actually reminds me of my [M.Tech thesis paper](https://ieeexplore.ieee.org/abstract/document/7015482) — Workload Fingerprinting using Adaboost, where based on the study of 4 workloads taxing compute, memory and I/O, we tried to predict what a future workload might consume along these axes.
+{{< /callout >}}
 
 ---
 One nice example he gives in the section (which is what the question earlier is based on) is that a system that is designed to handle 3 requests per minute where each request has a 2 GB payload looks very different from a system that is designed to handle 100000 requests per second of 1 kB per request payload - even though their payloads are identical. 
