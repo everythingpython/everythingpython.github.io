@@ -230,8 +230,12 @@ This is a great side benefit I've found to understand when I'm turning off for t
  Just follow the Quick Start section from the Readme file. There's a simple bootstrap file you can use at `install_launchd`. 
 If you have doubts, DM me or raise an issue on the [Github repo](https://github.com/abhiramr/where-did-my-day-go). 
 
- ## Future work (for me) 
+ ## Future work (for me)  
 
  - I want to try and get more insights out of this. For example, can I sync my phone activity to this dashboard on a LAN? That way I can get proper , bifurcated sleep tracking as well since as a troubling consequence of the times, the phone **is** the last and first device I use before sleeping and after I rise. 
  - I also want to try and see if I can capture the time for which the mac was shut down explicitly. 
  - Thirdly I want to be able to add applications to be tracked a little more easy to configure. Right now, adding a new app to the dashboard is a spectrum. "Just track the time" needs zero config; every focused app gets logged regardless. "Give it its own category in the API" is one line in `collector.py`. "Give it a colored donut slice and a legend label" is a few edits across three files. "Give it a top-level KPI card" is two more. The data and the visuals aren't yet driven by a single config today.
+
+---
+
+*If you'd like to follow along with future posts, you can subscribe on [Substack](https://everythingpython.substack.com/) or add the [RSS feed](https://blog.everythingpython.in/index.xml) to your reader of choice.*
