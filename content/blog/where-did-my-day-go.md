@@ -1,7 +1,7 @@
 ---
-title: "Vibe Coding an Activity monitor"
+title: "Where did my day go? "
 date: 2026-05-28
-slug: vibe-coding-an-activity-monitor
+slug: where-did-my-day-go
 ---
 
 We live in distracting times. An article from the [Harvard Business Review](https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications) says
@@ -31,7 +31,7 @@ Why, even Bilbo struggled with the dilemma -
 
 <img src="/assets/img/activity-monitor/image-4.png" style="max-width: 50%;" />
 
-That's how I ended up creating the configurable, highly imaginatively named - "Where Did My Day Go". The caveat is that this is built only for the Mac as of this writing. I plan to extend it to Windows and Linux as well. 
+That's how I ended up creating the configurable, highly imaginatively named - **"Where Did My Day Go"**. The caveat is that this is built only for the Mac as of this writing. I plan to extend it to Windows and Linux as well. 
 
 It runs completely locally and tracks all my activities - which applications were used, which websites were accessed, how long I was away from my desk, how long I was active on certain applications I care about (Chrome, VS Code, Terminal etc. )
 
