@@ -2,6 +2,7 @@
 title: "I want to learn Python -2"
 date: 2025-01-14
 slug: i-want-to-learn-python-2
+draft: true
 ---
 
 ### I've installed Python. Now what?
