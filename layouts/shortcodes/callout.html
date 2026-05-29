@@ -2,11 +2,16 @@
 {{ $titles := dict
   "question"    "✏️ Question Time"
   "explanation" "💡 Explanation"
+  "explanation-from-claude" "✦💡 Explanation from Claude"
+
   "note"        "📝 Note"
   "sidebar"     "📌 Sidebar"
   "warning"     "🚨 Rejected"
   "success"     "🎉 Progress"
   "thought"     "💭 Thought"
+  "prompt"      "👤 Me"
+  "response"    "✦ Claude"
+  "discussion"  "💬 Discussion"
 }}
 {{ $title := .Get "title" | default (index $titles $type) }}
 <div class="callout callout-{{ $type }}">
