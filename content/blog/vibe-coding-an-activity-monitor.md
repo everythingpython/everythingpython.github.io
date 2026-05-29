@@ -70,7 +70,7 @@ Now, I have never built anything for the Mac OS before. Even now, this is a Weba
   - `uv run python collector.py` is how you run it.
 
 The collector is the fun part . It is a single Python process supervised by launchd. Every 5 seconds it asks macOS four questions:
-![alt text](image-7.png)
+<img src="/assets/img/activity-monitor/image-7.png" style="max-width: 100%;" />
  and writes the answer to SQLite. To get the "focused app" right means using lsappinfo (LaunchServices) rather than AppKit or window-stacking order. I found an excellent follow-up read for [this](https://eclecticlight.co/2020/03/04/learn-almost-everything-about-an-app-with-lsappinfo/). 
 
 
