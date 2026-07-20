@@ -29,16 +29,14 @@
     opacity: 0.7;
   }
 
-  /* Force light mode regardless of system preference */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background-color: #fff;
-      --heading-color: #222;
-      --text-color: #444;
-      --link-color: #3273dc;
-      --visited-color: #8b6fcb;
-      --blockquote-color: #222;
-    }
+  /* Keep the site in light mode regardless of system preference. */
+  :root {
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
   }
 
   /* Enhanced blockquote styling */

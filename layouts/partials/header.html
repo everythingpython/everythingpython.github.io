@@ -3,36 +3,4 @@
 </a>
 <nav>
   {{- partial "nav.html" . -}}
-  <button id="theme-toggle" aria-label="Toggle light mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.5rem;">
-    <span id="theme-icon">☀️</span>
-  </button>
 </nav>
-
-<script>
-  // Check for saved theme preference or default to dark mode
-  const savedTheme = localStorage.getItem('theme');
-  const currentTheme = savedTheme || 'dark';
-
-  // Set initial theme
-  function setTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark-mode');
-      document.getElementById('theme-icon').textContent = '☀️';
-      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle light mode');
-    } else {
-      document.documentElement.classList.remove('dark-mode');
-      document.getElementById('theme-icon').textContent = '🌙';
-      document.getElementById('theme-toggle').setAttribute('aria-label', 'Toggle dark mode');
-    }
-    localStorage.setItem('theme', theme);
-  }
-
-  // Apply saved theme immediately
-  setTheme(currentTheme);
-
-  // Toggle theme function
-  document.getElementById('theme-toggle').addEventListener('click', function() {
-    const isDark = document.documentElement.classList.contains('dark-mode');
-    setTheme(isDark ? 'light' : 'dark');
-  });
-</script>
