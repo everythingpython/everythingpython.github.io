@@ -1,0 +1,41 @@
+{{ define "main" }}
+<content class="blog-archive">
+  <h1>Blog</h1>
+  <p class="blog-archive-intro">
+    Notes from what I am learning, building, and occasionally getting wrong.
+  </p>
+
+  {{ with .Site.Taxonomies.tags }}
+  <nav class="blog-topics" aria-label="Browse posts by topic">
+    <span>Browse by topic:</span>
+    {{ range .Alphabetical }}
+    <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+
+  <div class="blog-years">
+    {{ range (.RegularPages.ByDate.Reverse.GroupByDate "2006") }}
+    <section class="blog-year" aria-labelledby="year-{{ .Key }}">
+      <div class="blog-year-heading">
+        <h2 id="year-{{ .Key }}">{{ .Key }}</h2>
+        <span>{{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }}</span>
+      </div>
+
+      <ul class="blog-posts blog-year-posts">
+        {{ range .Pages }}
+        <li>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "02 Jan" }}
+          </time>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+    {{ else }}
+    <p>No posts yet.</p>
+    {{ end }}
+  </div>
+</content>
+{{ end }}
