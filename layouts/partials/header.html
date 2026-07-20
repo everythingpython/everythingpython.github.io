@@ -1,5 +1,5 @@
-<a href="{{ "" | relURL }}" class="title">
-  <h2>{{ .Site.Title }}</h2>
+<a href="{{ "" | relURL }}" class="title" aria-label="EverythingPython home" title="Home">
+  <h2>{{ .Site.Title }} <span class="home-icon" aria-hidden="true">🏠</span></h2>
 </a>
 <nav>
   {{- partial "nav.html" . -}}
