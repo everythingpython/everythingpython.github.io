@@ -3,9 +3,9 @@ title: "Reading DDIA - Part 1"
 date: 2024-09-23
 slug: reading-ddia-part-1
 tags:
-  - "#ddia"
-  - books
-  - reading
+  - DDIA
+  - Books
+  - Reading
 ---
 
 *(Here's the preface in case you missed it - [[Reading DDIA - Preface]])*

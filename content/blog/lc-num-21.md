@@ -3,8 +3,8 @@ title: "LC Num 21"
 date: 2024-04-15
 slug: lc-num-21
 tags:
-  - leetcode
-  - easy
+  - LeetCode
+  - Easy
 ---
 
 [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)

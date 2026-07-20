@@ -3,8 +3,8 @@ title: "LLM Trials 1"
 date: 2025-02-12
 slug: llm-trials-1
 tags:
-  - ollama
-  - llms
+  - Ollama
+  - LLMs
 draft: true
 ---
 

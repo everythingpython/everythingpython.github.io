@@ -9,7 +9,7 @@
   <nav class="blog-topics" aria-label="Browse posts by topic">
     <span>Browse by topic:</span>
     {{ range .Alphabetical }}
-    <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a>
+    <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
     {{ end }}
   </nav>
   {{ end }}

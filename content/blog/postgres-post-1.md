@@ -3,7 +3,7 @@ title: "Postgres (post 1)"
 date: 2024-08-01
 slug: postgres-post-1
 tags:
-  - databases
+  - Databases
 ---
 
 ## Installing Postgres locally and connecting to it from Python

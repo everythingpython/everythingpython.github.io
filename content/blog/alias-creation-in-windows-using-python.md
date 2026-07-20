@@ -3,7 +3,7 @@ title: "Alias Creation in Windows Using Python"
 date: 2025-02-17
 slug: alias-creation-in-windows-using-python
 tags:
-  - application
+  - Applications
 ---
 
 One thing I've missed in Windows post my switch from Linux is the ability to create aliases for commands.

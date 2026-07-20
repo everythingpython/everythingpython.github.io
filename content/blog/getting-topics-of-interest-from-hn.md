@@ -3,7 +3,7 @@ title: "Getting topics of Interest from HN"
 date: 2024-08-26
 slug: getting-topics-of-interest-from-hn
 tags:
-  - application
+  - Applications
 ---
 
 Building a Classifier

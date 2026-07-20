@@ -2,8 +2,6 @@
 title: "Authentication using Postgres & Python"
 date: 2024-08-09
 slug: authentication-using-postgres-python
-tags:
-  - draft
 draft: true
 ---
 

@@ -3,8 +3,8 @@ title: 'Focus mode - A "kutty" chrome extension'
 date: 2025-01-29
 slug: focus-mode-a-kutty-chrome-extension
 tags:
-  - not-python
-  - llms
+  - Non-Python
+  - LLMs
 ---
 
 By now you've seen a lot of stuff being built using ChatGPT. A lot, Jerry. A LOT. 

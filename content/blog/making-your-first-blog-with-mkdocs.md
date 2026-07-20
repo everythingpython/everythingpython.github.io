@@ -3,8 +3,8 @@ title: "Making your first blog with mkdocs"
 date: 2024-11-16
 slug: making-your-first-blog-with-mkdocs
 tags:
-  - blogs
-  - application
+  - Blogging
+  - Applications
 ---
 
 ![Alt Text](/assets/img/blog/mkdocs/mkdocs-banner.webp)

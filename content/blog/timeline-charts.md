@@ -3,7 +3,7 @@ title: "Timeline charts"
 date: 2024-11-20
 slug: timeline-charts
 tags:
-  - not-python
+  - Non-Python
 ---
 
 I'm not feeling all too well but I didn't want to break my streak of writing. So today I'm writing about a non-Python related topic - Timeline Charts. 

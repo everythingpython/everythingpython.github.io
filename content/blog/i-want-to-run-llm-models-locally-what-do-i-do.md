@@ -3,8 +3,8 @@ title: "I want to run LLM Models locally. What do I do?"
 date: 2025-01-03
 slug: i-want-to-run-llm-models-locally-what-do-i-do
 tags:
-  - ollama
-  - llms
+  - Ollama
+  - LLMs
 ---
 
 One of the most sought after things to learn right now is about how to set up your own local LLM server and how to use LLM models locally.
