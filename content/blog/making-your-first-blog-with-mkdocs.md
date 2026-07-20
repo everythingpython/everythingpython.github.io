@@ -87,7 +87,7 @@ The contents of this `index.md` file can be embedded HTML or markdown. E.g. -
 
 I'm a Machine Learning Engineer and stay in Bangalore, India. 
 I like coding in Python and of-late Ruby, reading fiction/non-fiction and writing short stories. 
-I also write technical blogs at [Everything Python](https://everythingpython.github.io)
+I also write technical blogs at [Everything Python](https://everythingpython.in)
 I co-created and run [Broke Bibliophiles Bangalore](https://brokebibliophilesbangalore.com/about/), one of the largest bookclubs in Bangalore (2017 - present).
 ```
 

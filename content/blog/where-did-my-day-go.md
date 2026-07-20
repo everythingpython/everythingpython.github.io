@@ -238,4 +238,4 @@ If you have doubts, DM me or raise an issue on the [Github repo](https://github.
 
 ---
 
-*If you'd like to follow along with future posts, you can subscribe on [Substack](https://everythingpython.substack.com/) or add the [RSS feed](https://blog.everythingpython.in/index.xml) to your reader of choice.*
+*If you'd like to follow along with future posts, you can subscribe on [Substack](https://everythingpython.substack.com/) or add the [RSS feed](https://everythingpython.in/index.xml) to your reader of choice.*

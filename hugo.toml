@@ -1,5 +1,5 @@
 # Base URL used when generating links to your pages
-baseURL = "https://everythingpython.github.io"
+baseURL = "https://everythingpython.in"
 
 # The name of this wonderful theme
 theme = 'hugo-bearblog'
