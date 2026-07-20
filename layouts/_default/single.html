@@ -21,9 +21,14 @@
 {{- partial "post_navigator.html" . -}}
 {{ end }}{{ end }}
 
-<p>
-  {{ range (.GetTerms "tags") }}
-  <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-  {{ end }}
-</p>
+{{ with (.GetTerms "tags") }}
+<aside class="post-tags" aria-label="Post topics">
+  <span class="post-tags-label">Topics</span>
+  <div class="post-tag-list">
+    {{ range . }}
+    <a class="post-tag" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+    {{ end }}
+  </div>
+</aside>
+{{ end }}
 {{ end }}
