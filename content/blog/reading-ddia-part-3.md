@@ -2,6 +2,10 @@
 title: "Reading DDIA - Part 3"
 date: 2024-09-26
 slug: reading-ddia-part-3
+tags:
+  - DDIA
+  - Books
+  - Reading
 ---
 
 ## Chapter 1 - Reliable, Scalable and Maintainable Applications
