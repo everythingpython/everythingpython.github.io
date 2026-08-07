@@ -1,0 +1,10 @@
+langgraph>=0.2
+requests>=2.32
+python-dotenv>=1.0
+# Newer LiteLLM releases compile a Rust extension that requires a newer local
+# Rust compiler on this Mac. This range keeps the workshop setup portable.
+litellm>=1.65,<1.90
+langfuse>=4.0
+pydantic-settings>=2.0
+fastapi>=0.115
+uvicorn[standard]>=0.30

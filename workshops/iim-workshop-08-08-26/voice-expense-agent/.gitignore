@@ -1,0 +1,10 @@
+# Keep real secrets out of Git; retain the redacted setup template.
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+expenses.db
+frontend/node_modules/
+frontend/dist/
+PROGRESS.md
