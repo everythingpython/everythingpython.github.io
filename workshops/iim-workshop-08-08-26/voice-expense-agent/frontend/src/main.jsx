@@ -77,6 +77,17 @@ function App() {
     finally { setBusy(false); }
   };
 
+  const resetLedger = async () => {
+    if (!ledger.length) return;
+    if (!window.confirm("Delete every expense in this local workshop ledger? This cannot be undone.")) return;
+    setBusy(true);
+    try {
+      const result = await request("/ledger", { method: "DELETE" });
+      setLedger([]); setNotice(`${result.deleted} ledger entr${result.deleted === 1 ? "y" : "ies"} deleted.`);
+    } catch (error) { setNotice(error.message); }
+    finally { setBusy(false); }
+  };
+
   return <main>
     <header className="topbar"><div className="brand"><span className="mark">◉</span><span>VOICE LEDGER</span></div></header>
     <section className="hero"><p className="eyebrow">A controlled voice workflow</p><h1>Speak it. <em>Review it.</em> Save it.</h1><p>Voice becomes a structured, traceable ledger proposal—not an automatic write.</p></section>
@@ -88,7 +99,7 @@ function App() {
         <button className="approve" disabled={busy || !transactions.length} onClick={approve}>Approve & save <span>→</span></button>
         {audit.length > 0 && <details><summary>Run inspector</summary><div className="audit">{audit.map((step) => <span key={step}>{step}</span>)}</div></details>}
       </article>
-      <aside className="side"><article className="card ledger"><div className="card-label">03 / APPROVED LEDGER</div><h2>Recent activity</h2>{ledger.length ? <>{ledger.map((item) => <div className="ledger-row" key={item.id}><div><b>{item.description}</b><small>{item.category} · {item.spent_on}</small></div><strong>₹{Number(item.amount).toLocaleString("en-IN")}</strong></div>)}<div className="total"><span>Total shown</span><b>₹{ledger.reduce((sum, item) => sum + Number(item.amount), 0).toLocaleString("en-IN")}</b></div></> : <div className="empty">Approved entries will live here.</div>}</article>
+      <aside className="side"><article className="card ledger"><div className="ledger-head"><div><div className="card-label">03 / APPROVED LEDGER</div><h2>Recent activity</h2></div><button className="reset" onClick={resetLedger} disabled={busy || !ledger.length}>Reset</button></div>{ledger.length ? <>{ledger.map((item) => <div className="ledger-row" key={item.id}><div><b>{item.description}</b><small>{item.category} · {item.spent_on}</small></div><strong>₹{Number(item.amount).toLocaleString("en-IN")}</strong></div>)}<div className="total"><span>Total shown</span><b>₹{ledger.reduce((sum, item) => sum + Number(item.amount), 0).toLocaleString("en-IN")}</b></div></> : <div className="empty">Approved entries will live here.</div>}</article>
       <article className="trace"><span className="pulse" /> <div><b>Trace-ready</b><p>Each LLM extraction is sent to Langfuse when its keys are configured.</p></div></article></aside>
     </section>
   </main>;

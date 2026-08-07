@@ -223,6 +223,14 @@ def recent_expenses(limit: int = 10) -> list[dict]:
     return [dict(row) for row in rows]
 
 
+def clear_expenses() -> int:
+    """Delete ledger entries and return the number removed."""
+    init_db()
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.execute("DELETE FROM expenses")
+        return cursor.rowcount
+
+
 def save_transactions(transactions: list[dict]) -> None:
     init_db()
     with sqlite3.connect(DB_PATH) as conn:

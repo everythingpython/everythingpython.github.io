@@ -7,7 +7,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from expense_agent import expense_graph, recent_expenses, save_transactions
+from expense_agent import clear_expenses, expense_graph, recent_expenses, save_transactions
 from sarvam_stt import transcribe
 
 
@@ -44,6 +44,11 @@ def health() -> dict[str, str]:
 @app.get("/api/ledger")
 def ledger() -> dict[str, Any]:
     return {"expenses": recent_expenses(12)}
+
+
+@app.delete("/api/ledger")
+def reset_ledger() -> dict[str, int]:
+    return {"deleted": clear_expenses()}
 
 
 @app.post("/api/transcribe")
