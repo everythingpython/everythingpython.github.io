@@ -1,0 +1,122 @@
+/* Tufte CSS - Marginalia & Sidenotes with Handwritten Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+.sidenote, .marginnote {
+  float: right;
+  clear: right;
+  margin-right: -60%;
+  width: 50%;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+  vertical-align: baseline;
+  position: relative;
+}
+
+.sidenote em, .marginnote em {
+  font-style: italic;
+}
+
+.sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.sidenote-number::after, .sidenote::before {
+  content: counter(sidenote-counter);
+  position: relative;
+  vertical-align: baseline;
+}
+
+.sidenote-number::after {
+  content: counter(sidenote-counter);
+  font-size: 0.8em;
+  top: -0.5rem;
+  left: 0.1rem;
+}
+
+.sidenote::before {
+  content: counter(sidenote-counter) " ";
+  font-size: 0.8em;
+  top: -0.5rem;
+}
+
+.sidenote {
+  color: #555;
+  border-left: 3px solid #ddd;
+  padding-left: 12px;
+  font-family: 'Caveat', cursive;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.marginnote {
+  color: #666;
+  border-left: 3px solid #e0e0e0;
+  padding-left: 12px;
+  font-family: 'Caveat', cursive;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.margin-toggle {
+  display: none;
+}
+
+.sidenote-number {
+  display: inline;
+}
+
+label.margin-toggle:not(.sidenote-number) {
+  display: inline;
+  cursor: pointer;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.1em;
+}
+
+.margin-toggle:checked + .sidenote,
+.margin-toggle:checked + .marginnote {
+  float: left;
+  left: 1rem;
+  clear: left;
+  width: 95%;
+  margin: 1rem 0;
+}
+
+article {
+  counter-reset: sidenote-counter;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 760px) {
+  .sidenote, .marginnote {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .marginnote {
+    float: none;
+    left: 0;
+    clear: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .sidenote, .marginnote {
+    display: none;
+  }
+  
+  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .marginnote {
+    display: block;
+  }
+  
+  label.margin-toggle {
+    cursor: pointer;
+  }
+}

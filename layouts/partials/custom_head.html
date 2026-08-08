@@ -1,35 +1,6 @@
+<!-- Light mode override for blog articles + Tufte CSS -->
 <style>
-  /* Back button and reading time */
-  .post-meta {
-    margin-bottom: 0.5rem;
-  }
-
-  .back-link {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.7;
-    text-decoration: none;
-  }
-
-  .back-link:hover {
-    opacity: 1;
-    text-decoration: none;
-  }
-
-  .post-info {
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
-
-  .reading-time {
-    font-family: monospace;
-    font-size: 15px;
-    color: var(--text-color);
-    opacity: 0.7;
-  }
-
-  /* Keep the site in light mode regardless of system preference. */
+  /* Override root variables to force light mode */
   :root {
     --background-color: #fff;
     --heading-color: #222;
@@ -39,313 +10,42 @@
     --blockquote-color: #222;
   }
 
-  .home-icon {
-    font-size: 0.75em;
-    vertical-align: 0.08em;
+  /* Ensure light mode applies to article content */
+  body {
+    background-color: #fff !important;
+    color: #444 !important;
   }
 
-  /* Enhanced blockquote styling */
+  main {
+    background-color: #fff !important;
+    color: #444 !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #222 !important;
+  }
+
+  a {
+    color: #3273dc !important;
+  }
+
+  a:visited {
+    color: #8b6fcb !important;
+  }
+
   blockquote {
-    background: #f5f5f5;
-    border-left: 4px solid #666;
-    border-radius: 4px;
-    padding: 1.25rem 1.5rem;
-    margin: 1.5rem 0;
-    color: #333;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    color: #222 !important;
+    border-left-color: #999 !important;
   }
 
-  blockquote p { margin: 0.5rem 0; }
-  blockquote p:first-child { margin-top: 0; }
-  blockquote p:last-child { margin-bottom: 0; }
-
-  blockquote code {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
-    font-size: 0.9em;
-  }
-
-  /* Callout boxes */
-  .callout {
-    border-left: 4px solid;
-    border-radius: 6px;
-    padding: 1rem 1.25rem;
-    margin: 1.5rem 0;
-  }
-
-  .callout-title {
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin: 0 0 0.5rem 0;
-  }
-
-  .callout-body {
-    font-size: 0.95rem;
-  }
-
-  .callout-body p:first-child { margin-top: 0; }
-  .callout-body p:last-child { margin-bottom: 0; }
-
-  .callout-question {
-    background: #fffbeb;
-    border-color: #f59e0b;
-  }
-
-  .callout-question .callout-title {
-    color: #92400e;
-  }
-
-  .callout-explanation {
-    background: #eff6ff;
-    border-color: #3b82f6;
-  }
-
-  .callout-explanation .callout-title {
-    color: #1e40af;
-  }
-
-  .callout-note {
-    background: #f8fafc;
-    border-color: #94a3b8;
-  }
-
-  .callout-note .callout-title {
-    color: #475569;
-  }
-
-  .callout-sidebar {
-    background: #f0fdf4;
-    border-color: #22c55e;
-  }
-
-  .callout-sidebar .callout-title {
-    color: #166534;
-  }
-
-  .callout-warning {
-    background: #fff7ed;
-    border-color: #f97316;
-  }
-
-  .callout-warning .callout-title {
-    color: #9a3412;
-  }
-
-  .callout-success {
-    background: #f0fdfa;
-    border-color: #14b8a6;
-  }
-
-  .callout-success .callout-title {
-    color: #0f766e;
-  }
-
-  .callout-thought {
-    background: #faf5ff;
-    border-color: #a78bfa;
-  }
-
-  .callout-thought .callout-title {
-    color: #6d28d9;
-  }
-
-  .callout-prompt {
-    background: #1e1e2e;
-    border-color: #7c3aed;
-    border-left-width: 4px;
-    border-radius: 8px;
-    color: #e2e8f0;
-  }
-
-  .callout-prompt .callout-title {
-    color: #a78bfa;
-    letter-spacing: 0.06em;
-  }
-
-  .callout-prompt .callout-body {
-    color: #cbd5e1;
-    font-family: monospace;
-    font-size: 0.9rem;
-    line-height: 1.7;
-    white-space: pre-wrap;
-  }
-
-  .callout-prompt code {
-    background: rgba(255, 255, 255, 0.1);
-    color: #f0abfc;
-    padding: 0.15rem 0.4rem;
-    border-radius: 4px;
-  }
-
-  .callout-response {
-    background: #fffbeb;
-    border-color: #d97706;
-    border-left-width: 4px;
-    border-radius: 8px;
-  }
-
-  .callout-response .callout-title {
-    color: #92400e;
-    letter-spacing: 0.06em;
-  }
-
-  .callout-response .callout-body {
-    color: #44403c;
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .callout-explanation-from-claude {
-    background: #fffbeb;
-    border-color: #d97706;
-    border-left-width: 4px;
-    border-radius: 8px;
-  }
-
-  .callout-explanation-from-claude .callout-title {
-    color: #92400e;
-    letter-spacing: 0.06em;
-  }
-
-  .callout-explanation-from-claude .callout-body {
-    color: #44403c;
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .callout-discussion {
-    background: #f0f4ff;
-    border-color: #6366f1;
-    border-radius: 8px;
-  }
-
-  .callout-discussion .callout-title {
-    color: #4338ca;
-  }
-
-  .callout-discussion .callout-body {
-    color: #374151;
-    line-height: 1.7;
-  }
-
-  /* Topics shown below an article */
-  .post-tags {
-    border-top: 1px solid #d1d5db;
-    margin-top: 2.75rem;
-    padding-top: 1rem;
-  }
-
-  .post-tags-label {
-    color: #6b7280;
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.6rem;
-    text-transform: uppercase;
-  }
-
-  .post-tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .post-tag {
-    background: #f3f4f6;
-    border: 1px solid #d1d5db;
-    border-radius: 999px;
-    color: #374151;
-    display: inline-block;
-    font-size: 0.85rem;
-    padding: 0.22rem 0.65rem;
-  }
-
-  .post-tag:visited {
-    color: #374151;
-  }
-
-  .post-tag:hover {
-    background: #e5e7eb;
-    text-decoration: none;
-  }
-
-  /* Blog archive */
-  .blog-archive-intro {
-    color: var(--text-color);
-    margin-top: -0.5rem;
-  }
-
-  .blog-topics {
-    border-block: 1px solid #e5e7eb;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 0.75rem;
-    margin: 2rem 0 2.5rem;
-    padding: 0.85rem 0;
-  }
-
-  .blog-topics span {
-    color: var(--text-color);
-    font-weight: 700;
-  }
-
-  .blog-topics a {
-    margin: 0;
-  }
-
-  .blog-year {
-    margin-bottom: 2.75rem;
-  }
-
-  .blog-year-heading {
-    align-items: baseline;
-    border-bottom: 1px solid #d1d5db;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.6rem;
-  }
-
-  .blog-year-heading h2 {
-    font-size: 1.35rem;
-    margin: 0 0 0.35rem;
-  }
-
-  .blog-year-heading span {
-    color: #6b7280;
-    font-family: monospace;
-    font-size: 0.85rem;
-  }
-
-  ul.blog-year-posts {
-    margin: 0;
-  }
-
-  ul.blog-year-posts li {
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.32rem 0;
-  }
-
-  ul.blog-year-posts time {
-    color: #6b7280;
-    flex: 0 0 4.5rem;
-  }
-
-  @media (max-width: 520px) {
-    ul.blog-year-posts li {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 0.05rem;
-      padding: 0.5rem 0;
-    }
-
-    ul.blog-year-posts time {
-      flex-basis: auto;
-      font-size: 0.8rem;
-    }
+  code {
+    background-color: #f5f5f5 !important;
+    color: #222 !important;
   }
 </style>
+
+{{ $tufte := resources.Get "css/tufte.css" }}
+{{ if $tufte }}
+  {{ $styles := $tufte | minify }}
+  <style>{{ $styles.Content | safeCSS }}</style>
+{{ end }}
