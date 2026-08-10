@@ -3,7 +3,6 @@ title: "Streaming Real-Time AI Inference Results into MongoDB"
 date: 2025-02-28
 slug: streaming-real-time-ai-inference-results-into-mongodb
 tags:
-  - Talks
   - MongoDB
 ---
 

@@ -5,7 +5,6 @@ slug: understanding-deepagents-building-agents-for-complex-tasks
 tags:
   - Agents
   - LLMs
-  - Talks
   - Deepagents
   - Langgraph
   - Observability

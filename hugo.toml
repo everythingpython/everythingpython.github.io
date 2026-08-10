@@ -17,6 +17,16 @@ enableRobotsTXT = true
   blog = "/blog/:slug/"
   tags = "/blog/:slug"
 
+[[menu.main]]
+  name = "Blogs"
+  url = "/blog/"
+  weight = 1
+
+[[menu.main]]
+  name = "Talks"
+  url = "/talks/"
+  weight = 2
+
 [params]
   # The "description" of your website
   description = "Everything you need to know about Python"

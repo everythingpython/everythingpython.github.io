@@ -52,6 +52,20 @@
     color: #222 !important;
   }
 
+  /* Push nav links to the right of the header */
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  header nav {
+    display: flex;
+    gap: 1rem;
+  }
+
   /* Improve blog listing page spacing */
   ul.blog-posts li {
     padding: 0.75rem 0;
