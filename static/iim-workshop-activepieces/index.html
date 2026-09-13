@@ -32,6 +32,7 @@
     }
 
     main {
+      position: relative;
       width: min(100%, 1600px);
       height: min(calc(100vh - 94px), calc((100vw - 36px) * 9 / 16));
       min-height: 180px;
@@ -49,6 +50,25 @@
       user-select: none;
       -webkit-user-drag: none;
     }
+
+    .slide-link {
+      position: absolute;
+      display: none;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .slide-link.active { display: block; }
+
+    .slide-link:hover, .slide-link:focus-visible {
+      background: rgba(158, 49, 94, 0.08);
+      outline: 2px solid #9e315e;
+      outline-offset: 2px;
+    }
+
+    #website-link { left: 71.02%; top: 46.94%; width: 20.47%; height: 3.89%; }
+    #linkedin-link { left: 71.02%; top: 53.47%; width: 20.47%; height: 5.83%; }
 
     nav {
       position: fixed;
@@ -149,6 +169,8 @@
 <body>
   <main aria-live="polite">
     <img id="slide" src="slides/slide-1.png" alt="Slide 1 of 20: Build a supplier risk and follow-up assistant">
+    <a id="website-link" class="slide-link" href="https://everythingpython.in" aria-label="Open Everything Python"></a>
+    <a id="linkedin-link" class="slide-link" href="https://linkedin.com/in/abhiramr5459" aria-label="Open Abhiram's LinkedIn profile"></a>
   </main>
 
   <nav aria-label="Slide navigation">
@@ -170,6 +192,7 @@
     const fullscreen = document.querySelector("#fullscreen");
     const progress = document.querySelector("#progress");
     const count = document.querySelector("#count");
+    const slideLinks = document.querySelectorAll(".slide-link");
     let current = Math.min(total, Math.max(1, Number(location.hash.slice(1)) || 1));
     let pointerStart = null;
 
@@ -180,6 +203,7 @@
       next.disabled = current === total;
       progress.style.width = `${(current / total) * 100}%`;
       count.value = `${String(current).padStart(2, "0")} / ${total}`;
+      slideLinks.forEach((link) => link.classList.toggle("active", current === total));
       history.replaceState(null, "", `#${current}`);
       [current - 1, current + 1].filter((n) => n >= 1 && n <= total).forEach((n) => {
         const image = new Image();
