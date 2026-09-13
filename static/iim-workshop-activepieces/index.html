@@ -69,6 +69,17 @@
 
     #website-link { left: 71.02%; top: 46.94%; width: 20.47%; height: 3.89%; }
     #linkedin-link { left: 71.02%; top: 53.47%; width: 20.47%; height: 5.83%; }
+    #topmate-link {
+      left: 71.02%;
+      top: 66%;
+      width: 20.47%;
+      height: 3.6%;
+      color: #9e315e;
+      font-size: clamp(8px, 0.82vw, 13px);
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: underline;
+    }
 
     nav {
       position: fixed;
@@ -123,7 +134,7 @@
 
     .progress span {
       display: block;
-      width: 5%;
+      width: 4.7619%;
       height: 100%;
       border-radius: inherit;
       background: #e5f7b8;
@@ -168,15 +179,16 @@
 </head>
 <body>
   <main aria-live="polite">
-    <img id="slide" src="slides/slide-1.png" alt="Slide 1 of 20: Build a supplier risk and follow-up assistant">
+    <img id="slide" src="slides/slide-1.png" alt="Slide 1 of 21: Build a supplier risk and follow-up assistant">
     <a id="website-link" class="slide-link" href="https://everythingpython.in" aria-label="Open Everything Python"></a>
     <a id="linkedin-link" class="slide-link" href="https://linkedin.com/in/abhiramr5459" aria-label="Open Abhiram's LinkedIn profile"></a>
+    <a id="topmate-link" class="slide-link" href="https://topmate.io/abhiram_r/">https://topmate.io/abhiram_r/</a>
   </main>
 
   <nav aria-label="Slide navigation">
     <button id="previous" type="button" aria-label="Previous slide">←</button>
     <div class="progress" aria-hidden="true"><span id="progress"></span></div>
-    <output id="count" aria-live="polite">01 / 20</output>
+    <output id="count" aria-live="polite">01 / 21</output>
     <button id="next" type="button" aria-label="Next slide">→</button>
     <button id="fullscreen" type="button" aria-label="Toggle fullscreen">⛶</button>
     <a href="supplier-risk-follow-up-activepieces-workshop.pptx" download>Download PowerPoint</a>
@@ -185,7 +197,7 @@
   <div class="hint">← → navigate · F fullscreen</div>
 
   <script>
-    const total = 20;
+    const total = 21;
     const slide = document.querySelector("#slide");
     const previous = document.querySelector("#previous");
     const next = document.querySelector("#next");
