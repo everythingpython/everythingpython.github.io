@@ -7,103 +7,283 @@
   gtag('config', 'G-07QBYERP1C');
 </script>
 
-<!-- Light mode override for blog articles + Tufte CSS -->
+<!-- Editorial theme — same system as abhiramr.com -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Mark JS-enhanced nav before first paint, so #menu starts collapsed
+     behind a hamburger — same progressive-enhancement pattern as abhiramr.com -->
+<script>document.documentElement.classList.add('menu-enhanced');</script>
+
 <style>
-  /* Override root variables to force light mode */
-  :root {
-    --background-color: #fff;
-    --heading-color: #222;
-    --text-color: #444;
-    --link-color: #3273dc;
-    --visited-color: #8b6fcb;
-    --blockquote-color: #222;
+  /* Editorial palette — cream paper, ink text, claret accent. Pinned light,
+     same as abhiramr.com (disableThemeToggle). Repeated under the dark-mode
+     query to override the theme's own dark variant at equal specificity. */
+  :root,
+  html {
+    --width: 720px;
+    --font-main: 'Fraunces', Georgia, serif;
+    --font-secondary: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-scale: 1.1em;
+    --background-color: #faf7f0 !important;
+    --heading-color: #211c16 !important;
+    --text-color: #2c261e !important;
+    --link-color: #9a3b2e !important;
+    --visited-color: #9a3b2e !important;
+    --blockquote-color: #211c16 !important;
   }
 
-  /* Ensure light mode applies to article content */
+  @media (prefers-color-scheme: dark) {
+    :root, html {
+      --background-color: #faf7f0 !important;
+      --heading-color: #211c16 !important;
+      --text-color: #2c261e !important;
+      --link-color: #9a3b2e !important;
+      --visited-color: #9a3b2e !important;
+      --blockquote-color: #211c16 !important;
+    }
+  }
+
   body {
-    background-color: #fff !important;
-    color: #444 !important;
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  main {
-    background-color: #fff !important;
-    color: #444 !important;
+  /* Listing pages (home, blog index, talks) sit on a slightly deeper,
+     tannier cream than single posts — same depth cue as abhiramr.com,
+     where .list pages use --code-bg instead of --theme. */
+  body.list {
+    background-color: #f1ebdd !important;
+  }
+
+  main, article {
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+  }
+
+  body.list main,
+  body.list article {
+    background-color: #f1ebdd !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #222 !important;
+    color: var(--heading-color) !important;
+    font-weight: 500;
+    letter-spacing: -0.2px;
   }
 
   a {
-    color: #3273dc !important;
+    color: var(--link-color) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 
-  a:visited {
-    color: #8b6fcb !important;
-  }
+  a:visited { color: var(--visited-color) !important; }
 
   blockquote {
-    color: #222 !important;
-    border-left-color: #999 !important;
+    color: var(--blockquote-color) !important;
+    border-left-color: #c9bfa9 !important;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    font-size: 0.85em;
   }
 
   code {
-    background-color: #f5f5f5 !important;
-    color: #222 !important;
+    background-color: #ece5d7 !important;
+    color: #211c16 !important;
   }
 
-  /* Push nav links to the right of the header */
+  time { font-family: 'JetBrains Mono', monospace; }
+
+  hr { border-top: 1px solid #e4ddcd; }
+
+  /* Header — logo + nav, same format as abhiramr.com */
   header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.5rem 1rem;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
   }
+
+  header .title h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    margin: 0;
+  }
+
+  header .title,
+  header .title:hover { text-decoration: none; }
 
   header nav {
+    position: relative;
     display: flex;
-    gap: 1rem;
+    gap: 18px;
   }
 
-  /* Improve blog listing page spacing */
-  ul.blog-posts li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #e0e0e0;
-    align-items: baseline;
-    gap: 1rem;
+  header nav a,
+  .menu-enhanced #menu a {
+    margin-right: 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15px;
+    color: #6f6558 !important;
+    text-decoration: none;
   }
 
-  ul.blog-posts li:last-child {
-    border-bottom: none;
+  header nav a:hover,
+  .menu-enhanced #menu a:hover {
+    color: var(--link-color) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 
-  ul.blog-posts li span {
-    flex: 0 0 100px;
-    color: #888;
-    font-size: 0.9em;
+  /* Hamburger toggle — collapses #menu behind a button, same as abhiramr.com */
+  #menu {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
   }
 
-  ul.blog-posts li a {
-    flex: 1;
-    word-break: break-word;
+  .menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 10px 8px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    margin: auto 0 auto auto;
   }
 
-  /* Add spacing between year sections */
-  main content > div > div {
-    margin-bottom: 2rem;
-  }
-
-  main content > div > div > h2 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  main content > div > div > small {
+  .menu-toggle span {
     display: block;
-    color: #999;
-    margin-bottom: 1rem;
+    width: 24px;
+    height: 2px;
+    margin: 4px 0;
+    border-radius: 2px;
+    background: #211c16;
+    transition: transform 0.18s, opacity 0.18s;
   }
+
+  .menu-enhanced .menu-toggle { display: block; }
+
+  .menu-enhanced #menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 170px;
+    margin: 0;
+    padding: 8px;
+    border: 1px solid #e4ddcd;
+    border-radius: 10px;
+    background: #faf7f0;
+    box-shadow: 0 14px 34px rgb(33 28 22 / 14%);
+    line-height: 1.4;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu-enhanced #menu.is-open { display: flex; }
+  .menu-enhanced #menu li { list-style: none; }
+
+  .menu-enhanced #menu a {
+    display: block;
+    padding: 8px 11px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .menu-enhanced #menu a:hover,
+  .menu-enhanced #menu a:focus-visible { background: #ece5d7; }
+
+  .menu-toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Blog listing — same card format as abhiramr.com's Writing list:
+     title, two-line excerpt, date · read-time footer, hairline dividers */
+  .page-header h1 {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    margin: 0;
+    color: #211c16;
+  }
+
+  .page-header .post-description {
+    font-size: 18px;
+    color: #6f6558;
+    margin-top: 6px;
+  }
+
+  .post-list { margin-top: 8px; }
+
+  .post-entry {
+    border-bottom: 1px solid #e4ddcd;
+    padding: 22px 0;
+  }
+
+  .post-entry:first-child { border-top: 1px solid #e4ddcd; }
+
+  .post-entry .entry-link {
+    display: block;
+    text-decoration: none !important;
+  }
+
+  .entry-header h2 {
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+    color: #211c16;
+  }
+
+  .post-entry:hover .entry-header h2 { color: #9a3b2e !important; }
+
+  .entry-content {
+    font-size: 16px;
+    margin: 6px 0 0;
+    color: #6f6558;
+    line-height: 1.55;
+  }
+
+  .entry-footer {
+    font-size: 13px;
+    margin-top: 8px;
+    color: #6f6558;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Year-grouped sections on other list pages that still use the plain theme list */
+  main content > div > div { margin-bottom: 2rem; }
+  main content > div > div > h2 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
+  main content > div > div > small { display: block; color: #6f6558; margin-bottom: 1rem; }
+
+  footer {
+    color: #6f6558;
+    font-size: 14px;
+    border-top: 1px solid #e4ddcd;
+    margin-top: 24px;
+  }
+
+  footer a { color: #6f6558 !important; text-decoration: none; }
+  footer a:hover { color: var(--link-color) !important; text-decoration: underline; }
 </style>
 
 {{ $tufte := resources.Get "css/tufte.css" }}

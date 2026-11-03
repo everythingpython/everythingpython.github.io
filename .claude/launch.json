@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "everythingpython-dev",
+      "runtimeExecutable": "hugo",
+      "runtimeArgs": ["server", "-D", "--port", "1314"],
+      "port": 1314
+    }
+  ]
+}
